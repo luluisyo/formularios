@@ -1,13 +1,5 @@
 <?php
-session_start();
-if(isset($_SESSION["user_id"])){
-    if($_SESSION["user_id"]!=0){
-        print "<script>alert(\"No esta autorizado para ver esta página, consulte con el administrador\");window.location='../index.php';</script>";
-    }
-}
-else{
-  print "<script>alert(\"Acceso denegado, debe identificarse\");window.location='../index.php';</script>";
-}
+      include 'config.php';
 ?>
 <!DOCTYPE html>
 <html >
@@ -24,6 +16,27 @@ else{
 </head>
 
 <body>
+
+  <script>
+       function obtenerCiudades(val) 
+       {
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+val,
+        success: function(data)
+        {
+      $("#lista_ciudades").html(data);
+        }});
+    }
+  </script>
+ 
+  <?php
+      $consulta_paises   = $link->query("select id as 'valor', descripcion as 'descripcion' from paises order by descripcion");
+      $consulta_ciudades = $link->query("select id as 'valor', descripcion as 'descripcion' from ciudades order by descripcion");
+  ?>
+
   <nav class="cd-stretchy-nav">
     <a class="cd-nav-trigger" href="#0">
       MENU
@@ -212,13 +225,28 @@ else{
           <input class="form-styling" type="text" name="moneda1" id="moneda1" placeholder="" title="moneda1">
           </td>
           <td>
-          <input class="form-styling" type="text" name="preunit1" id="preunit1" placeholder="" title="preunit1">
+          <select name="pais" class="form-styling" id="lista_paises" onChange="obtenerCiudades(this.value);">
+    <option value=''>Seleccionar País</option>
+    <?php   
+        while($row= $consulta_paises->fetch_object())
+        {
+      echo "<option value='".$row->valor."'>".$row->descripcion."</option>";
+        }
+    ?>
+            </select>
           </td>
           <td>
-          <input class="form-styling" type="text" name="total1" id="total1" placeholder="" title="total1">
+          <select name="ciudad" id="lista_ciudades" class="form-styling">
+    <option value=''>Seleccionar Ciudad</option>
+    <?php
+          while($row= $consulta_ciudades->fetch_object())
+          {
+         echo "<option value='".$row->valor."'>".$row->descripcion."</option>";
+          }
+          ?>
+      </select>
           </td>
         </tr>  
-
 
 
 
@@ -241,6 +269,7 @@ else{
 
 
   <script type="text/javascript" src='../js/jquery.min.js'></script>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" src='../js/angular.min.js'></script>
 <script type="text/javascript" src="../js/cabecera.js"></script> 
 <script type="text/javascript">
