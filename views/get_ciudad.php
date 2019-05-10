@@ -12,7 +12,7 @@
       <option value="">Seleccionar Ciudad</option>
       <?php
  
-      while($ciudad= $consulta_ciudades->fetch_object())
+      while($ciudad = $consulta_ciudades->fetch_object())
       {
 	   ?>
 	      <option value="<?php echo $ciudad->id; ?>"><?php echo $ciudad->descripcion; ?></option>

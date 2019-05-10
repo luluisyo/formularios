@@ -56,6 +56,21 @@
     <center>
     <div class="navi">
       <ul class="links">
+
+        <p>Formato de imagen: <input type="text" name="formatoimagen" list="listaformatosimagen"></p>
+
+<datalist id="listaformatosimagen">
+
+  <option>PNG</option>
+
+  <option>JPEG</option>
+
+  <option>GIF</option>
+
+  <option>TGA</option>
+
+</datalist>
+
         <li class="signin-active"><a class="btn" href="#">FORMULARIO 200</a></li>
       </ul>
     </div>
@@ -99,7 +114,7 @@
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">REQUIRIENTE DE LA COMPRA</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="requiriente" id="requiriente" placeholder="Requiriente" title="requiriente">
+              <td colspan="5"><input class="form-styling" type="text" name="requiriente"  placeholder="Requiriente" title="requiriente">
           </td>
           <td></td><td></td>
             </tr>
@@ -204,11 +219,32 @@
           <input class="form-styling" type="text" name="codigo1" id="codigo1" placeholder="" title="codigo1">
           </td>
           <td>
-          <input class="form-styling" type="text" name="grupo1" id="grupo1" placeholder="" title="grupo1">
+
+<input class="form-styling" type="text" name="grupo1" list="grupo" onChange="obtenerCiudades(this.value);" value="asda">
+          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades(this.value);">
+    <option value=''>Seleccione grupo</option>
+    <?php   
+        while($row= $consulta_paises->fetch_object())
+        {
+      echo "<option value='".$row->valor."'>".$row->descripcion."</option>";
+        }
+    ?>
+            </datalist>
           </td>
           <td>
-          <input class="form-styling" type="text" name="descripcion1" id="descripcion1" placeholder="" title="descripcion1">
+
+<input class="form-styling" type="text" name="descripcion1" list="lista_ciudades" onChange="obtenercampos(this.value);">
+          <datalist name="ciudad" id="lista_ciudades" class="form-styling">
+    <option value=''>Seleccione material</option>
+    <?php
+          while($row= $consulta_ciudades->fetch_object())
+          {
+         echo "<option value='".$row->valor."'>".$row->descripcion."</option>";
+          }
+          ?>
+     </datalist>
           </td>
+          
           <td>
           <input class="form-styling" type="text" name="destino1" id="destino1" placeholder="" title="destino1">
           </td>
@@ -225,38 +261,15 @@
           <input class="form-styling" type="text" name="moneda1" id="moneda1" placeholder="" title="moneda1">
           </td>
           <td>
-          <select name="pais" class="form-styling" id="lista_paises" onChange="obtenerCiudades(this.value);">
-    <option value=''>Seleccionar País</option>
-    <?php   
-        while($row= $consulta_paises->fetch_object())
-        {
-      echo "<option value='".$row->valor."'>".$row->descripcion."</option>";
-        }
-    ?>
-            </select>
+          <input class="form-styling" type="text" name="precio1" id="precio1" placeholder="" title="precio1">
           </td>
           <td>
-          <select name="ciudad" id="lista_ciudades" class="form-styling">
-    <option value=''>Seleccionar Ciudad</option>
-    <?php
-          while($row= $consulta_ciudades->fetch_object())
-          {
-         echo "<option value='".$row->valor."'>".$row->descripcion."</option>";
-          }
-          ?>
-      </select>
+          <input class="form-styling" type="text" name="total1" id="total1" placeholder="" title="total1">
           </td>
+          
         </tr>  
-
-
-
           </table>
-          <label for="fullname">Correo Electrónico</label>
-          <input class="form-styling" type="email" name="email" id="email" placeholder="Correo electronico" title="Correo Electronico">
-          <label for="fullname">Nombre de usuario</label>
-          <input class="form-styling" type="text" name="usuario" id="usuario" placeholder="Nombre de usuario" title="Nombre de usuario">
-          <label for="fullname">Contraseña</label>
-          <input class="form-styling" type="password" name="password" id="pass2" placeholder="Introduzca contraseña" required title="Contraseña">
+          
           <input class="btn-signup" type="submit" value="Añadir usuario">
           <div class="row cf" style="color: red"><p id="error"></p></div>
           </div>

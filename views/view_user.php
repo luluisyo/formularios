@@ -181,30 +181,19 @@ else{
              
 <div id="resultado"></div>
 
-<?php
-      $buscar = $_POST["busqueda"];
-       
-      if(!empty($buscar)) {
-            buscar($buscar);
-      }
-       
-      function buscar($buscar) {
-            
-             $contar=0;
-            if($contar == 0){
-                  echo "No se han encontrado resultados para '<b>".$buscar."</b>'.";
-            }else{
-                  while($row=mysql_fetch_array($sql)){
-                        $nombre = $row['nombre'];
-                        $id = $row['id'];
-                         
-                        echo $id." - ".$nombre."<br /><br />";    
-                  }
-            }
-      }
-       
-?>
 
+
+
+<form name="formulario" method="post" action="http://pagina.com/send.php">
+  <!-- Campo de texto combinado con lista de opciones -->
+  <input type="text" list="items">
+  <!-- Lista de opciones -->
+  <datalist id="items">
+    <option value="1">Opción 1</option>
+    <option value="2">Opción 2</option>
+    <option value="3">Opción 3</option>
+  </datalist>
+</form>
 
 
 
