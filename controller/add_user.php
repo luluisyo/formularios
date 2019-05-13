@@ -22,6 +22,8 @@
 			\"$_POST[proyecto]\"
 		)";
 	$query = $con->query($sql);
+
+	
 	if($query!=null){
 		print " tiene acceso al sistewindow.location";
 	}
@@ -41,34 +43,7 @@
     <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
     <link rel="stylesheet" href="../css/cabecera.css"> <!-- Resource style -->
     <script src="../js/modernizr.js"></script> <!-- Modernizr -->
-    <style type="text/css">
-        body{
-            padding: 25px;
-            background-color: #FFABAB;
-        }
-
-        input{
-            border: none;
-            content: " adsfasdf";
-            background: #eee;
-            border: 1px solid #ccc;
-            border-radius: 15px;
-        }
-        tr th{
-            text-align: center;
-        }
-        .valores{
-            text-align: right;
-        }
-        @font-face{
-            font-family: fuentenueva;
-            src: url(../font/quantifypremium/webdesignpro.ttf);
-        }
-        .titulo{
-            font-size: 40px;
-            font-family: fuentenueva;
-        }
-    </style>
+  
 </head>
 <body>
     <nav class="cd-stretchy-nav">
@@ -78,8 +53,7 @@
         </a>
 
         <ul>
-            <li><a href="../views/add_user.php"><span><font color="red">Añadir nuevos usuarios</font></span></a></li>
-            <li><a href="../controller/logout.php"><span><font color="red">Salir: <?php echo $_SESSION["nombre"]  ?></font></span></a></li>
+            <li><a href="../views/add_user.php"><span><font color="red">NUEVO FORMULARIO</font></span></a></li>
         </ul>
 
         <span aria-hidden="true" class="stretchy-nav-bg"></span>
@@ -93,25 +67,39 @@
   <table id="example" class="display table table-bordered table-hover nowrap compact" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>CARNET DE IDENTIDAD</th>
-                <th>NOMBRES</th>
-                <th>APELLIDOS</th>
-                <th>GENERO</th>
-                <th>CORREO ELECTRONICO</th>
-                <th>NOMBRE DE USUARIO</th>
-                <th>OPERACIONES</th>
+                <th colspan="2"></th>
+                <th colspan="2">REQUIRIENTE:</th>
+                <th colspan="4"><?php print $_POST['requiriente'] ?></th>
+                <th colspan="3"></th>
+            </tr>
+            <tr>
+                <th>ASD</th>
+                <th>ASD</th>
+                <th>ASD</th>
+                <th>ASD</th>
+                <th>ASD</th>
+                <th>ASD</th>
+                <th>ASD</th>
+                <th>ASD</th>
+                <th>ASD</th>
+                <th>ASD</th>
+                <th>ASD</th>
             </tr>
         </thead>
         
         <tbody>
-        <tr><td><?php print $_POST['requiriente'] ?></td>
-        	<td>DOS</td>
-        	<td>TRES</td>
-        	<td>CUATRO</td>
-        	<td>CINCO</td>
-        	<td>SEIS</td>
-        	<td>SIETE</td>
-			
+        <tr><td>ASD</td>
+        	<td>REQUIRIENTE: </td>
+        	<td>ASD</td>
+        	<td>ASD</td>
+        	<td>ASD</td>
+        	<td>ASD</td>
+        	<td>ASD</td>
+        	
+        	<td></td>
+        	<td></td>
+        	<td></td>
+        	<td></td>
         </tr>
       </tbody>
     </table>
@@ -157,8 +145,12 @@
         //"paging":         false,
     dom: 'Bfrtip',
         buttons: [
-            'excel',
-            'pdf'
+            {
+            extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL'	
+            },
+           
     ]
     } );
 } );

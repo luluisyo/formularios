@@ -22,20 +22,9 @@ $(document).ready(function(){
     var maxField = 10; //Input fields increment limitation
     var addButton = $('.add_button'); //Add button selector
     var wrapper = $('.field_wrapper'); //Input field wrapper
+    var p = <? while($row= $consulta_paises->fetch_object()){echo "<option value='".$row->valor."' label='".$row->descripcion."'>".$row->descripcion."</option>";} ?>;
+  
     
-    var fieldHTML = '<div><tr><td><input type="text" name="field_name[]" value=""/></div>'; //New input field html 
-    var x = 1; //Initial field counter is 1
-    $(addButton).click(function(){ //Once add button is clicked
-        if(x < maxField){ //Check maximum number of input fields
-            x++; //Increment field counter
-            $(wrapper).append(fieldHTML); // Add field html
-        }
-    });
-    $(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
-        e.preventDefault();
-        $(this).parent('div').remove(); //Remove field html
-        x--; //Decrement field counter
-    });
 });
 </script>
   <script>
@@ -48,9 +37,129 @@ $(document).ready(function(){
         data:'id_pais='+val,
         success: function(data)
         {
+          descripcion1.value='';
       $("#lista_ciudades").html(data);
         }});
     }
+    function obtenercampos(val) 
+       {
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+val,
+        success: function(data)
+        {codigo1.value=data;
+
+        }});
+    }
+
+
+    function obtenerCiudades2(val) 
+       {
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+val,
+        success: function(data)
+        {
+          descripcion2.value='';
+      $("#lista_ciudades2").html(data);
+        }});
+    }
+    function obtenercampos2(val) 
+       {
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+val,
+        success: function(data)
+        {codigo2.value=data;
+
+        }});
+    }
+
+
+    function obtenerCiudades3(val) 
+       {
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+val,
+        success: function(data)
+        {
+          descripcion3.value='';
+      $("#lista_ciudades3").html(data);
+        }});
+    }
+    function obtenercampos3(val) 
+       {
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+val,
+        success: function(data)
+        {codigo3.value=data;
+
+        }});
+    }
+
+function obtenerCiudades4(val) 
+       {
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+val,
+        success: function(data)
+        {
+          descripcion4.value='';
+      $("#lista_ciudades4").html(data);
+        }});
+    }
+    function obtenercampos4(val) 
+       {
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+val,
+        success: function(data)
+        {codigo4.value=data;
+
+        }});
+    }
+
+    function obtenerCiudades5(val) 
+       {
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+val,
+        success: function(data)
+        {
+          descripcion5.value='';
+      $("#lista_ciudades5").html(data);
+        }});
+    }
+    function obtenercampos5(val) 
+       {
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+val,
+        success: function(data)
+        {codigo5.value=data;
+
+        }});
+    }
+
   </script>
  
   <?php
@@ -228,11 +337,11 @@ $(document).ready(function(){
           <input class="form-styling" type="nnumero" name="item1" id="item1" value="1" title="item1" readonly="readonly">
           </td>
           <td>
-          <input class="form-styling" type="text" name="codigo1" id="codigo1" placeholder="" title="codigo1">
+          <input class="form-styling" type="text" name="codigo1" id="codigo1" list="lista_codigo" placeholder="" title="codigo1" readonly="readonly">
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo1" list="grupo" onChange="obtenerCiudades(this.value);" value="asda">
+          <input class="form-styling" type="text" name="grupo1" list="grupo" onChange="obtenerCiudades(this.value);">
           <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades(this.value);">
           <option value=''>Seleccione grupo</option>
           <?php   
@@ -243,7 +352,7 @@ $(document).ready(function(){
           </td>
 
           <td>
-          <input class="form-styling" type="text" name="descripcion1" list="lista_ciudades" onChange="obtenercampos(this.value);">
+          <input class="form-styling" type="text" name="descripcion1" id="descripcion1" list="lista_ciudades" onChange="obtenercampos(this.value);">
           <datalist name="ciudad" id="lista_ciudades" class="form-styling">
           <option value=''>Seleccione material</option>
           <?php
@@ -269,15 +378,258 @@ $(document).ready(function(){
           <input class="form-styling" type="text" name="medida1" id="medida1" placeholder="" title="medida1">
           </td>
           <td>
-          <input class="form-styling" type="text" name="moneda1" id="moneda1" placeholder="" title="moneda1">
+          <select class="form-styling" type="text" name="moneda1" id="moneda1" placeholder="" title="moneda1">
+            <option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
           <input class="form-styling" type="text" name="precio1" id="precio1" placeholder="" title="precio1">
           </td>
           <td>
-          <input class="form-styling" type="text" name="total1" id="total1" placeholder="" title="total1">
+          <input class="form-styling" type="text" name="total1" id="total1" placeholder="" title="total1" value="">
           </td>
           </tr>
+
+
+   <tr>
+          <td>
+          <input class="form-styling" type="nnumero" name="item2" id="item2" value="2" title="item2" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo2" id="codigo2" list="lista_codigo" placeholder="" title="codigo2" readonly="readonly">
+          </td>
+          
+          <td>
+          <input class="form-styling" type="text" name="grupo2" list="grupo" onChange="obtenerCiudades2(this.value);">
+          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades2(this.value);">
+          <option value=''>Seleccione grupo</option>
+          <?php   
+          while($row= $consulta_paises->fetch_object())
+          {echo "<option value='".$row->valor."' label='".$row->descripcion."'>".$row->descripcion."</option>";}
+          ?>
+          </datalist>
+          </td>
+
+          <td>
+          <input class="form-styling" type="text" name="descripcion2" id="descripcion2" list="lista_ciudades2" onChange="obtenercampos2(this.value);">
+          <datalist name="ciudad" id="lista_ciudades2" class="form-styling">
+          <option value=''>Seleccione material</option>
+          <?php
+          while($row= $consulta_ciudades->fetch_object())
+          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
+          ?>
+          </datalist>
+          </td>
+          
+          <td>
+          <input class="form-styling" type="text" name="destino2" id="destino2" placeholder="" title="destino2">
+          </td>
+          <td>
+          <select class="form-styling" name="control2" id="control2">
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="cantidad2" id="cantidad2" placeholder="" title="cantidad2">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida2" id="medida2" placeholder="" title="medida2">
+          </td>
+          <td>
+          <select class="form-styling" type="text" name="moneda2" id="moneda2" placeholder="" title="moneda2">
+            <option>Bolivianos</option><option>Dolares</option>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="precio2" id="precio2" placeholder="" title="precio2">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total2" id="total2" placeholder="" title="total2">
+          </td>
+          </tr>
+
+
+
+
+<tr>
+          <td>
+          <input class="form-styling" type="nnumero" name="item3" id="item3" value="3" title="item3" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo3" id="codigo3" list="lista_codigo" placeholder="" title="codigo3" readonly="readonly">
+          </td>
+          
+          <td>
+          <input class="form-styling" type="text" name="grupo3" list="grupo" onChange="obtenerCiudades3(this.value);">
+          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades3(this.value);">
+          <option value=''>Seleccione grupo</option>
+          <?php   
+          while($row= $consulta_paises->fetch_object())
+          {echo "<option value='".$row->valor."' label='".$row->descripcion."'>".$row->descripcion."</option>";}
+          ?>
+          </datalist>
+          </td>
+
+          <td>
+          <input class="form-styling" type="text" name="descripcion3" id="descripcion3" list="lista_ciudades3" onChange="obtenercampos3(this.value);">
+          <datalist name="ciudad" id="lista_ciudades3" class="form-styling">
+          <option value=''>Seleccione material</option>
+          <?php
+          while($row= $consulta_ciudades->fetch_object())
+          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
+          ?>
+          </datalist>
+          </td>
+          
+          <td>
+          <input class="form-styling" type="text" name="destino3" id="destino3" placeholder="" title="destino3">
+          </td>
+          <td>
+          <select class="form-styling" name="control3" id="control3">
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="cantidad3" id="cantidad3" placeholder="" title="cantidad3">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida3" id="medida3" placeholder="" title="medida3">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="moneda3" id="moneda3" placeholder="" title="moneda3">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="precio3" id="precio3" placeholder="" title="precio3">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total3" id="total3" placeholder="" title="total3">
+          </td>
+          </tr>
+
+
+
+           <tr>
+          <td>
+          <input class="form-styling" type="nnumero" name="item4" id="item4" value="4" title="item4" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo4" id="codigo4" list="lista_codigo" placeholder="" title="codigo4" readonly="readonly">
+          </td>
+          
+          <td>
+          <input class="form-styling" type="text" name="grupo4" list="grupo" onChange="obtenerCiudades4(this.value);">
+          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades4(this.value);">
+          <option value=''>Seleccione grupo</option>
+          <?php   
+          while($row= $consulta_paises->fetch_object())
+          {echo "<option value='".$row->valor."' label='".$row->descripcion."'>".$row->descripcion."</option>";}
+          ?>
+          </datalist>
+          </td>
+
+          <td>
+          <input class="form-styling" type="text" name="descripcion4" id="descripcion4" list="lista_ciudades4" onChange="obtenercampos4(this.value);">
+          <datalist name="ciudad" id="lista_ciudades4" class="form-styling">
+          <option value=''>Seleccione material</option>
+          <?php
+          while($row= $consulta_ciudades->fetch_object())
+          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
+          ?>
+          </datalist>
+          </td>
+          
+          <td>
+          <input class="form-styling" type="text" name="destino4" id="destino4" placeholder="" title="destino4">
+          </td>
+          <td>
+          <select class="form-styling" name="control4" id="control4">
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="cantidad4" id="cantidad4" placeholder="" title="cantidad4">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida4" id="medida4" placeholder="" title="medida4">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="moneda4" id="moneda4" placeholder="" title="moneda4">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="precio4" id="precio4" placeholder="" title="precio4">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total4" id="total4" placeholder="" title="total4">
+          </td>
+          </tr>
+
+
+
+<tr>
+          <td>
+          <input class="form-styling" type="nnumero" name="item5" id="item5" value="5" title="item5" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo5" id="codigo5" list="lista_codigo" placeholder="" title="codigo5" readonly="readonly">
+          </td>
+          
+          <td>
+          <input class="form-styling" type="text" name="grupo5" list="grupo" onChange="obtenerCiudades5(this.value);">
+          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades5(this.value);">
+          <option value=''>Seleccione grupo</option>
+          <?php   
+          while($row= $consulta_paises->fetch_object())
+          {echo "<option value='".$row->valor."' label='".$row->descripcion."'>".$row->descripcion."</option>";}
+          ?>
+          </datalist>
+          </td>
+
+          <td>
+          <input class="form-styling" type="text" name="descripcion5" id="descripcion5" list="lista_ciudades5" onChange="obtenercampos5(this.value);">
+          <datalist name="ciudad" id="lista_ciudades5" class="form-styling">
+          <option value=''>Seleccione material</option>
+          <?php
+          while($row= $consulta_ciudades->fetch_object())
+          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
+          ?>
+          </datalist>
+          </td>
+          
+          <td>
+          <input class="form-styling" type="text" name="destino5" id="destino5" placeholder="" title="destino5">
+          </td>
+          <td>
+          <select class="form-styling" name="control5" id="control5">
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="cantidad5" id="cantidad5" placeholder="" title="cantidad5">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida5" id="medida5" placeholder="" title="medida5">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="moneda5" id="moneda5" placeholder="" title="moneda5">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="precio5" id="precio5" placeholder="" title="precio5">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total5" id="total5" placeholder="" title="total5">
+          </td>
+          </tr>          
+
+
+
+
+
+
+
+
+
 
           <a href="javascript:void(0);" class="add_button" title="Add field">add fila</a>
   

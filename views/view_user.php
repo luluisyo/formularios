@@ -37,14 +37,14 @@ $(document).ready(function(){
   
 
   <form  action="../controller/dinamico.php" method="post" name="form" enctype="multipart/form-data">
-
+<div class="field_wrapper">
     <div>
       <input type="text" name="field_name[]" value=""/>
         <input type="text" name="field_name[]" value=""/>
        <input class="btn-signup" type="submit" value="Añadir usuario">
         <a href="javascript:void(0);" class="add_button" title="Add field"><img src="add-icon.png"/></a>
     </div>
-
+</div>
 </form>
 
 
