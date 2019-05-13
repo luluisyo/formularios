@@ -16,7 +16,28 @@
 </head>
 
 <body>
-
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var maxField = 10; //Input fields increment limitation
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.field_wrapper'); //Input field wrapper
+    
+    var fieldHTML = '<div><tr><td><input type="text" name="field_name[]" value=""/></div>'; //New input field html 
+    var x = 1; //Initial field counter is 1
+    $(addButton).click(function(){ //Once add button is clicked
+        if(x < maxField){ //Check maximum number of input fields
+            x++; //Increment field counter
+            $(wrapper).append(fieldHTML); // Add field html
+        }
+    });
+    $(wrapper).on('click', '.remove_button', function(e){ //Once remove button is clicked
+        e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+    });
+});
+</script>
   <script>
        function obtenerCiudades(val) 
        {
@@ -57,46 +78,24 @@
     <div class="navi">
       <ul class="links">
 
-        <p>Formato de imagen: <input type="text" name="formatoimagen" list="listaformatosimagen"></p>
 
-<datalist id="listaformatosimagen">
-
-  <option>PNG</option>
-
-  <option>JPEG</option>
-
-  <option>GIF</option>
-
-  <option>TGA</option>
-
-</datalist>
 
         <li class="signin-active"><a class="btn" href="#">FORMULARIO 200</a></li>
       </ul>
     </div>
 				  <div>
-          <label for="fullname">Carnet de identidad</label>
-          <input class="form-styling" type="number" name="ci" id="ci" placeholder="Carnet de identidad" title="Carnet de identidad" required>
-          <label for="fullname">Nombres</label>
-
-          <input class="form-styling" type="date" name="nombre" id="nombres" value="<?php echo date("Y-m-d");?>" title="Nombres" readonly="readonly">
-
-          <label for="fullname">Apellidos</label>
-          <input class="form-styling" type="text" name="apellido" id="apellidos" placeholder="Apellidos" title="Apellidos">
-          <label for="fullname">Género</label>
-          <select class="form-styling" name="sexo" id="sexo" title="Genero" required>
-            <option value="" selected disabled>Elija el género</option>
-            <option value="M">Masculino</option>
-            <option value="F">Femenino</option>
-          </select>
+          
           <table>
             <tr>
               <td colspan="2" >
              
             </td>
           <td colspan="7" valign="top" style="padding-top: 10px">
-             <h3 align="center"> GERENCIA DE ADMINISTRACIÓN Y FINANZAS</h3><br>             
-              FORMULARIO 200 - REQUERIMIENTO DE COMPRA y/o CONTRATACION DE SERVICIOS            
+         <h2 align="center"> GERENCIA DE ADMINISTRACIÓN Y FINANZAS</h2><br>             
+       <h2> FORMULARIO 200 - REQUERIMIENTO DE COMPRA y/o CONTRATACION DE SERVICIOS </h2>
+              <br/>
+              <br/>
+              
             </td>
           <td colspan="2" >
               datos
@@ -106,7 +105,10 @@
               <td></td>
               <td></td>
               <td colspan="7">
-                DATOS BÁSICOS
+               <H2> DATOS BÁSICOS</H2>
+              <br/>
+              <br/>
+ 
               </td>
               <td></td>
               <td></td>
@@ -175,6 +177,13 @@
           <td></td><td></td>
             </tr>
 </table>
+<br/>
+<br/>
+<center><h2>DATOS BASICOS DEL PRODUCTO</h2></center>
+<br/>
+<br/>
+
+<div class="field_wrapper">
 <table border="10">            
             
           <tr><td align="center">
@@ -212,44 +221,46 @@
           </td>
         </tr>  
 
-          <tr><td>
+
+
+          <tr>
+          <td>
           <input class="form-styling" type="nnumero" name="item1" id="item1" value="1" title="item1" readonly="readonly">
           </td>
           <td>
           <input class="form-styling" type="text" name="codigo1" id="codigo1" placeholder="" title="codigo1">
           </td>
+          
           <td>
-
-<input class="form-styling" type="text" name="grupo1" list="grupo" onChange="obtenerCiudades(this.value);" value="asda">
+          <input class="form-styling" type="text" name="grupo1" list="grupo" onChange="obtenerCiudades(this.value);" value="asda">
           <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades(this.value);">
-    <option value=''>Seleccione grupo</option>
-    <?php   
-        while($row= $consulta_paises->fetch_object())
-        {
-      echo "<option value='".$row->valor."'>".$row->descripcion."</option>";
-        }
-    ?>
-            </datalist>
-          </td>
-          <td>
-
-<input class="form-styling" type="text" name="descripcion1" list="lista_ciudades" onChange="obtenercampos(this.value);">
-          <datalist name="ciudad" id="lista_ciudades" class="form-styling">
-    <option value=''>Seleccione material</option>
-    <?php
-          while($row= $consulta_ciudades->fetch_object())
-          {
-         echo "<option value='".$row->valor."'>".$row->descripcion."</option>";
-          }
+          <option value=''>Seleccione grupo</option>
+          <?php   
+          while($row= $consulta_paises->fetch_object())
+          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
           ?>
-     </datalist>
+          </datalist>
+          </td>
+
+          <td>
+          <input class="form-styling" type="text" name="descripcion1" list="lista_ciudades" onChange="obtenercampos(this.value);">
+          <datalist name="ciudad" id="lista_ciudades" class="form-styling">
+          <option value=''>Seleccione material</option>
+          <?php
+          while($row= $consulta_ciudades->fetch_object())
+          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
+          ?>
+          </datalist>
           </td>
           
           <td>
           <input class="form-styling" type="text" name="destino1" id="destino1" placeholder="" title="destino1">
           </td>
           <td>
-          <input class="form-styling" type="text" name="control1" id="control1" placeholder="" title="control1">
+          <select class="form-styling" name="control1" id="control1">
+            <option>si</option>
+            <option>no</option>
+          </select>
           </td>
           <td>
           <input class="form-styling" type="text" name="cantidad1" id="cantidad1" placeholder="" title="cantidad1">
@@ -266,11 +277,15 @@
           <td>
           <input class="form-styling" type="text" name="total1" id="total1" placeholder="" title="total1">
           </td>
-          
-        </tr>  
+          </tr>
+
+          <a href="javascript:void(0);" class="add_button" title="Add field">add fila</a>
+  
           </table>
+
+          </div>
           
-          <input class="btn-signup" type="submit" value="Añadir usuario">
+          <input class="btn-signup" type="submit" value="ENVIAR FORMULARIO">
           <div class="row cf" style="color: red"><p id="error"></p></div>
           </div>
           </center>
@@ -279,6 +294,7 @@
 </div>
 
 
+        
 
 
   <script type="text/javascript" src='../js/jquery.min.js'></script>
