@@ -29,7 +29,8 @@ $(document).ready(function(){
 </script>
   <script>
        function obtenerCiudades() 
-       {var shownVal = document.getElementById("grupo1").value;
+       {document.getElementById("prueba").value='';
+        var shownVal = document.getElementById("grupo1").value;
 var value2send = document.querySelector("#grupouno option[value='"+shownVal+"']").dataset.value;
 document.getElementById("prueba").value = shownVal;
     $.ajax
@@ -384,7 +385,7 @@ document.getElementById("prueba").value = shownVal;
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo1" list="grupouno" onChange="obtenerCiudades();" autocomplete="off">
+          <input class="form-styling" type="text" id='grupo1' name="grupo1" list="grupouno" onChange="obtenerCiudades();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupouno" onChange="obtenerCiudades();">
           
           <option value=''>Seleccione grupo</option>
