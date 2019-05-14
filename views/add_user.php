@@ -28,8 +28,10 @@ $(document).ready(function(){
 });
 </script>
   <script>
-       function obtenerCiudades(val) 
-       {
+       function obtenerCiudades() 
+       {var shownVal = document.getElementById("grupo1").value;
+var value2send = document.querySelector("#grupouno option[value='"+shownVal+"']").dataset.value;
+document.getElementById("prueba").value = shownVal;
     $.ajax
     ({
         type: "POST",
@@ -38,6 +40,7 @@ $(document).ready(function(){
         success: function(data)
         {
           descripcion1.value='';
+
       $("#lista_ciudades").html(data);
         }});
     }
@@ -193,6 +196,12 @@ function multiplicar5(){
   r = m1*m2;
   document.getElementById("total5").value = r;
 }
+
+function obtener(){
+var shownVal = document.getElementById("answer").value;
+var value2send = document.querySelector("#answers option[value='"+shownVal+"']").dataset.value;
+document.getElementById("prueba").value = shownVal;
+}
   </script>
  
   <?php
@@ -207,8 +216,8 @@ function multiplicar5(){
     </a>
 
     <ul>
-      <li><a href="" class="active"><span>VOLVER AL WORDPRESS</span></a></li>
-      <li><a href="#"><span></span></a></li>
+      <li><a href="../views/view_user.php" class="active"><span>Ver usuarios con acceso al sistema</span></a></li>
+      <li><a href="../controller/logout.php"><span>Salir: <?php echo $_SESSION["nombre"]  ?></span></a></li>
     </ul>
     <span aria-hidden="true" class="stretchy-nav-bg"></span>
   </nav>
@@ -375,8 +384,8 @@ function multiplicar5(){
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo1" list="grupo1" onChange="obtenerCiudades(this.value);" autocomplete="off">
-          <datalist name="pais" class="form-styling" id="grupo1" onChange="obtenerCiudades(this.value);">
+          <input class="form-styling" type="text" name="grupo1" list="grupo" onChange="obtenerCiudades(this.value);" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades(this.value);">
           <select>
           <option value=''>Seleccione grupo</option>
           <?php   
@@ -393,7 +402,7 @@ function multiplicar5(){
           <option value=''>Seleccione material</option>
           <?php
           while($row= $consulta_ciudades->fetch_object())
-          {echo "<option value='".$row->valor."' LABEL = '".$row->descripcion."'>".$row->descripcion."</option>";}
+          {echo "<option value='".$row->valor."' >".$row->descripcion."</option>";}
           ?>
           </datalist>
           </td>
@@ -435,8 +444,8 @@ function multiplicar5(){
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo2" list="grupo2" onChange="obtenerCiudades2(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo2" onChange="obtenerCiudades2(this.value);">
+          <input class="form-styling" type="text" name="grupo2" list="grupo" onChange="obtenerCiudades2(this.value);">
+          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades2(this.value);">
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
@@ -495,8 +504,8 @@ function multiplicar5(){
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo3" list="grupo3" onChange="obtenerCiudades3(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo3" onChange="obtenerCiudades3(this.value);">
+          <input class="form-styling" type="text" name="grupo3" list="grupo" onChange="obtenerCiudades3(this.value);">
+          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades3(this.value);">
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
@@ -554,12 +563,12 @@ function multiplicar5(){
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo4" list="grupo4" onChange="obtenerCiudades4(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo4" onChange="obtenerCiudades4(this.value);">
+          <input class="form-styling" type="text" name="grupo4" list="grupo" onChange="obtenerCiudades4(this.id);">
+          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades4(this.id);">
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
-          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
+          {echo "<option value='".$row->valor."' id='".$row->valor."'>".$row->descripcion."</option>";}
           ?>
           </datalist>
           </td>
@@ -613,8 +622,8 @@ function multiplicar5(){
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo5" list="grupo5" onChange="obtenerCiudades5(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo5" onChange="obtenerCiudades5(this.value);">
+          <input class="form-styling" type="text" name="grupo5" list="grupo" onChange="obtenerCiudades5(this.value);">
+          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades5(this.value);">
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
@@ -689,6 +698,18 @@ function multiplicar5(){
   </form>
   <br/>
   <br/>
+
+
+
+<input list="answers" id="answer" onChange="obtener();">
+<datalist id="answers">
+  <option data-value="42" value="The answer">
+  <option data-value="43" value="The answer 3">
+    
+</datalist>
+
+prueba<input type="text" name="prueba" id="prueba">
+
 
 </div>
   <script type="text/javascript" src='../js/jquery.min.js'></script>

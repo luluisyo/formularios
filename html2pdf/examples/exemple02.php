@@ -73,7 +73,7 @@ ob_start();
     </tr>
 
 </table>
-jkhjkjhkjhkjh
+
 <table style="width: 90%; border-collapse: collapse;" align="center" border="1">
     <tr>
         <th>
@@ -154,7 +154,7 @@ jkhjkjhkjhkjh
 <tr>
     <td><?php echo $_POST['item4'] ?></td>
     <td><?php echo $_POST['codigo4'] ?></td>
-    <td><?php echo $_POST['grupo1'] ?></td>
+    <td><?php echo $_POST['grupo4'] ?></td>
     <td><?php echo $_POST['descripcion4'] ?></td>
     <td><?php echo $_POST['destino4'] ?></td>
     <td><?php echo $_POST['control4'] ?></td>
