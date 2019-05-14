@@ -29,15 +29,15 @@ $(document).ready(function(){
 </script>
   <script>
        function obtenerCiudades() 
-       {document.getElementById("prueba").value='';
+       {
         var shownVal = document.getElementById("grupo1").value;
-var value2send = document.querySelector("#grupouno option[value='"+shownVal+"']").dataset.value;
-document.getElementById("prueba").value = shownVal;
+        var value2send = document.querySelector("#grupouno option[value='"+shownVal+"']").dataset.value;
+        document.getElementById("prueba").value = shownVal;
     $.ajax
     ({
         type: "POST",
         url: "get_ciudad.php",
-        data:'id_pais='+val,
+        data:'id_pais='+value2send,
         success: function(data)
         {
           descripcion1.value='';
