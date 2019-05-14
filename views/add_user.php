@@ -32,7 +32,7 @@ $(document).ready(function(){
        {
         var shownVal = document.getElementById("grupo1").value;
         var value2send = document.querySelector("#grupouno option[value='"+shownVal+"']").dataset.value;
-        document.getElementById("prueba").value = shownVal;
+        document.getElementById("prueba").value = value2send;
     $.ajax
     ({
         type: "POST",
@@ -45,13 +45,15 @@ $(document).ready(function(){
       $("#lista_ciudades").html(data);
         }});
     }
-    function obtenercampos(val) 
-       {
+    function obtenercampos() 
+       {var shownVal = document.getElementById("descripcion1").value;
+        var value2send = document.querySelector("#lista_ciudadesuno option[value='"+shownVal+"']").dataset.value;
+        document.getElementById("prueba").value = value2send;
     $.ajax
     ({
         type: "GET",
         url: "get_codigo.php",
-        data:'codigo='+val,
+        data:'codigo='+value2send,
         success: function(data)
         {codigo1.value=data;
           medida1.value='Mtrs';
@@ -391,19 +393,17 @@ document.getElementById("prueba").value = shownVal;
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
-          {echo "<option data-value='".$row->valor."' value = '".$row->descripcion."'></option>";}
-          ?>
-          
+          {echo "<option data-value='".$row->valor."' value = '".$row->descripcion."'></option>";}?>
           </datalist>
           </td>
 
           <td>
-          <input class="form-styling" type="text" name="descripcion1" id="descripcion1" list="lista_ciudades" onChange="obtenercampos(this.value);" autocomplete="off">
-          <datalist name="ciudad" id="lista_ciudades" class="form-styling">
-          <option value=''>Seleccione material</option>
+          <input class="form-styling" type="text" id="descripcion1" name="descripcion1" id="descripcion1" list="lista_ciudadesuno" onChange="obtenercampos();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadesuno" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
           <?php
           while($row= $consulta_ciudades->fetch_object())
-          {echo "<option value='".$row->valor."' >".$row->descripcion."</option>";}
+          {echo "<option data-value='".$row->valor."' value='".$row->descripcion."'></option>";}
           ?>
           </datalist>
           </td>
