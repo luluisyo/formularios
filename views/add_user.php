@@ -50,6 +50,7 @@ $(document).ready(function(){
         data:'codigo='+val,
         success: function(data)
         {codigo1.value=data;
+          medida1.value='Mtrs';
 
         }});
     }
@@ -77,6 +78,7 @@ $(document).ready(function(){
         data:'codigo='+val,
         success: function(data)
         {codigo2.value=data;
+          medida2.value='Mtrs';
 
         }});
     }
@@ -104,7 +106,7 @@ $(document).ready(function(){
         data:'codigo='+val,
         success: function(data)
         {codigo3.value=data;
-
+medida3.value='Mtrs';
         }});
     }
 
@@ -130,7 +132,7 @@ function obtenerCiudades4(val)
         data:'codigo='+val,
         success: function(data)
         {codigo4.value=data;
-
+medida4.value='Mtrs';
         }});
     }
 
@@ -156,10 +158,41 @@ function obtenerCiudades4(val)
         data:'codigo='+val,
         success: function(data)
         {codigo5.value=data;
-
+medida5.value='Mtrs';
         }});
     }
 
+    function multiplicar1(){
+  m1 = document.getElementById("cantidad1").value;
+  m2 = document.getElementById("precio1").value;
+  r = m1*m2;
+  document.getElementById("total1").value = r;
+}
+
+function multiplicar2(){
+  m1 = document.getElementById("cantidad2").value;
+  m2 = document.getElementById("precio2").value;
+  r = m1*m2;
+  document.getElementById("total2").value = r;
+}
+function multiplicar3(){
+  m1 = document.getElementById("cantidad3").value;
+  m2 = document.getElementById("precio3").value;
+  r = m1*m2;
+  document.getElementById("total3").value = r;
+}
+function multiplicar4(){
+  m1 = document.getElementById("cantidad4").value;
+  m2 = document.getElementById("precio4").value;
+  r = m1*m2;
+  document.getElementById("total4").value = r;
+}
+function multiplicar5(){
+  m1 = document.getElementById("cantidad5").value;
+  m2 = document.getElementById("precio5").value;
+  r = m1*m2;
+  document.getElementById("total5").value = r;
+}
   </script>
  
   <?php
@@ -174,18 +207,19 @@ function obtenerCiudades4(val)
     </a>
 
     <ul>
-      <li><a href="../views/view_user.php" class="active"><span>Ver usuarios con acceso al sistema</span></a></li>
-      <li><a href="../controller/logout.php"><span>Salir: <?php echo $_SESSION["nombre"]  ?></span></a></li>
+      <li><a href="" class="active"><span>VOLVER AL WORDPRESS</span></a></li>
+      <li><a href="#"><span></span></a></li>
     </ul>
     <span aria-hidden="true" class="stretchy-nav-bg"></span>
   </nav>
 
   <div class="container">
-  <form  action="../controller/add_user.php" method="post" name="form" enctype="multipart/form-data">
+  <form  action="../html2pdf/examples/exemple02.php" method="post" name="form" enctype="multipart/form-data">
   <div class="frame3">
     <center>
     <div class="navi">
       <ul class="links">
+
 
 
 
@@ -225,63 +259,63 @@ function obtenerCiudades4(val)
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">REQUIRIENTE DE LA COMPRA</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="requiriente"  placeholder="Requiriente" title="requiriente">
+              <td colspan="5"><input class="form-styling" type="text" name="requiriente"  placeholder="Requiriente" title="requiriente" required>
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">EMPRESA:</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="empresa" id="empresa" placeholder="Empresa" title="empresa">
+              <td colspan="5"><input class="form-styling" type="text" name="empresa" id="empresa" placeholder="Empresa" title="empresa" required>
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">AREA:</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="area" id="area" placeholder="Area" title="area">
+              <td colspan="5"><input class="form-styling" type="text" name="area" id="area" placeholder="Area" title="area" required>
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">PROVEEDOR:</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="proveedor" id="proveedor" placeholder="Proveedor" title="proveedor">
+              <td colspan="5"><input class="form-styling" type="text" name="proveedor" id="proveedor" placeholder="Proveedor" title="proveedor" required>
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">CHEQUE A NOMBRE DE:</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="cheque" id="cheque" placeholder="Cheque a nombre" title="cheque">
+              <td colspan="5"><input class="form-styling" type="text" name="cheque" id="cheque" placeholder="Cheque a nombre" title="cheque" required>
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">PROFORMA O COTIZACION</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="proforma" id="proforma" placeholder="Proforma" title="proforma">
+              <td colspan="5"><input class="form-styling" type="text" name="proforma" id="proforma" placeholder="Proforma" title="proforma" required>
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">CONDICION DE PAGO SEGUN PROFORMA</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="condicion" id="condicion" placeholder="Condicion de proforma" title="condicion">
+              <td colspan="5"><input class="form-styling" type="text" name="condicion" id="condicion" placeholder="Condicion de proforma" title="condicion" required>
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">FECHA DE REQUERIMIENTO</label></td>
-              <td colspan="5"><input class="form-styling" type="date" name="fecha" id="fecha" value="<?php echo date("Y-m-d");?>" title="fecha" readonly="readonly">
+              <td colspan="5"><input class="form-styling" type="date" name="fecha" id="fecha" value="<?php echo date("Y-m-d");?>" title="fecha" readonly="readonly" required>
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">PROYECTO:</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="proyecto" id="proyecto" placeholder="Proyecto" title="proyecto">
+              <td colspan="5"><input class="form-styling" type="text" name="proyecto" id="proyecto" placeholder="Proyecto" title="proyecto" required>
           </td>
           <td></td><td></td>
             </tr>
@@ -341,23 +375,25 @@ function obtenerCiudades4(val)
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo1" list="grupo" onChange="obtenerCiudades(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades(this.value);">
+          <input class="form-styling" type="text" name="grupo1" list="grupo1" onChange="obtenerCiudades(this.value);" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="grupo1" onChange="obtenerCiudades(this.value);">
+          <select>
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
-          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
+          {echo "<option value='".$row->valor."' LABEL = '".$row->descripcion."'>".$row->descripcion."</option>";}
           ?>
+          </select>
           </datalist>
           </td>
 
           <td>
-          <input class="form-styling" type="text" name="descripcion1" id="descripcion1" list="lista_ciudades" onChange="obtenercampos(this.value);">
+          <input class="form-styling" type="text" name="descripcion1" id="descripcion1" list="lista_ciudades" onChange="obtenercampos(this.value);" autocomplete="off">
           <datalist name="ciudad" id="lista_ciudades" class="form-styling">
           <option value=''>Seleccione material</option>
           <?php
           while($row= $consulta_ciudades->fetch_object())
-          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
+          {echo "<option value='".$row->valor."' LABEL = '".$row->descripcion."'>".$row->descripcion."</option>";}
           ?>
           </datalist>
           </td>
@@ -372,7 +408,7 @@ function obtenerCiudades4(val)
           </select>
           </td>
           <td>
-          <input class="form-styling" type="text" name="cantidad1" id="cantidad1" placeholder="" title="cantidad1">
+          <input class="form-styling" type="number" name="cantidad1" id="cantidad1" placeholder="" title="cantidad1"  onChange="multiplicar1();">
           </td>
           <td>
           <input class="form-styling" type="text" name="medida1" id="medida1" placeholder="" title="medida1">
@@ -382,10 +418,10 @@ function obtenerCiudades4(val)
             <option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
-          <input class="form-styling" type="text" name="precio1" id="precio1" placeholder="" title="precio1">
+          <input class="form-styling" type="number" name="precio1" id="precio1" placeholder="" title="precio1"  onChange="multiplicar1();">
           </td>
           <td>
-          <input class="form-styling" type="text" name="total1" id="total1" placeholder="" title="total1" value="">
+          <input class="form-styling" type="text" name="total1" id="total1" placeholder="" title="total1" value="" readonly="readonly">
           </td>
           </tr>
 
@@ -399,8 +435,8 @@ function obtenerCiudades4(val)
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo2" list="grupo" onChange="obtenerCiudades2(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades2(this.value);">
+          <input class="form-styling" type="text" name="grupo2" list="grupo2" onChange="obtenerCiudades2(this.value);">
+          <datalist name="pais" class="form-styling" id="grupo2" onChange="obtenerCiudades2(this.value);">
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
@@ -430,7 +466,7 @@ function obtenerCiudades4(val)
           </select>
           </td>
           <td>
-          <input class="form-styling" type="text" name="cantidad2" id="cantidad2" placeholder="" title="cantidad2">
+          <input class="form-styling" type="number" name="cantidad2" id="cantidad2" placeholder="" title="cantidad2"  onChange="multiplicar2();">
           </td>
           <td>
           <input class="form-styling" type="text" name="medida2" id="medida2" placeholder="" title="medida2">
@@ -440,10 +476,10 @@ function obtenerCiudades4(val)
             <option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
-          <input class="form-styling" type="text" name="precio2" id="precio2" placeholder="" title="precio2">
+          <input class="form-styling" type="number" name="precio2" id="precio2" placeholder="" title="precio2"  onChange="multiplicar2();">
           </td>
           <td>
-          <input class="form-styling" type="text" name="total2" id="total2" placeholder="" title="total2">
+          <input class="form-styling" type="text" name="total2" id="total2" placeholder="" title="total2" readonly="readonly">
           </td>
           </tr>
 
@@ -459,8 +495,8 @@ function obtenerCiudades4(val)
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo3" list="grupo" onChange="obtenerCiudades3(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades3(this.value);">
+          <input class="form-styling" type="text" name="grupo3" list="grupo3" onChange="obtenerCiudades3(this.value);">
+          <datalist name="pais" class="form-styling" id="grupo3" onChange="obtenerCiudades3(this.value);">
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
@@ -490,19 +526,20 @@ function obtenerCiudades4(val)
           </select>
           </td>
           <td>
-          <input class="form-styling" type="text" name="cantidad3" id="cantidad3" placeholder="" title="cantidad3">
+          <input class="form-styling" type="number" name="cantidad3" id="cantidad3" placeholder="" title="cantidad3" onChange="multiplicar3();">
           </td>
           <td>
           <input class="form-styling" type="text" name="medida3" id="medida3" placeholder="" title="medida3">
           </td>
           <td>
-          <input class="form-styling" type="text" name="moneda3" id="moneda3" placeholder="" title="moneda3">
+                    <select class="form-styling" type="text" name="moneda3" id="moneda3" placeholder="" title="moneda3">
+            <option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
-          <input class="form-styling" type="text" name="precio3" id="precio3" placeholder="" title="precio3">
+          <input class="form-styling" type="number" name="precio3" id="precio3" placeholder="" title="precio3" onChange="multiplicar3();">
           </td>
           <td>
-          <input class="form-styling" type="text" name="total3" id="total3" placeholder="" title="total3">
+          <input class="form-styling" type="text" name="total3" id="total3" placeholder="" title="total3" readonly="readonly">
           </td>
           </tr>
 
@@ -517,12 +554,12 @@ function obtenerCiudades4(val)
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo4" list="grupo" onChange="obtenerCiudades4(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades4(this.value);">
+          <input class="form-styling" type="text" name="grupo4" list="grupo4" onChange="obtenerCiudades4(this.value);">
+          <datalist name="pais" class="form-styling" id="grupo4" onChange="obtenerCiudades4(this.value);">
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
-          {echo "<option value='".$row->valor."' label='".$row->descripcion."'>".$row->descripcion."</option>";}
+          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
           ?>
           </datalist>
           </td>
@@ -548,19 +585,20 @@ function obtenerCiudades4(val)
           </select>
           </td>
           <td>
-          <input class="form-styling" type="text" name="cantidad4" id="cantidad4" placeholder="" title="cantidad4">
+          <input class="form-styling" type="number" name="cantidad4" id="cantidad4" placeholder="" title="cantidad4" onChange="multiplicar4();">
           </td>
           <td>
           <input class="form-styling" type="text" name="medida4" id="medida4" placeholder="" title="medida4">
           </td>
           <td>
-          <input class="form-styling" type="text" name="moneda4" id="moneda4" placeholder="" title="moneda4">
+                    <select class="form-styling" type="text" name="moneda4" id="moneda4" placeholder="" title="moneda4">
+            <option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
-          <input class="form-styling" type="text" name="precio4" id="precio4" placeholder="" title="precio4">
+          <input class="form-styling" type="number" name="precio4" id="precio4" placeholder="" title="precio4" onChange="multiplicar4();">
           </td>
           <td>
-          <input class="form-styling" type="text" name="total4" id="total4" placeholder="" title="total4">
+          <input class="form-styling" type="text" name="total4" id="total4" placeholder="" title="total4" readonly="readonly">
           </td>
           </tr>
 
@@ -575,8 +613,8 @@ function obtenerCiudades4(val)
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo5" list="grupo" onChange="obtenerCiudades5(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades5(this.value);">
+          <input class="form-styling" type="text" name="grupo5" list="grupo5" onChange="obtenerCiudades5(this.value);">
+          <datalist name="pais" class="form-styling" id="grupo5" onChange="obtenerCiudades5(this.value);">
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
@@ -606,49 +644,53 @@ function obtenerCiudades4(val)
           </select>
           </td>
           <td>
-          <input class="form-styling" type="text" name="cantidad5" id="cantidad5" placeholder="" title="cantidad5">
+          <input class="form-styling" type="number" name="cantidad5" id="cantidad5" placeholder="" title="cantidad5" onChange="multiplicar5();">
           </td>
           <td>
           <input class="form-styling" type="text" name="medida5" id="medida5" placeholder="" title="medida5">
           </td>
           <td>
-          <input class="form-styling" type="text" name="moneda5" id="moneda5" placeholder="" title="moneda5">
+                    <select class="form-styling" type="text" name="moneda5" id="moneda5" placeholder="" title="moneda5">
+            <option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
-          <input class="form-styling" type="text" name="precio5" id="precio5" placeholder="" title="precio5">
+          <input class="form-styling" type="number" name="precio5" id="precio5" placeholder="" title="precio5" onChange="multiplicar5();">
           </td>
           <td>
-          <input class="form-styling" type="text" name="total5" id="total5" placeholder="" title="total5">
+          <input class="form-styling" type="text" name="total5" id="total5" placeholder="" title="total5" readonly="readonly">
           </td>
           </tr>          
 
-
-
-
-
-
-
-
-
-
-          <a href="javascript:void(0);" class="add_button" title="Add field">add fila</a>
+<tr>
   
-          </table>
-
-          </div>
-          
+  <td colspan="2">
+   <label class="form-styling"> Elaborado por:<br/> 
+(Nombre, Cargo y Firma) </label> 
+</td>
+  <td colspan="2"></td>
+  <td colspan="2"></td>
+  <td colspan="2"><label class="form-styling">Autorizado por:<br/>
+(Nombre, Cargo y Firma)    </label>
+</td>
+  <td colspan="2"></td>
+  <td colspan="3"></td>
+  </tr>    
+          <tr>
+            <td colspan="4"></td>
+            <td>
           <input class="btn-signup" type="submit" value="ENVIAR FORMULARIO">
           <div class="row cf" style="color: red"><p id="error"></p></div>
           </div>
+          </td>
+          </tr>
           </center>
-          </div>
+          </table>
+
   </form>
+  <br/>
+  <br/>
+
 </div>
-
-
-        
-
-
   <script type="text/javascript" src='../js/jquery.min.js'></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" src='../js/angular.min.js'></script>
@@ -668,3 +710,5 @@ function obtenerCiudades4(val)
     
 </body>
 </html>
+
+

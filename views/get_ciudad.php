@@ -5,8 +5,9 @@
     if(!empty($_POST["id_pais"])) 
     {
        $sql ="SELECT id, descripcion FROM ciudades WHERE id_pais = '" . $_POST["id_pais"] . "'";
-       $consulta_ciudades = $link->query($sql);
  
+       $consulta_ciudades = $link->query($sql);
+     print $sql; 
        //construimos lista nueva dependiente
       ?>
       <option value="">Seleccionar Ciudad</option>
