@@ -386,13 +386,13 @@ document.getElementById("prueba").value = shownVal;
           <td>
           <input class="form-styling" type="text" name="grupo1" list="grupouno" onChange="obtenerCiudades();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupouno" onChange="obtenerCiudades();">
-          <select>
+          
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
-          {echo "<option data-value='".$row->valor."' value = '".$row->descripcion."'>".$row->descripcion."</option>";}
+          {echo "<option data-value='".$row->valor."' value = '".$row->descripcion."'></option>";}
           ?>
-          </select>
+          
           </datalist>
           </td>
 
