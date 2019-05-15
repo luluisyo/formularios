@@ -59,7 +59,6 @@ $(document).ready(function(){
         success: function(data)
         {codigo1.value=data;
           medida1.value='Mtrs';
-
         }});
     }
 

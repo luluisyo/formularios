@@ -1,17 +1,17 @@
 <?php
-    include 'config.php';
+    
  
     //pasamos id del país
     if(!empty($_GET["codigo"])) 
     {
-       $sql ="SELECT id, descripcion, codigo FROM ciudades WHERE id = '" . $_GET["codigo"] . "'";
-       $consulta_ciudades = $link->query($sql);
- 
+       $sql ="SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM WHERE ItemCode= '" . $_GET["codigo"] . "'";
+              $result = odbc_exec($conn, $query);
+   
+              while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
        //construimos lista nue
-      while($ciudad = $consulta_ciudades->fetch_object())
-      {
-	   
-	       echo $ciudad->codigo;
+      	   
+	       echo $idgrupo->codigo;
 	   
       }
     }
