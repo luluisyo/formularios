@@ -1,19 +1,11 @@
-<?php
-/**
- * HTML2PDF Librairy - example
- *
- * HTML => PDF convertor
- * distributed under the LGPL License
- *
- * @author      Laurent MINGUET <webmaster@html2pdf.fr>
- *
- * isset($_GET['vuehtml']) is not mandatory
- * it allow to display the result in the HTML format
- */
 
-ob_start();
-?>
-
+   <!DOCTYPE html>
+   <html>
+   <head>
+       <title></title>
+   </head>
+   <body>
+   
    
 <page style="font-size: 10pt">
     
@@ -196,38 +188,5 @@ ob_start();
 
 
 
-
-</page>
-
-<?php
-/**
- * HTML2PDF Librairy - example
- *
- * HTML => PDF convertor
- * distributed under the LGPL License
- *
- * @author      Laurent MINGUET <webmaster@html2pdf.fr>
- *
- * isset($_GET['vuehtml']) is not mandatory
- * it allow to display the result in the HTML format
- */
-
-    // get the HTML
-    
-    
-    $content = ob_get_clean();
-
-    // convert in PDF
-    require_once(dirname(__FILE__).'/../html2pdf.class.php');
-    try
-    {
-        $html2pdf = new HTML2PDF('l','CARTA','es', false, 'ISO-8859-15', array(8, 8, 8, 8));
-        $html2pdf->pdf->SetDisplayMode('fullpage');
-        $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
-        $html2pdf->Output('exemple02.pdf');
-    }
-    catch(HTML2PDF_exception $e) {
-        echo $e;
-        exit;
-    }
-
+</body>
+   </html>

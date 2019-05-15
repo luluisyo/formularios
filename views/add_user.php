@@ -1,5 +1,10 @@
 <?php
       include 'config.php';
+session_start();
+if(!isset($_SESSION["user_id"])){
+    print "<script>alert(\"Acceso Restringido, Debe identificarse\");window.location='../index.php';</script>";
+}
+
 ?>
 <!DOCTYPE html>
 <html >
@@ -30,9 +35,7 @@ $(document).ready(function(){
   <script>
        function obtenerCiudades() 
        {
-        var shownVal = document.getElementById("grupo1").value;
-        var value2send = document.querySelector("#grupouno option[value='"+shownVal+"']").dataset.value;
-        document.getElementById("prueba").value = value2send;
+        var value2send = document.querySelector("#grupouno option[value='"+document.getElementById("grupo1").value+"']").dataset.value;
     $.ajax
     ({
         type: "POST",
@@ -46,9 +49,8 @@ $(document).ready(function(){
         }});
     }
     function obtenercampos() 
-       {var shownVal = document.getElementById("descripcion1").value;
-        var value2send = document.querySelector("#lista_ciudadesuno option[value='"+shownVal+"']").dataset.value;
-        document.getElementById("prueba").value = value2send;
+       {
+        var value2send = document.querySelector("#lista_ciudadesuno option[value='"+document.getElementById("descripcion1").value+"']").dataset.value;
     $.ajax
     ({
         type: "GET",
@@ -62,32 +64,38 @@ $(document).ready(function(){
     }
 
 
-    function obtenerCiudades2(val) 
+  
+function obtenerCiudades2() 
        {
+        var value2send = document.querySelector("#grupodos option[value='"+document.getElementById("grupo2").value+"']").dataset.value;
     $.ajax
     ({
         type: "POST",
         url: "get_ciudad.php",
-        data:'id_pais='+val,
+        data:'id_pais='+value2send,
         success: function(data)
         {
           descripcion2.value='';
-      $("#lista_ciudades2").html(data);
+
+      $("#lista_ciudadesdos").html(data);
         }});
     }
-    function obtenercampos2(val) 
+    function obtenercampos2() 
        {
+        var value2send = document.querySelector("#lista_ciudadesdos option[value='"+document.getElementById("descripcion2").value+"']").dataset.value;
     $.ajax
     ({
         type: "GET",
         url: "get_codigo.php",
-        data:'codigo='+val,
+        data:'codigo='+value2send,
         success: function(data)
         {codigo2.value=data;
           medida2.value='Mtrs';
 
         }});
     }
+
+
 
 
     function obtenerCiudades3(val) 
@@ -436,7 +444,14 @@ document.getElementById("prueba").value = shownVal;
           </tr>
 
 
-   <tr>
+
+
+
+
+
+
+
+          <tr>
           <td>
           <input class="form-styling" type="nnumero" name="item2" id="item2" value="2" title="item2" readonly="readonly">
           </td>
@@ -445,23 +460,23 @@ document.getElementById("prueba").value = shownVal;
           </td>
           
           <td>
-          <input class="form-styling" type="text" name="grupo2" list="grupo" onChange="obtenerCiudades2(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades2(this.value);">
+          <input class="form-styling" type="text" id='grupo2' name="grupo2" list="grupodos" onChange="obtenerCiudades2();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="grupodos" onChange="obtenerCiudades();">
+          
           <option value=''>Seleccione grupo</option>
           <?php   
           while($row= $consulta_paises->fetch_object())
-          {echo "<option value='".$row->valor."' label='".$row->descripcion."'>".$row->descripcion."</option>";}
-          ?>
+          {echo "<option data-value='".$row->valor."' value = '".$row->descripcion."'></option>";}?>
           </datalist>
           </td>
 
           <td>
-          <input class="form-styling" type="text" name="descripcion2" id="descripcion2" list="lista_ciudades2" onChange="obtenercampos2(this.value);">
-          <datalist name="ciudad" id="lista_ciudades2" class="form-styling">
-          <option value=''>Seleccione material</option>
+          <input class="form-styling" type="text" id="descripcion2" name="descripcion2" id="descripcion2" list="lista_ciudadesdos" onChange="obtenercampos2();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadesdos" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
           <?php
           while($row= $consulta_ciudades->fetch_object())
-          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
+          {echo "<option data-value='".$row->valor."' value='".$row->descripcion."'></option>";}
           ?>
           </datalist>
           </td>
@@ -489,9 +504,19 @@ document.getElementById("prueba").value = shownVal;
           <input class="form-styling" type="number" name="precio2" id="precio2" placeholder="" title="precio2"  onChange="multiplicar2();">
           </td>
           <td>
-          <input class="form-styling" type="text" name="total2" id="total2" placeholder="" title="total2" readonly="readonly">
+          <input class="form-styling" type="text" name="total2" id="total2" placeholder="" title="total2" value="" readonly="readonly">
           </td>
           </tr>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -509,6 +534,8 @@ document.getElementById("prueba").value = shownVal;
           <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades3(this.value);">
           <option value=''>Seleccione grupo</option>
           <?php   
+          $consulta_paises   = $link->query("select id as 'valor', descripcion as 'descripcion' from paises order by descripcion");
+          
           while($row= $consulta_paises->fetch_object())
           {echo "<option value='".$row->valor."' label='".$row->descripcion."'>".$row->descripcion."</option>";}
           ?>
