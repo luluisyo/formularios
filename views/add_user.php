@@ -57,8 +57,8 @@ $(document).ready(function(){
         url: "get_codigo.php",
         data:'codigo='+value2send,
         success: function(data)
-        {codigo1.value=data;
-          medida1.value='Mtrs';
+        {codigo1.value=data[0];
+          medida1.value=data[1];
         }});
     }
 
