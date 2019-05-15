@@ -9,7 +9,7 @@
 			$sexo=null;
 			$email=null;
 			$password=$_POST['password'];
-			$sql1= "select * from usuario where nombre_usuario=\"$_POST[nombre_usuario]\"  and password=AES_ENCRYPT('$password','rekadmin') ";
+			$sql1= "select * from usuario where nombre_usuario=\"$_POST[nombre_usuario]\"  and password='".$password."'";
 			$query1 = $con->query($sql1);
 			while ($r=$query1->fetch_array()) {
 				$user_id=$r["ci"];
