@@ -15,7 +15,7 @@
        //construimos lista nue
       	   print $idgrupo;
            print $desgrupo;
-	       echo $idgrupo->codigo;
+	       echo $idgrupo;
 	   
       }
     }
