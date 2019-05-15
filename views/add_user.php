@@ -216,7 +216,7 @@ document.getElementById("prueba").value = shownVal;
   </script>
  
   <?php
-      $consulta_paises   = $link->query("select id as 'valor', descripcion as 'descripcion' from paises order by descripcion");
+      $consulta_paises = $link->query("select id as 'valor', descripcion as 'descripcion' from paises order by descripcion");
       $consulta_ciudades = $link->query("select id as 'valor', descripcion as 'descripcion' from ciudades order by descripcion");
   ?>
 
@@ -228,7 +228,7 @@ document.getElementById("prueba").value = shownVal;
 
     <ul>
       <li><a href="../views/view_user.php" class="active"><span>Ver usuarios con acceso al sistema</span></a></li>
-      <li><a href="../controller/logout.php"><span>Salir: <?php echo $_SESSION["nombre"]  ?></span></a></li>
+      <li><a href="../controller/logout.php"><span>Salir: <?php echo $_SESSION["apellidos"]  ?></span></a></li>
     </ul>
     <span aria-hidden="true" class="stretchy-nav-bg"></span>
   </nav>
@@ -239,6 +239,7 @@ document.getElementById("prueba").value = shownVal;
     <center>
     <div class="navi">
       <ul class="links">
+
 
 
 
@@ -391,17 +392,28 @@ document.getElementById("prueba").value = shownVal;
           <input class="form-styling" type="nnumero" name="item1" id="item1" value="1" title="item1" readonly="readonly">
           </td>
           <td>
-          <input class="form-styling" type="text" name="codigo1" id="codigo1" list="lista_codigo" placeholder="" title="codigo1" readonly="readonly">
+          <input class="form-styling" type="text" name="codigo1" id="codigo1" placeholder="" title="codigo1" readonly="readonly">
           </td>
           
+          
+
           <td>
+
           <input class="form-styling" type="text" id='grupo1' name="grupo1" list="grupouno" onChange="obtenerCiudades();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupouno" onChange="obtenerCiudades();">
           
           <option value=''>Seleccione grupo</option>
-          <?php   
-          while($row= $consulta_paises->fetch_object())
-          {echo "<option data-value='".$row->valor."' value = '".$row->descripcion."'></option>";}?>
+
+          <?php
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          ?>
           </datalist>
           </td>
 
@@ -410,11 +422,19 @@ document.getElementById("prueba").value = shownVal;
           <datalist name="ciudad" id="lista_ciudadesuno" class="form-styling">
           <option value='Seleccione material' data-value="0"></option>
           <?php
-          while($row= $consulta_ciudades->fetch_object())
-          {echo "<option data-value='".$row->valor."' value='".$row->descripcion."'></option>";}
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
           ?>
           </datalist>
           </td>
+
+
           
           <td>
           <input class="form-styling" type="text" name="destino1" id="destino1" placeholder="" title="destino1">
@@ -465,6 +485,7 @@ document.getElementById("prueba").value = shownVal;
           
           <option value=''>Seleccione grupo</option>
           <?php   
+          $consulta_paises   = $link->query("select id as 'valor', descripcion as 'descripcion' from paises order by descripcion");
           while($row= $consulta_paises->fetch_object())
           {echo "<option data-value='".$row->valor."' value = '".$row->descripcion."'></option>";}?>
           </datalist>

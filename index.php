@@ -32,7 +32,7 @@
 <body>
   <div class="wrapper">
 	<div class="container">
-		<h1 style="font-family: rekfont;">REKADMIN</h1>
+		<h1 style="font-family: rekfont;">MOLINO ANDINO</h1>
 		<form name="login" class="form" method="post" action="controller/login.php">
 			<input type="text" name="nombre_usuario" id="nombre_usuario" placeholder="Nombre de usuario">
 			<input type="password" name="password" id="password" placeholder="Contraseña">
