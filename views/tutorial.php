@@ -5,8 +5,8 @@
 </head>
 <body>
 
-<form  action="./get_ciudad.php" method="post" name="form" enctype="multipart/form-data">
-    <input type="text" name="id_pais" id="id_pais">
+<form  action="./get_codigo.php" method="get" name="form" enctype="multipart/form-data">
+    <input type="text" name="codigo" id="codigo">
           <input class="btn-signup" type="submit" value="ENVIAR FORMULARIO">
 
 
