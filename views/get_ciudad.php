@@ -16,7 +16,7 @@
               while(odbc_fetch_row($result)){
           $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
 	   ?>
-	      <option value="<?php echo $idgrupo; ?>" data-value="<?php echo $desgrupo; ?>"></option>
+	      <option data-value="<?php echo $idgrupo; ?>" value="<?php echo $desgrupo; ?>"></option>
 	   <?php
       }
     }
