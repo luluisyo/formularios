@@ -14,7 +14,9 @@
           $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
        //construimos lista nue
       	   $ar=[$idgrupo,$desgrupo];
-           print $ar;
+           print $ar[0];
+           print $ar[1];
+           
 
 	   
       }
