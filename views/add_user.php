@@ -45,7 +45,7 @@ $(document).ready(function(){
         {
           descripcion1.value='';
 
-      $("#lista_ciudades").html(data);
+      $("#lista_ciudadesuno").html(data);
         }});
     }
     function obtenercampos() 
@@ -436,7 +436,7 @@ document.getElementById("prueba").value = shownVal;
 
 
           
-          
+
           <td>
           <input class="form-styling" type="text" name="destino1" id="destino1" placeholder="" title="destino1">
           </td>
