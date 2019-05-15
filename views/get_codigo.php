@@ -13,7 +13,7 @@
           $idgrupo = odbc_result($result, 1); $desgrupo = odbc_result($result, 2);
        //construimos lista nue
       	   
-           print $idgrupo.' '$desgrupo;   
+           print $idgrupo.' '.$desgrupo;   
       }
     }
 ?>
