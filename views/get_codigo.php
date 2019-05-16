@@ -1,6 +1,4 @@
 <?php
-    
- 
     //pasamos id del país
     if(!empty($_GET["codigo"])) 
     {
