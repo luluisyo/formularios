@@ -64,7 +64,6 @@ $(document).ready(function(){
     }
 
 
-  
 function obtenerCiudades2() 
        {
         var value2send = document.querySelector("#grupodos option[value='"+document.getElementById("grupo2").value+"']").dataset.value;
@@ -89,92 +88,13 @@ function obtenerCiudades2()
         url: "get_codigo.php",
         data:'codigo='+value2send,
         success: function(data)
-        {codigo2.value=data;
-          medida2.value='Mtrs';
-
+        {var ar=data.split(' ');
+          codigo1.value=ar[0];
+          medida1.value=ar[1];
         }});
     }
 
-
-
-
-    function obtenerCiudades3(val) 
-       {
-    $.ajax
-    ({
-        type: "POST",
-        url: "get_ciudad.php",
-        data:'id_pais='+val,
-        success: function(data)
-        {
-          descripcion3.value='';
-      $("#lista_ciudades3").html(data);
-        }});
-    }
-    function obtenercampos3(val) 
-       {
-    $.ajax
-    ({
-        type: "GET",
-        url: "get_codigo.php",
-        data:'codigo='+val,
-        success: function(data)
-        {codigo3.value=data;
-medida3.value='Mtrs';
-        }});
-    }
-
-function obtenerCiudades4(val) 
-       {
-    $.ajax
-    ({
-        type: "POST",
-        url: "get_ciudad.php",
-        data:'id_pais='+val,
-        success: function(data)
-        {
-          descripcion4.value='';
-      $("#lista_ciudades4").html(data);
-        }});
-    }
-    function obtenercampos4(val) 
-       {
-    $.ajax
-    ({
-        type: "GET",
-        url: "get_codigo.php",
-        data:'codigo='+val,
-        success: function(data)
-        {codigo4.value=data;
-medida4.value='Mtrs';
-        }});
-    }
-
-    function obtenerCiudades5(val) 
-       {
-    $.ajax
-    ({
-        type: "POST",
-        url: "get_ciudad.php",
-        data:'id_pais='+val,
-        success: function(data)
-        {
-          descripcion5.value='';
-      $("#lista_ciudades5").html(data);
-        }});
-    }
-    function obtenercampos5(val) 
-       {
-    $.ajax
-    ({
-        type: "GET",
-        url: "get_codigo.php",
-        data:'codigo='+val,
-        success: function(data)
-        {codigo5.value=data;
-medida5.value='Mtrs';
-        }});
-    }
+  
 
     function multiplicar1(){
   m1 = document.getElementById("cantidad1").value;
@@ -241,7 +161,11 @@ document.getElementById("prueba").value = shownVal;
       <ul class="links">
 
 
-
+<?php
+$conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+?>
 
 
         <li class="signin-active"><a class="btn" href="#">FORMULARIO 200</a></li>
@@ -414,14 +338,11 @@ document.getElementById("prueba").value = shownVal;
           <datalist name="pais" class="form-styling" id="grupouno">
           <option value=''>Seleccione grupo</option>
           <?php
-          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
-          $query = "SELECT * FROM OITB";
-          $result = odbc_exec($conn, $query);
+          
           while(odbc_fetch_row($result)){
           $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
           echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
           }
-          odbc_close($conn);
           ?>
           </datalist>
           </td>
@@ -482,12 +403,10 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
           <input class="form-styling" type="text" id='grupo2' name="grupo2" list="grupodos" onChange="obtenerCiudades2();" autocomplete="off">
-          <datalist name="pais" class="form-styling" id="grupouno" onChange="obtenerCiudades();">
+          <datalist name="pais" class="form-styling" id="grupodos">
           <option value=''>Seleccione grupo</option>
           <?php
-          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
-          $query = "SELECT * FROM OITB";
-          $result = odbc_exec($conn, $query);
+          
           while(odbc_fetch_row($result)){
           $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
           echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
