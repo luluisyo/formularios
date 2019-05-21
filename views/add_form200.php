@@ -412,7 +412,7 @@ document.getElementById("prueba").value = shownVal;
           $idgrupo = odbc_result($result1, 1);$desgrupo = odbc_result($result1, 2);
           echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
           }
-          odbc_close($conn);
+          odbc_close($conn1);
           ?>
           </datalist>
           </td>
