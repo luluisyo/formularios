@@ -89,8 +89,8 @@ function obtenerCiudades2()
         data:'codigo='+value2send,
         success: function(data)
         {var ar=data.split(' ');
-          codigo1.value=ar[0];
-          medida1.value=ar[1];
+          codigo2.value=ar[0];
+          medida2.value=ar[1];
         }});
     }
 
@@ -318,6 +318,12 @@ document.getElementById("prueba").value = shownVal;
 
 
 
+
+
+
+
+
+
           <tr>
           <td>
           <input class="form-styling" type="numero" name="item1" id="item1" value="1" title="item1" readonly="readonly">
@@ -413,8 +419,8 @@ document.getElementById("prueba").value = shownVal;
           </datalist>
           </td>
           <td>
-          <input class="form-styling" type="text" id="descripcion1" name="descripcion1" id="descripcion1" list="lista_ciudadesuno" onChange="obtenercampos();" autocomplete="off">
-          <datalist name="ciudad" id="lista_ciudadesuno" class="form-styling">
+          <input class="form-styling" type="text" id="descripcion2" name="descripcion2" id="descripcion2" list="lista_ciudadesdos" onChange="obtenercampos2();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadesdos" class="form-styling">
           <option value='Seleccione material' data-value="0"></option>
           <?php
           /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
@@ -429,30 +435,30 @@ document.getElementById("prueba").value = shownVal;
           </datalist>
           </td>
           <td>
-          <input class="form-styling" type="text" name="destino1" id="destino1" placeholder="" title="destino1">
+          <input class="form-styling" type="text" name="destino2" id="destino2" title="destino2">
           </td>
           <td>
-          <select class="form-styling" name="control1" id="control1">
+          <select class="form-styling" name="control2" id="control2">
             <option></option>
             <option>si</option>
             <option>no</option>
           </select>
           </td>
           <td>
-          <input class="form-styling" type="number" name="cantidad1" id="cantidad1" placeholder="" title="cantidad1"  onChange="multiplicar1();">
+          <input class="form-styling" type="number" name="cantidad2" id="cantidad2" title="cantidad2"  onChange="multiplicar2();">
           </td>
           <td>
           <input class="form-styling" type="text" name="medida2" id="medida2" placeholder="" title="medida2">
           </td>
           <td>
-          <select class="form-styling" type="text" name="moneda1" id="moneda1" placeholder="" title="moneda1">
+          <select class="form-styling" type="text" name="moneda2" id="moneda2" placeholder="" title="moneda2">
             <option></option><option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
-          <input class="form-styling" type="number" name="precio1" id="precio1" placeholder="" title="precio1"  onChange="multiplicar1();">
+          <input class="form-styling" type="number" name="precio2" id="precio2" placeholder="" title="precio2"  onChange="multiplicar2();">
           </td>
           <td>
-          <input class="form-styling" type="text" name="total1" id="total1" placeholder="" title="total1" value="" readonly="readonly">
+          <input class="form-styling" type="text" name="total2" id="total2" placeholder="" title="total2" value="" readonly="readonly">
           </td>
           </tr>
 
