@@ -33,7 +33,7 @@ $(document).ready(function(){
 });
 </script>
   <script>
-       function obtenerCiudades() 
+       function obtenerCiudades1() 
        {
         var value2send = document.querySelector("#grupouno option[value='"+document.getElementById("grupo1").value+"']").dataset.value;
     $.ajax
@@ -48,7 +48,7 @@ $(document).ready(function(){
       $("#lista_ciudadesuno").html(data);
         }});
     }
-    function obtenercampos() 
+    function obtenercampos1() 
        {
         var value2send = document.querySelector("#lista_ciudadesuno option[value='"+document.getElementById("descripcion1").value+"']").dataset.value;
     $.ajax
