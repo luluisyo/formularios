@@ -474,7 +474,7 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
           <input class="form-styling" type="text" id='grupo3' name="grupo3" list="grupotres" onChange="obtenerCiudades3();" autocomplete="off">
-          <datalist name="pais" class="form-styling" id="gruptres">
+          <datalist name="pais" class="form-styling" id="grupotres">
           <option value=''>Seleccione grupo</option>
           <?php
           $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
@@ -543,7 +543,7 @@ document.getElementById("prueba").value = shownVal;
           <input class="form-styling" type="text" name="codigo4" id="codigo4" title="codigo4" readonly="readonly">
           </td>
           <td>
-          <input class="form-styling" type="text" id='grupo4' name="grupo4" list="grupocutro" onChange="obtenerCiudades4();" autocomplete="off">
+          <input class="form-styling" type="text" id='grupo4' name="grupo4" list="grupocuatro" onChange="obtenerCiudades4();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupocuatro">
           <option value=''>Seleccione grupo</option>
           <?php
@@ -602,6 +602,10 @@ document.getElementById("prueba").value = shownVal;
           <input class="form-styling" type="text" name="total4" id="total4" title="total4" value="" readonly="readonly" onChange="sumart();">
           </td>
           </tr>
+
+
+
+
 
           <tr>
           <td>
