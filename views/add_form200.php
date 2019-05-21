@@ -280,7 +280,7 @@ document.getElementById("prueba").value = shownVal;
 <?php
 $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
           $query = "SELECT * FROM OITB";
-          $result = odbc_exec($conn, $query);
+        $result2 = $result1 = odbc_exec($conn, $query);
 ?>
 <div class="field_wrapper">
 <table border="10">            
@@ -335,8 +335,8 @@ $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes
           <option value=''>Seleccione grupo</option>
           <?php
           
-          while(odbc_fetch_row($result)){
-          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          while(odbc_fetch_row($result1)){
+          $idgrupo = odbc_result($result1, 1);$desgrupo = odbc_result($result1, 2);
           echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
           }
           ?>
@@ -403,8 +403,8 @@ $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes
           <option value=''>Seleccione grupo</option>
           <?php
           
-          while(odbc_fetch_row($result)){
-          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          while(odbc_fetch_row($result2)){
+          $idgrupo = odbc_result($result2, 1);$desgrupo = odbc_result($result2, 2);
           echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
           }
           odbc_close($conn);
