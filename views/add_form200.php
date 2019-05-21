@@ -57,8 +57,9 @@ $(document).ready(function(){
         url: "get_codigo.php",
         data:'codigo='+value2send,
         success: function(data)
-        {
-          codigo1.value=data;
+        {var ar=data.split(' ');
+          codigo1.value=ar;
+          medida1.value=ar[2];
         }});
     }
 
