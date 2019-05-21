@@ -4,6 +4,7 @@
 	    print "<script>alert(\"No puede realizar estas acciones.\");window.location='../views/view_user.php';</script>";
 	    exit;
 	  }
+	  
 $permiso=null;
 $detalle=null;
 if(!empty($_POST)){

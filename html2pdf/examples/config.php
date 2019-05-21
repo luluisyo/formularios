@@ -16,4 +16,6 @@
      $link->query("SET NAMES 'utf8'");   
      //Fin información sobre la base de datos
 
-?>
+
+     
+ ?>

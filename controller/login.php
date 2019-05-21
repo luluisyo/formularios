@@ -17,6 +17,9 @@
 				$apellido=$r["apellidos"];
 				$sexo=$r["sexo"];
 				$email=$r["email"];
+				$area=$r["area"];
+				$tipo=$r["tipo"];
+				
 				break;
 			}
 			mysqli_close($con);
@@ -31,6 +34,9 @@
 				$_SESSION["sexo"]=$sexo;
 				$_SESSION["email"]=$email;
 				$_SESSION["password"]=$password;
+				$_SESSION["area"]=$area;
+				$_SESSION["tipo"]=$tipo;
+				
 				if ($user_id == 0) {
 					print "<script>window.location='../views/view_user.php';</script>";
 				}

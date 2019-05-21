@@ -184,22 +184,15 @@ if(!isset($_SESSION["user_id"])){
 
 <a class='button form-styling' style="width: 30%; float: right;" href='?id=22#openModal'>Visualizar</a>
           
-                   <div  class='modalbg' id="openModal">
+                   <div  class='modalbg' id="openModal" >
                         <div class='dialog'>
                           <a href='#close' title='Close' class='close'>X</a>
-
-
-
 <?php
 require("../controller/conexion.php");
 $query=mysqli_query($con,("select * from form200 where idform=".$_GET['id']));
 $arreglo=mysqli_fetch_array($query);
-
 $query1=mysqli_query($con,("select * from requerimiento where idform=".$_GET['id']));
-
 ?>
-                          
-
     <table class="display table table-bordered table-hover nowrap" cellspacing="0" width="100%">
 
         <tr>  
@@ -314,16 +307,7 @@ $contador=$contador+1;
 mysqli_close($con);
 ?>
 </table>
-
-
 </div></div>
-
-
-
-
-
-
-
 
     <script src='../plugins/js/jquery-2.2.4.min.js'></script>
     <script src='../plugins/js/jquery.dataTables.min.js'></script>
@@ -371,12 +355,6 @@ mysqli_close($con);
     ]
     } );
 } );
-
-
-        $(document).on("click", ".open-Modal", function () {
-var myDNI = $(this).data('id');
-$(".modal-body #DNI").val( myDNI );
-});
     </script>
 </body>
 </html>

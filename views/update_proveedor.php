@@ -37,7 +37,7 @@ if(!isset($_SESSION["user_id"])){
     <?php 
           extract($_GET);
           require("../controller/conexion.php");
-          $sql="SELECT * FROM proveedor WHERE id_pro=$id";
+          $sql="SELECT * FROM form200 WHERE idform=$id";
           $ressql=mysqli_query($con,$sql);
           while ($row=mysqli_fetch_row($ressql)) {
             $nombre=$row[1];
@@ -54,7 +54,7 @@ if(!isset($_SESSION["user_id"])){
   <div class="frame3">
     <center>
     <div class="navi">
-      <ul class"links">
+      <ul class="links">
         <li class="signin-active"><a class="btn" href="#">Actualizar Proveedor</a></li>
       </ul>
     </div>

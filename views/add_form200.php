@@ -4,8 +4,8 @@ session_start();
 if(!isset($_SESSION["user_id"])){
     print "<script>alert(\"Acceso Restringido, Debe identificarse\");window.location='../index.php';</script>";
 }
-
 ?>
+
 <!DOCTYPE html>
 <html >
 <head>
@@ -228,13 +228,13 @@ document.getElementById("prueba").value = shownVal;
 
     <ul>
       <li><a href="../views/view_user.php" class="active"><span>Ver usuarios con acceso al sistema</span></a></li>
-      <li><a href="../controller/logout.php"><span>Salir: <?php echo $_SESSION["user_id"]  ?></span></a></li>
+      <li><a href="../controller/logout.php"><span>Salir: <?php echo $_SESSION["apellidos"]  ?></span></a></li>
     </ul>
     <span aria-hidden="true" class="stretchy-nav-bg"></span>
   </nav>
 
   <div class="container">
-  <form  action="../controller/add_user.php" method="post" name="form" enctype="multipart/form-data">
+  <form  action="../html2pdf/examples/exemple02.php" method="post" name="form" enctype="multipart/form-data">
   <div class="frame3">
     <center>
     <div class="navi">
@@ -247,7 +247,7 @@ document.getElementById("prueba").value = shownVal;
         <li class="signin-active"><a class="btn" href="#">FORMULARIO 200</a></li>
       </ul>
     </div>
-				  <div>
+          <div>
           
           <table>
             <tr>
@@ -280,8 +280,7 @@ document.getElementById("prueba").value = shownVal;
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">REQUIRIENTE DE LA COMPRA</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="requiriente"  placeholder="Requiriente" title="requiriente" required value="<?php echo $_SESSION["nombre"].' '.$_SESSION["apellido"];  ?>">
-                
+              <td colspan="5"><input class="form-styling" type="text" name="requiriente"  placeholder="Requiriente" title="requiriente" required>
           </td>
           <td></td><td></td>
             </tr>
@@ -295,7 +294,7 @@ document.getElementById("prueba").value = shownVal;
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">AREA:</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="area" id="area" placeholder="Area" title="area" required value="<?php echo $_SESSION["area"]  ?>">
+              <td colspan="5"><input class="form-styling" type="text" name="area" id="area" placeholder="Area" title="area" required>
           </td>
           <td></td><td></td>
             </tr>
@@ -348,7 +347,7 @@ document.getElementById("prueba").value = shownVal;
 <br/>
 <br/>
 
-
+<div class="field_wrapper">
 <table border="10">            
             
           <tr><td align="center">
@@ -393,42 +392,36 @@ document.getElementById("prueba").value = shownVal;
           <input class="form-styling" type="nnumero" name="item1" id="item1" value="1" title="item1" readonly="readonly">
           </td>
           <td>
-          <input class="form-styling" type="text" name="codigo1" id="codigo1" placeholder="" title="codigo1" >
+          <input class="form-styling" type="text" name="codigo1" id="codigo1" placeholder="" title="codigo1" readonly="readonly">
           </td>
-          
-          
-
           <td>
-          <input class="form-styling" type="text" id='grupo1' name="grupo1" list="grupodos" onChange="obtenerCiudades1();" autocomplete="off">
-          <datalist name="pais" class="form-styling" id="grupodos" onChange="obtenerCiudades();">
-          
+          <input class="form-styling" type="text" id='grupo1' name="grupo1" list="grupouno" onChange="obtenerCiudades();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="grupouno" onChange="obtenerCiudades();">
           <option value=''>Seleccione grupo</option>
-          <?php   
-          $consulta_paises   = $link->query("select id as 'valor', descripcion as 'descripcion' from paises order by descripcion");
-          while($row= $consulta_paises->fetch_object())
-          {echo "<option data-value='".$row->valor."' value = '".$row->descripcion."'></option>";}?>
-          </datalist>
-          </td>
-
-          <td>
-          <input class="form-styling" type="text" id="descripcion1" name="descripcion1" id="descripcion1" list="lista_ciudadesdos" onChange="obtenercampos1();" autocomplete="off">
-          <datalist name="ciudad" id="lista_ciudadesdos" class="form-styling">
-          <option value='Seleccione material' data-value="0"></option>
           <?php
-          while($row= $consulta_ciudades->fetch_object())
-          {echo "<option data-value='".$row->valor."' value='".$row->descripcion."'></option>";}
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
           ?>
           </datalist>
           </td>
-
+          <td>
+          <input class="form-styling" type="text" id="descripcion1" name="descripcion1" id="descripcion1" list="lista_ciudadesuno" onChange="obtenercampos();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadesuno" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
           
-
+          </datalist>
+          </td>
           <td>
           <input class="form-styling" type="text" name="destino1" id="destino1" placeholder="" title="destino1">
           </td>
           <td>
           <select class="form-styling" name="control1" id="control1">
-            <option></option>
             <option>si</option>
             <option>no</option>
           </select>
@@ -441,7 +434,65 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
           <select class="form-styling" type="text" name="moneda1" id="moneda1" placeholder="" title="moneda1">
-            <option></option><option>Bolivianos</option><option>Dolares</option></select>
+            <option>Bolivianos</option><option>Dolares</option>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="precio1" id="precio1" placeholder="" title="precio1"  onChange="multiplicar1();">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total1" id="total1" placeholder="" title="total1" value="" readonly="readonly">
+          </td>
+          </tr>
+
+
+          <tr>
+          <td>
+          <input class="form-styling" type="nnumero" name="item1" id="item1" value="1" title="item1" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo1" id="codigo1" placeholder="" title="codigo1" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" id='grupo1' name="grupo1" list="grupouno" onChange="obtenerCiudades();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="grupouno" onChange="obtenerCiudades();">
+          <option value=''>Seleccione grupo</option>
+          <?php
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          ?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" id="descripcion1" name="descripcion1" id="descripcion1" list="lista_ciudadesuno" onChange="obtenercampos();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadesuno" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
+          
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="destino1" id="destino1" placeholder="" title="destino1">
+          </td>
+          <td>
+          <select class="form-styling" name="control1" id="control1">
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="cantidad1" id="cantidad1" placeholder="" title="cantidad1"  onChange="multiplicar1();">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida1" id="medida1" placeholder="" title="medida1">
+          </td>
+          <td>
+          <select class="form-styling" type="text" name="moneda1" id="moneda1" placeholder="" title="moneda1">
+            <option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
           <input class="form-styling" type="number" name="precio1" id="precio1" placeholder="" title="precio1"  onChange="multiplicar1();">
@@ -456,15 +507,12 @@ document.getElementById("prueba").value = shownVal;
 
 
 
-
-
-
           <tr>
           <td>
           <input class="form-styling" type="nnumero" name="item2" id="item2" value="2" title="item2" readonly="readonly">
           </td>
           <td>
-          <input class="form-styling" type="text" name="codigo2" id="codigo2" list="lista_codigo" placeholder="" title="codigo2">
+          <input class="form-styling" type="text" name="codigo2" id="codigo2" list="lista_codigo" placeholder="" title="codigo2" readonly="readonly">
           </td>
           
           <td>
@@ -495,7 +543,6 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
           <select class="form-styling" name="control2" id="control2">
-            <option></option>
             <option>si</option>
             <option>no</option>
           </select>
@@ -508,7 +555,7 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
           <select class="form-styling" type="text" name="moneda2" id="moneda2" placeholder="" title="moneda2">
-            <option></option><option>Bolivianos</option><option>Dolares</option></select>
+            <option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
           <input class="form-styling" type="number" name="precio2" id="precio2" placeholder="" title="precio2"  onChange="multiplicar2();">
@@ -536,7 +583,7 @@ document.getElementById("prueba").value = shownVal;
           <input class="form-styling" type="nnumero" name="item3" id="item3" value="3" title="item3" readonly="readonly">
           </td>
           <td>
-          <input class="form-styling" type="text" name="codigo3" id="codigo3" list="lista_codigo" placeholder="" title="codigo3">
+          <input class="form-styling" type="text" name="codigo3" id="codigo3" list="lista_codigo" placeholder="" title="codigo3" readonly="readonly">
           </td>
           
           <td>
@@ -568,7 +615,6 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
           <select class="form-styling" name="control3" id="control3">
-            <option></option>
             <option>si</option>
             <option>no</option>
           </select>
@@ -581,7 +627,7 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
                     <select class="form-styling" type="text" name="moneda3" id="moneda3" placeholder="" title="moneda3">
-            <option></option><option>Bolivianos</option><option>Dolares</option></select>
+            <option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
           <input class="form-styling" type="number" name="precio3" id="precio3" placeholder="" title="precio3" onChange="multiplicar3();">
@@ -628,7 +674,6 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
           <select class="form-styling" name="control4" id="control4">
-            <option></option>
             <option>si</option>
             <option>no</option>
           </select>
@@ -641,7 +686,7 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
                     <select class="form-styling" type="text" name="moneda4" id="moneda4" placeholder="" title="moneda4">
-            <option></option><option>Bolivianos</option><option>Dolares</option></select>
+            <option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
           <input class="form-styling" type="number" name="precio4" id="precio4" placeholder="" title="precio4" onChange="multiplicar4();">
@@ -688,8 +733,7 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
           <select class="form-styling" name="control5" id="control5">
-            
-            <option></option><option>si</option>
+            <option>si</option>
             <option>no</option>
           </select>
           </td>
@@ -701,8 +745,7 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
                     <select class="form-styling" type="text" name="moneda5" id="moneda5" placeholder="" title="moneda5">
-            <option></option><option>Bolivianos</option><option>Dolares</option>
-          </select>
+            <option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
           <input class="form-styling" type="number" name="precio5" id="precio5" placeholder="" title="precio5" onChange="multiplicar5();">
@@ -726,35 +769,34 @@ document.getElementById("prueba").value = shownVal;
   <td colspan="2"></td>
   <td colspan="3"></td>
   </tr>    
-<tr><td> 
-  <label class="form-styling">OBSERVACION</label>
- <input class="form-styling" type="text" placeholder="OBSERVACION" name="observacion" id="observacion"></td></tr>
-
           <tr>
             <td colspan="4"></td>
             <td>
           <input class="btn-signup" type="submit" value="ENVIAR FORMULARIO">
           <div class="row cf" style="color: red"><p id="error"></p></div>
-         
-
+          </div>
           </td>
           </tr>
           </center>
           </table>
-</div>
+
   </form>
   <br/>
   <br/>
 
 
 
+<input list="answers" id="answer" onChange="obtener();">
+<datalist id="answers">
+  <option data-value="42" value="The answer">
+  <option data-value="43" value="The answer 3">
+    
+</datalist>
 
+prueba<input type="text" name="prueba" id="prueba">
 
 
 </div>
-
-
-          
   <script type="text/javascript" src='../js/jquery.min.js'></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" src='../js/angular.min.js'></script>

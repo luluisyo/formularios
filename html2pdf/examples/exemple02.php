@@ -1,67 +1,111 @@
+<?php
 
-   <!DOCTYPE html>
-   <html>
-   <head>
-       <title></title>
-   </head>
-   <body>
-   
-   
+    ob_start();
+        $var_servidor_bd="localhost"; // Servidor de la base de datos, casi siempre localhost
+     $var_nombre_bd="rekadmin";   // Nombre de la base de datos
+     $var_usuario_bd="root";  // Usuario de la base de datos
+     $var_password_bd="";
+      // Contraseña de la base de datos
+     $link = mysqli_connect($var_servidor_bd, $var_usuario_bd, $var_password_bd, $var_nombre_bd);
+ 
+
+ $row= ($link->query("select * from form200 where idform=".$_GET['id']))->fetch_object();
+ $requi= ($link->query("select * from requerimiento where idform=".$_GET['id']));
+ 
+?>
+<style type="text/css">
+<!--
+table
+{
+    width:  100%;
+    border: solid 1px #5544DD;
+
+}
+
+th
+{
+    text-align: center;
+    border: solid 1px #113300;
+    background: #EEFFEE;
+}
+
+td
+{
+    text-align: left;
+    border: solid 1px #55DD44;
+}
+
+td.col1
+{
+    border: solid 1px red;
+    text-align: right;
+}
+
+-->
+</style>
+
 <page style="font-size: 10pt">
     
-    <table style="width: 90%;" align="center">
+
+    <table style="width: 90%; font-size: 16px;" align="center">
+
         <tr>
-            <td style="width: 20%; text-align: center; "><img src="./res/tcpdf_logo.jpg" alt="" ></td>
-            <td style="width: 50%; text-align: center;">GERENCIA DE ADMINISTRACION Y FINANZAS                           
-<br>FORMULARIO 200 - REQUERIMIENTO DE COMPRA y/o CONTRATACION DE SERVICIOS                          
+            <td style="width: 25%; text-align: center; "><img src="./res/tcpdf_logo.jpg" alt="" ></td>
+            <td style="width: 55%; text-align: center;"><h3>GERENCIA DE ADMINISTRACION Y FINANZAS</h3>                           
+ REQUERIMIENTO DE COMPRA y/o CONTRATACION DE SERVICIOS
+
+FORMULARIO 200                          
 </td>
-            <td style="width: 30%; text-align: right; "></td>
+            <td style="width: 20%; text-align: center; "><?php echo $row->idform; ?></td>
+        </tr>
+    </table >
+z90e-2hwh
+        <table style="width: 90%; font-size: 16px;" align="center" >
+        <tr>
+            <td style="width: 60%; text-align: center;background-color: #5544DD;  border-radius:9px;">DATOS BASICOS</td>
         </tr>
     </table >
     
-<table style="width: 90%;" align="center" border="1">
-        <tr>
-        <td colspan="2" align="center">DATOS BASICOS</td>
-    </tr>
+    <table style="width: 90%; font-size: 16px;" align="center" border="1">
     <tr>
         <td>REQUIRIENTE DE LA COMPRA:</td>
-        <td><?php echo $_POST['requiriente']; ?></td>
+        <td><?php echo $row->requiriente; ?></td>
     </tr>
         <tr>
         <td>EMPRESA:</td>
-        <td><?php echo $_POST['empresa']; ?></td>
+        <td><?php echo $row->emprersa; ?></td>
     </tr>
 
     <tr>
         <td>AREA:</td>
-        <td><?php echo $_POST['area']; ?></td>
+        <td><?php echo $row->area; ?></td>
     </tr>
 
     <tr>
         <td>PROVEEDOR:</td>
-        <td><?php echo $_POST['proveedor']; ?></td>
+        <td><?php echo $row->proveedor; ?></td>
     </tr>
 
     <tr>
         <td>CHEQUE A NOMBRE DE:</td>
-        <td><?php echo $_POST['cheque']; ?></td>
+        <td><?php echo $row->cheque; ?></td>
     </tr>
 
     <tr>
         <td>PROFORMA O COTIZACION APROBADA ADJUNTA:</td>
-        <td><?php echo $_POST['proforma']; ?></td>
+        <td><?php echo $row->proforma; ?></td>
     </tr>
         <tr>
         <td>CONDICION DE PAO SEGUN PROFORMA:</td>
-        <td><?php echo $_POST['condicion']; ?></td>
+        <td><?php echo $row->condicion; ?></td>
     </tr>
         <tr>
         <td>FECHA DE REQUERIEMIENTO:</td>
-        <td><?php echo $_POST['fecha']; ?></td>
+        <td><?php echo $row->fecha; ?></td>
     </tr>
         <tr>
         <td>PROYECTO:</td>
-        <td><?php echo $_POST['proyecto']; ?></td>
+        <td><?php echo $row->proyecto; ?></td>
     </tr>
 
 </table>
@@ -71,9 +115,9 @@
         <th>
         ITEM    
         </th>
-           <th>
+        <th><h2>
             CODIGO
-        </th>
+        </h2></th>
      
         <th>
             GRUPO
@@ -105,71 +149,31 @@
         </th>
      </tr>
 <tr>
-    <td><?php echo $_POST['item1'] ?></td>
-    <td><?php echo $_POST['codigo1'] ?></td>
-    <td><?php echo $_POST['grupo1'] ?></td>
-    <td><?php echo $_POST['descripcion1'] ?></td>
-    <td><?php echo $_POST['destino1'] ?></td>
-    <td><?php echo $_POST['control1'] ?></td>
-    <td><?php echo $_POST['cantidad1'] ?></td>
-    <td><?php echo $_POST['medida1'] ?></td>
-    <td><?php echo $_POST['moneda1'] ?></td>
-    <td><?php echo $_POST['precio1'] ?></td>
-    <td><?php echo $_POST['total1'] ?></td>
-</tr>
-<tr>
-    <td><?php echo $_POST['item2'] ?></td>
-    <td><?php echo $_POST['codigo2'] ?></td>
-    <td><?php echo $_POST['grupo2'] ?></td>
-    <td><?php echo $_POST['descripcion2'] ?></td>
-    <td><?php echo $_POST['destino2'] ?></td>
-    <td><?php echo $_POST['control2'] ?></td>
-    <td><?php echo $_POST['cantidad2'] ?></td>
-    <td><?php echo $_POST['medida2'] ?></td>
-    <td><?php echo $_POST['moneda2'] ?></td>
-    <td><?php echo $_POST['precio2'] ?></td>
-    <td><?php echo $_POST['total2'] ?></td>
-</tr>
-<tr>
-    <td><?php echo $_POST['item3'] ?></td>
-    <td><?php echo $_POST['codigo3'] ?></td>
-    <td><?php echo $_POST['grupo3'] ?></td>
-    <td><?php echo $_POST['descripcion3'] ?></td>
-    <td><?php echo $_POST['destino3'] ?></td>
-    <td><?php echo $_POST['control3'] ?></td>
-    <td><?php echo $_POST['cantidad3'] ?></td>
-    <td><?php echo $_POST['medida3'] ?></td>
-    <td><?php echo $_POST['moneda3'] ?></td>
-    <td><?php echo $_POST['precio3'] ?></td>
-    <td><?php echo $_POST['total3'] ?></td>
-</tr>
-<tr>
-    <td><?php echo $_POST['item4'] ?></td>
-    <td><?php echo $_POST['codigo4'] ?></td>
-    <td><?php echo $_POST['grupo4'] ?></td>
-    <td><?php echo $_POST['descripcion4'] ?></td>
-    <td><?php echo $_POST['destino4'] ?></td>
-    <td><?php echo $_POST['control4'] ?></td>
-    <td><?php echo $_POST['cantidad4'] ?></td>
-    <td><?php echo $_POST['medida4'] ?></td>
-    <td><?php echo $_POST['moneda4'] ?></td>
-    <td><?php echo $_POST['precio4'] ?></td>
-    <td><?php echo $_POST['total4'] ?></td>
-</tr>
-<tr>
-    <td><?php echo $_POST['item5'] ?></td>
-    <td><?php echo $_POST['codigo5'] ?></td>
-    <td><?php echo $_POST['grupo5'] ?></td>
-    <td><?php echo $_POST['descripcion5'] ?></td>
-    <td><?php echo $_POST['destino5'] ?></td>
-    <td><?php echo $_POST['control5'] ?></td>
-    <td><?php echo $_POST['cantidad5'] ?></td>
-    <td><?php echo $_POST['medida5'] ?></td>
-    <td><?php echo $_POST['moneda5'] ?></td>
-    <td><?php echo $_POST['precio5'] ?></td>
-    <td><?php echo $_POST['total5'] ?></td>
-</tr>
 
+    <?php 
+    $contador=1;
+while($row2= $requi->fetch_object()){
+echo '<tr>
+<td>'.$contador.'</td>
+<td>'.$row2->codigo.'</td>
+<td>'.$row2->grupo.'</td>
+<td>'.$row2->descripcion.'</td>
+<td>'.$row2->destino.'</td>
+<td>'.$row2->control.'</td>
+<td>'.$row2->cantidad.'</td>
+<td>'.$row2->unidad.'</td>
+<td>'.$row2->moneda.'</td>
+<td>'.$row2->precio.'</td>
+<td>'.$row2->total.'</td>
+</tr>';
+$contador=$contador+1;
+}
+     
+
+?>
+
+    
+</tr>
 <tr>
 <td colspan="2">"Elaborado por: 
 <br/>(Nombre, Cargo y Firma)"    
@@ -186,7 +190,20 @@
 </table>
 
 
+</page>
+  <?php  $content = ob_get_clean();
 
-
-</body>
-   </html>
+    // convert in PDF
+    require_once(dirname(__FILE__).'/../html2pdf.class.php');
+    try
+    {
+        $html2pdf = new HTML2PDF('L', 'Letter', 'en');
+        $html2pdf->setDefaultFont('Arial','',20); 
+        $html2pdf->pdf->SetDisplayMode('fullpage');
+        $html2pdf->writeHTML($content, isset($_GET['vuehtml']));
+        $html2pdf->Output('exemple01.pdf');
+    }
+    catch(HTML2PDF_exception $e) {
+        echo $e;
+        exit;
+    }

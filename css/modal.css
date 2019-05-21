@@ -38,18 +38,18 @@
   pointer-events: none;
 }
 .modalbg .dialog {
-  width: 400px;
+  width: 90%;
   position: relative;
   top: -1000px;
-  margin: 10% auto;
+  margin: 5% auto;
   padding: 5px 20px 13px 20px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
   background: #fff;
-  background: -moz-linear-gradient(#fff, #ccc);
-  background: -webkit-linear-gradient(#fff, #ccc);
-  background: -o-linear-gradient(#fff, #ccc);
+  background: -moz-linear-gradient(#fff, #fff);
+  background: -webkit-linear-gradient(#fff, #fff);
+  background: -o-linear-gradient(#fff, #fff);
   box-shadow: 0 0 10px #000;
   -moz-box-shadow: 0 0 10px #000;
   -webkit-box-shadow: 0 0 10px #000;

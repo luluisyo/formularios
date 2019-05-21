@@ -2286,7 +2286,7 @@ if (!defined('__CLASS_HTML2PDF__')) {
                     if ($background['img']) {
                         // get the size of the image
                         // WARNING : if URL, "allow_url_fopen" must turned to "on" in php.ini
-                        $infos=[@getimagesize($background['img'])];
+                        $infos=@getimagesize($background['img']);
                         if (count($infos)>1) {
                             $imageWidth = $this->parsingCss->ConvertToMM($background['width'], $this->pdf->getW());
                             $imageHeight = $imageWidth*$infos[1]/$infos[0];

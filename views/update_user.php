@@ -10,7 +10,7 @@ else{
 }
 ?>
 <!DOCTYPE html>
-<html >
+<html>
 <head>
   <meta charset="UTF-8">
   <title>REKADMIN</title>
@@ -32,7 +32,7 @@ else{
 
     <ul>
       <li><a href="../views/view_user.php" class="active"><span>Ver usuarios con acceso al sistema</span></a></li>
-      <li><a href="../controller/logout.php"><span>Salir: <?php echo $_SESSION["nombre"]  ?></span></a></li>
+      <li><a href="../controller/logout.php"><span>Salir: <?php echo $_SESSION["nombre"] ?></span></a></li>
     </ul>
     <span aria-hidden="true" class="stretchy-nav-bg"></span>
   </nav>

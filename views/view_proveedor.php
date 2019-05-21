@@ -3,6 +3,7 @@ session_start();
 if(!isset($_SESSION["user_id"])){
 		print "<script>alert(\"Acceso Restringido, Debe identificarse\");window.location='../index.php';</script>";
 }
+//if(!($_SESSION["tipo"]=='m')){print "<script>alert(\"Acceso Restringido, solo administrador\");window.location='./add_user.php';</script>";}
 ?>
 <!DOCTYPE html>
 <html lang="en" >
