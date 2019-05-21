@@ -280,7 +280,7 @@ document.getElementById("prueba").value = shownVal;
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">REQUIRIENTE DE LA COMPRA</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="requiriente"  placeholder="Requiriente" title="requiriente" value="<?php echo $_SESSION["nombre"].' '.$_SESSION["apellido"];  ?>" required>
+              <td colspan="5"><input class="form-styling" type="text" name="requiriente" readonly="readonly" placeholder="Requiriente" title="requiriente" value="<?php echo $_SESSION["nombre"].' '.$_SESSION["apellido"]; ?>" >
           </td>
           <td></td><td></td>
             </tr>
@@ -294,7 +294,7 @@ document.getElementById("prueba").value = shownVal;
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">AREA:</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="area" id="area" placeholder="Area" title="area" value="<?php echo $_SESSION["area"];  ?>" required>
+              <td colspan="5"><input class="form-styling" type="text" name="area" readonly="readonly" id="area" placeholder="Area" title="area" value="<?php echo $_SESSION["area"];  ?>" required >
           </td>
           <td></td><td></td>
             </tr>
@@ -404,13 +404,84 @@ document.getElementById("prueba").value = shownVal;
 
           <tr>
           <td>
-          <input class="form-styling" type="nnumero" name="item1" id="item1" value="1" title="item1" readonly="readonly">
+          <input class="form-styling" type="numero" name="item1" id="item1" value="1" title="item1" readonly="readonly">
           </td>
           <td>
-          <input class="form-styling" type="text" name="codigo1" id="codigo1" placeholder="" title="codigo1" readonly="readonly">
+          <input class="form-styling" type="text" name="codigo1" id="codigo1" title="codigo1" readonly="readonly">
           </td>
           <td>
-          <input class="form-styling" type="text" id='grupo1' name="grupo1" list="grupouno" onChange="obtenerCiudades();" autocomplete="off">
+          <input class="form-styling" type="text" id='grupo1' name="grupo1" list="grupouno" onChange="obtenerCiudades1();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="grupouno">
+          <option value=''>Seleccione grupo</option>
+          <?php
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          ?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" id="descripcion1" name="descripcion1" id="descripcion1" list="lista_ciudadesuno" onChange="obtenercampos1();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadesuno" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
+          <?php
+          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          */?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="destino1" id="destino1" title="destino1" autocomplete="off">
+          </td>
+          <td>
+          <select class="form-styling" name="control1" id="control1">
+            <option></option>
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="cantidad1" id="cantidad1" title="cantidad1"  onChange="multiplicar1();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida1" id="medida1" title="medida1" readonly="readonly">
+          </td>
+          <td>
+          <select class="form-styling" type="text" name="moneda1" id="moneda1" title="moneda1">
+            <option></option><option>Bolivianos</option><option>Dolares</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="precio1" id="precio1" title="precio1"  onChange="multiplicar1();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total1" id="total1" title="total1" value="" readonly="readonly" onChange="sumart();">
+          </td>
+          </tr>
+
+
+
+
+          <tr>
+          <td>
+          <input class="form-styling" type="numero" name="item2" id="item2" value="2" title="item2" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo2" id="codigo2"  title="codigo2" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" id='grupo2' name="grupo2" list="grupodos" onChange="obtenerCiudades2();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupouno" onChange="obtenerCiudades();">
           <option value=''>Seleccione grupo</option>
           <?php
@@ -477,256 +548,9 @@ document.getElementById("prueba").value = shownVal;
 
 
 
-          <tr>
-          <td>
-          <input class="form-styling" type="nnumero" name="item2" id="item2" value="2" title="item2" readonly="readonly">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo2" id="codigo2" list="lista_codigo" placeholder="" title="codigo2" readonly="readonly">
-          </td>
-          
-          <td>
-          <input class="form-styling" type="text" id='grupo2' name="grupo2" list="grupodos" onChange="obtenerCiudades2();" autocomplete="off">
-          <datalist name="pais" class="form-styling" id="grupodos" onChange="obtenerCiudades();">
-          
-          <option value=''>Seleccione grupo</option>
-          <?php   
-          $consulta_paises   = $link->query("select id as 'valor', descripcion as 'descripcion' from paises order by descripcion");
-          while($row= $consulta_paises->fetch_object())
-          {echo "<option data-value='".$row->valor."' value = '".$row->descripcion."'></option>";}?>
-          </datalist>
-          </td>
-
-          <td>
-          <input class="form-styling" type="text" id="descripcion2" name="descripcion2" id="descripcion2" list="lista_ciudadesdos" onChange="obtenercampos2();" autocomplete="off">
-          <datalist name="ciudad" id="lista_ciudadesdos" class="form-styling">
-          <option value='Seleccione material' data-value="0"></option>
-          <?php
-          while($row= $consulta_ciudades->fetch_object())
-          {echo "<option data-value='".$row->valor."' value='".$row->descripcion."'></option>";}
-          ?>
-          </datalist>
-          </td>
-          
-          <td>
-          <input class="form-styling" type="text" name="destino2" id="destino2" placeholder="" title="destino2">
-          </td>
-          <td>
-          <select class="form-styling" name="control2" id="control2">
-            <option>si</option>
-            <option>no</option>
-          </select>
-          </td>
-          <td>
-          <input class="form-styling" type="number" name="cantidad2" id="cantidad2" placeholder="" title="cantidad2"  onChange="multiplicar2();">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="medida2" id="medida2" placeholder="" title="medida2">
-          </td>
-          <td>
-          <select class="form-styling" type="text" name="moneda2" id="moneda2" placeholder="" title="moneda2">
-            <option>Bolivianos</option><option>Dolares</option>
-          </td>
-          <td>
-          <input class="form-styling" type="number" name="precio2" id="precio2" placeholder="" title="precio2"  onChange="multiplicar2();">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="total2" id="total2" placeholder="" title="total2" value="" readonly="readonly">
-          </td>
-          </tr>
-
-
-
-
-
-
-
-
-
-
-
-
-
+         
 
 <tr>
-          <td>
-          <input class="form-styling" type="nnumero" name="item3" id="item3" value="3" title="item3" readonly="readonly">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo3" id="codigo3" list="lista_codigo" placeholder="" title="codigo3" readonly="readonly">
-          </td>
-          
-          <td>
-          <input class="form-styling" type="text" name="grupo3" list="grupo" onChange="obtenerCiudades3(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades3(this.value);">
-          <option value=''>Seleccione grupo</option>
-          <?php   
-          $consulta_paises   = $link->query("select id as 'valor', descripcion as 'descripcion' from paises order by descripcion");
-          
-          while($row= $consulta_paises->fetch_object())
-          {echo "<option value='".$row->valor."' label='".$row->descripcion."'>".$row->descripcion."</option>";}
-          ?>
-          </datalist>
-          </td>
-
-          <td>
-          <input class="form-styling" type="text" name="descripcion3" id="descripcion3" list="lista_ciudades3" onChange="obtenercampos3(this.value);">
-          <datalist name="ciudad" id="lista_ciudades3" class="form-styling">
-          <option value=''>Seleccione material</option>
-          <?php
-          while($row= $consulta_ciudades->fetch_object())
-          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
-          ?>
-          </datalist>
-          </td>
-          
-          <td>
-          <input class="form-styling" type="text" name="destino3" id="destino3" placeholder="" title="destino3">
-          </td>
-          <td>
-          <select class="form-styling" name="control3" id="control3">
-            <option>si</option>
-            <option>no</option>
-          </select>
-          </td>
-          <td>
-          <input class="form-styling" type="number" name="cantidad3" id="cantidad3" placeholder="" title="cantidad3" onChange="multiplicar3();">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="medida3" id="medida3" placeholder="" title="medida3">
-          </td>
-          <td>
-                    <select class="form-styling" type="text" name="moneda3" id="moneda3" placeholder="" title="moneda3">
-            <option>Bolivianos</option><option>Dolares</option>
-          </td>
-          <td>
-          <input class="form-styling" type="number" name="precio3" id="precio3" placeholder="" title="precio3" onChange="multiplicar3();">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="total3" id="total3" placeholder="" title="total3" readonly="readonly">
-          </td>
-          </tr>
-
-
-
-           <tr>
-          <td>
-          <input class="form-styling" type="nnumero" name="item4" id="item4" value="4" title="item4" readonly="readonly">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo4" id="codigo4" list="lista_codigo" placeholder="" title="codigo4" readonly="readonly">
-          </td>
-          
-          <td>
-          <input class="form-styling" type="text" name="grupo4" list="grupo" onChange="obtenerCiudades4(this.id);">
-          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades4(this.id);">
-          <option value=''>Seleccione grupo</option>
-          <?php   
-          while($row= $consulta_paises->fetch_object())
-          {echo "<option value='".$row->valor."' id='".$row->valor."'>".$row->descripcion."</option>";}
-          ?>
-          </datalist>
-          </td>
-
-          <td>
-          <input class="form-styling" type="text" name="descripcion4" id="descripcion4" list="lista_ciudades4" onChange="obtenercampos4(this.value);">
-          <datalist name="ciudad" id="lista_ciudades4" class="form-styling">
-          <option value=''>Seleccione material</option>
-          <?php
-          while($row= $consulta_ciudades->fetch_object())
-          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
-          ?>
-          </datalist>
-          </td>
-          
-          <td>
-          <input class="form-styling" type="text" name="destino4" id="destino4" placeholder="" title="destino4">
-          </td>
-          <td>
-          <select class="form-styling" name="control4" id="control4">
-            <option>si</option>
-            <option>no</option>
-          </select>
-          </td>
-          <td>
-          <input class="form-styling" type="number" name="cantidad4" id="cantidad4" placeholder="" title="cantidad4" onChange="multiplicar4();">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="medida4" id="medida4" placeholder="" title="medida4">
-          </td>
-          <td>
-                    <select class="form-styling" type="text" name="moneda4" id="moneda4" placeholder="" title="moneda4">
-            <option>Bolivianos</option><option>Dolares</option>
-          </td>
-          <td>
-          <input class="form-styling" type="number" name="precio4" id="precio4" placeholder="" title="precio4" onChange="multiplicar4();">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="total4" id="total4" placeholder="" title="total4" readonly="readonly">
-          </td>
-          </tr>
-
-
-
-<tr>
-          <td>
-          <input class="form-styling" type="nnumero" name="item5" id="item5" value="5" title="item5" readonly="readonly">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo5" id="codigo5" list="lista_codigo" placeholder="" title="codigo5" readonly="readonly">
-          </td>
-          
-          <td>
-          <input class="form-styling" type="text" name="grupo5" list="grupo" onChange="obtenerCiudades5(this.value);">
-          <datalist name="pais" class="form-styling" id="grupo" onChange="obtenerCiudades5(this.value);">
-          <option value=''>Seleccione grupo</option>
-          <?php   
-          while($row= $consulta_paises->fetch_object())
-          {echo "<option value='".$row->valor."' label='".$row->descripcion."'>".$row->descripcion."</option>";}
-          ?>
-          </datalist>
-          </td>
-
-          <td>
-          <input class="form-styling" type="text" name="descripcion5" id="descripcion5" list="lista_ciudades5" onChange="obtenercampos5(this.value);">
-          <datalist name="ciudad" id="lista_ciudades5" class="form-styling">
-          <option value=''>Seleccione material</option>
-          <?php
-          while($row= $consulta_ciudades->fetch_object())
-          {echo "<option value='".$row->valor."'>".$row->descripcion."</option>";}
-          ?>
-          </datalist>
-          </td>
-          
-          <td>
-          <input class="form-styling" type="text" name="destino5" id="destino5" placeholder="" title="destino5">
-          </td>
-          <td>
-          <select class="form-styling" name="control5" id="control5">
-            <option>si</option>
-            <option>no</option>
-          </select>
-          </td>
-          <td>
-          <input class="form-styling" type="number" name="cantidad5" id="cantidad5" placeholder="" title="cantidad5" onChange="multiplicar5();">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="medida5" id="medida5" placeholder="" title="medida5">
-          </td>
-          <td>
-                    <select class="form-styling" type="text" name="moneda5" id="moneda5" placeholder="" title="moneda5">
-            <option>Bolivianos</option><option>Dolares</option>
-          </td>
-          <td>
-          <input class="form-styling" type="number" name="precio5" id="precio5" placeholder="" title="precio5" onChange="multiplicar5();">
-          </td>
-          <td>
-          <input class="form-styling" type="text" name="total5" id="total5" placeholder="" title="total5" readonly="readonly">
-          </td>
-          </tr>          
-
-<tr>
-  
   <td colspan="2">
    <label class="form-styling"> Elaborado por:<br/> 
 (Nombre, Cargo y Firma) </label> 
