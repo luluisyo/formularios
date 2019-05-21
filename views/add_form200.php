@@ -421,16 +421,8 @@ document.getElementById("prueba").value = shownVal;
           <input class="form-styling" type="text" id="descripcion1" name="descripcion1" id="descripcion1" list="lista_ciudadesuno" onChange="obtenercampos();" autocomplete="off">
           <datalist name="ciudad" id="lista_ciudadesuno" class="form-styling">
           <option value='Seleccione material' data-value="0"></option>
-          <?php
-          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
-          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
-          $result = odbc_exec($conn, $query);
-          while(odbc_fetch_row($result)){
-          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
-          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
-          }
-          odbc_close($conn);
-          ?>
+          
+          
           </datalist>
           </td>
 
