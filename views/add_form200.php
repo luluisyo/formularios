@@ -1308,16 +1308,6 @@ document.getElementById("prueba").value = shownVal;
 
 
 
-<input list="answers" id="answer" onChange="obtener();">
-<datalist id="answers">
-  <option data-value="42" value="The answer">
-  <option data-value="43" value="The answer 3">
-    
-</datalist>
-
-prueba<input type="text" name="prueba" id="prueba">
-
-
 </div>
   <script type="text/javascript" src='../js/jquery.min.js'></script>
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
