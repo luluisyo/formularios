@@ -3,7 +3,7 @@
     if(!empty($_GET["codigo"])) 
     {
                $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
-          $query = "SELECT ItemCode, ItemName, ItmsGrpCod, InvntryUom FROM OITM WHERE ItemCode= '" . $_GET["codigo"] . "';";
+          $query = "SELECT ItemCode, InvntryUom FROM OITM WHERE ItemCode= '" . $_GET["codigo"] . "';";
               
               $result = odbc_exec($conn, $query);
    
