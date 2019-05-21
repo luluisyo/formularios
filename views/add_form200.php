@@ -234,7 +234,7 @@ document.getElementById("prueba").value = shownVal;
   </nav>
 
   <div class="container">
-  <form  action="../html2pdf/examples/exemple02.php" method="post" name="form" enctype="multipart/form-data">
+  <form  action="../controller/add_user.php" method="post" name="form" enctype="multipart/form-data">
   <div class="frame3">
     <center>
     <div class="navi">
@@ -280,7 +280,7 @@ document.getElementById("prueba").value = shownVal;
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">REQUIRIENTE DE LA COMPRA</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="requiriente"  placeholder="Requiriente" title="requiriente" required>
+              <td colspan="5"><input class="form-styling" type="text" name="requiriente"  placeholder="Requiriente" title="requiriente" value="<?php echo $_SESSION["nombre"].' '.$_SESSION["apellido"];  ?>" required>
           </td>
           <td></td><td></td>
             </tr>
@@ -394,16 +394,10 @@ document.getElementById("prueba").value = shownVal;
           <td>
           <input class="form-styling" type="text" name="codigo1" id="codigo1" placeholder="" title="codigo1" readonly="readonly">
           </td>
-          
-          
-
           <td>
-
           <input class="form-styling" type="text" id='grupo1' name="grupo1" list="grupouno" onChange="obtenerCiudades();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupouno" onChange="obtenerCiudades();">
-          
           <option value=''>Seleccione grupo</option>
-
           <?php
           $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
           $query = "SELECT * FROM OITB";
@@ -416,24 +410,28 @@ document.getElementById("prueba").value = shownVal;
           ?>
           </datalist>
           </td>
-
           <td>
           <input class="form-styling" type="text" id="descripcion1" name="descripcion1" id="descripcion1" list="lista_ciudadesuno" onChange="obtenercampos();" autocomplete="off">
           <datalist name="ciudad" id="lista_ciudadesuno" class="form-styling">
           <option value='Seleccione material' data-value="0"></option>
-          
-          
+          <?php
+          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          */?>
           </datalist>
           </td>
-
-
-          
-
           <td>
           <input class="form-styling" type="text" name="destino1" id="destino1" placeholder="" title="destino1">
           </td>
           <td>
           <select class="form-styling" name="control1" id="control1">
+            <option></option>
             <option>si</option>
             <option>no</option>
           </select>
@@ -446,7 +444,7 @@ document.getElementById("prueba").value = shownVal;
           </td>
           <td>
           <select class="form-styling" type="text" name="moneda1" id="moneda1" placeholder="" title="moneda1">
-            <option>Bolivianos</option><option>Dolares</option>
+            <option></option><option>Bolivianos</option><option>Dolares</option>
           </td>
           <td>
           <input class="form-styling" type="number" name="precio1" id="precio1" placeholder="" title="precio1"  onChange="multiplicar1();">
