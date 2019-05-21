@@ -280,7 +280,8 @@ document.getElementById("prueba").value = shownVal;
 <?php
 $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
           $query = "SELECT * FROM OITB";
-        $result2 = $result1 = odbc_exec($conn, $query);
+         $result1 = odbc_exec($conn, $query);
+         $result2 = $result1;
 ?>
 <div class="field_wrapper">
 <table border="10">            
@@ -334,7 +335,6 @@ $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes
           <datalist name="pais" class="form-styling" id="grupouno">
           <option value=''>Seleccione grupo</option>
           <?php
-          
           while(odbc_fetch_row($result1)){
           $idgrupo = odbc_result($result1, 1);$desgrupo = odbc_result($result1, 2);
           echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
