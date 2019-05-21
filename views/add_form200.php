@@ -346,7 +346,7 @@ function obtenerCiudades10()
   m2 = document.getElementById("precio1").value;
   r = m1*m2;
   document.getElementById("total1").value = r;
- document.getElementById("totalt").value = document.getElementById("totalt").value + r;
+ document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
 
 }
 
