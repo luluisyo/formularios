@@ -223,7 +223,7 @@ document.getElementById("prueba").value = shownVal;
           <option value=''>Seleccione proveedor</option>
           <?php
           $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
-          $query = "SELECT CardName FROM OPQT";
+          $query = "SELECT DISTINCT CardName FROM OPQT";
           $result = odbc_exec($conn, $query);
           while(odbc_fetch_row($result)){
           $idgrupo = odbc_result($result, 1);
