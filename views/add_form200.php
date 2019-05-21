@@ -280,8 +280,8 @@ document.getElementById("prueba").value = shownVal;
 <?php
 $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
           $query = "SELECT * FROM OITB";
+         $result1 = odbc_exec($conn, $query);
          $result2 = odbc_exec($conn, $query);
-         
 ?>
 <div class="field_wrapper">
 <table border="10">            
