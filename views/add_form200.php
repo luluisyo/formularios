@@ -160,14 +160,6 @@ document.getElementById("prueba").value = shownVal;
     <div class="navi">
       <ul class="links">
 
-
-<?php
-$conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
-          $query = "SELECT * FROM OITB";
-          $result = odbc_exec($conn, $query);
-?>
-
-
         <li class="signin-active"><a class="btn" href="#">FORMULARIO 200</a></li>
       </ul>
     </div>
@@ -285,7 +277,11 @@ $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes
 <center><h2>DATOS BASICOS DEL PRODUCTO</h2></center>
 <br/>
 <br/>
-
+<?php
+$conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+?>
 <div class="field_wrapper">
 <table border="10">            
             
