@@ -95,6 +95,37 @@ function obtenerCiudades2()
     }
 
   
+function obtenerCiudades3() 
+       {
+        var value3send = document.querySelector("#grupotres option[value='"+document.getElementById("grupo3").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+value3send,
+        success: function(data)
+        {
+          descripcion3.value='';
+
+      $("#lista_ciudadestres").html(data);
+        }});
+    }
+    function obtenercampos3() 
+       {
+        var value3send = document.querySelector("#lista_ciudadestres option[value='"+document.getElementById("descripcion3").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+value3send,
+        success: function(data)
+        {var ar=data.split(' ');
+          codigo3.value=ar[0];
+          medida3.value=ar[1];
+        }});
+    }
+
+
 
     function multiplicar1(){
   m1 = document.getElementById("cantidad1").value;
