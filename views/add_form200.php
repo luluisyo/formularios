@@ -372,12 +372,61 @@ function multiplicar5(){
   r = m1*m2;
   document.getElementById("total5").value = r;
 }
-
-function obtener(){
-var shownVal = document.getElementById("answer").value;
-var value2send = document.querySelector("#answers option[value='"+shownVal+"']").dataset.value;
-document.getElementById("prueba").value = shownVal;
+function multiplicar5(){
+  m1 = document.getElementById("cantidad5").value;
+  m2 = document.getElementById("precio5").value;
+  r = m1*m2;
+  document.getElementById("total5").value = r;
 }
+function multiplicar6(){
+  m1 = document.getElementById("cantidad6").value;
+  m2 = document.getElementById("precio6").value;
+  r = m1*m2;
+  document.getElementById("total6").value = r;
+}
+function multiplicar7(){
+  m1 = document.getElementById("cantidad7").value;
+  m2 = document.getElementById("precio7").value;
+  r = m1*m2;
+  document.getElementById("total7").value = r;
+}
+function multiplicar8(){
+  m1 = document.getElementById("cantidad8").value;
+  m2 = document.getElementById("precio8").value;
+  r = m1*m2;
+  document.getElementById("total8").value = r;
+}
+function multiplicar9(){
+  m1 = document.getElementById("cantidad9").value;
+  m2 = document.getElementById("precio9").value;
+  r = m1*m2;
+  document.getElementById("total9").value = r;
+}
+function multiplicar10(){
+  m1 = document.getElementById("cantidad10").value;
+  m2 = document.getElementById("precio10").value;
+  r = m1*m2;
+  document.getElementById("total10").value = r;
+}
+
+function sumart(){
+  m1 = document.getElementById("total1").value;
+  m2 = document.getElementById("total2").value;
+  m3 = document.getElementById("total3").value;
+  m4 = document.getElementById("total4").value;
+  m5 = document.getElementById("total5").value;
+  m6 = document.getElementById("total6").value;
+  m7 = document.getElementById("total7").value;
+  m8 = document.getElementById("total8").value;
+  m9 = document.getElementById("total9").value;
+  m10 = document.getElementById("total10").value;
+ 
+
+  r = m1+m2+m3+m4+m5+m6+m7+m8+m9+m10;
+  document.getElementById("totalt").value = r;
+}
+
+
   </script>
  
   <?php
@@ -1267,15 +1316,10 @@ document.getElementById("prueba").value = shownVal;
           </td>
           </tr>
 
-
-
-
-
-
-
-
-
-
+<tr>
+  <td colspan="10"></td>
+  <td><input class="form-styling" type="text" name="totalt" id="totalt" title="totalt" value="" readonly="readonly"></td>
+</tr>
          
 
 <tr>
@@ -1283,7 +1327,7 @@ document.getElementById("prueba").value = shownVal;
    <label class="form-styling"> Elaborado por:<br/> 
 (Nombre, Cargo y Firma) </label> 
 </td>
-  <td colspan="2"></td>
+  <td colspan="2">  </td>
   <td colspan="2"></td>
   <td colspan="2"><label class="form-styling">Autorizado por:<br/>
 (Nombre, Cargo y Firma)    </label>
