@@ -126,6 +126,220 @@ function obtenerCiudades3()
     }
 
 
+function obtenerCiudades4() 
+       {
+        var value4send = document.querySelector("#grupocuatro option[value='"+document.getElementById("grupo4").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+value4send,
+        success: function(data)
+        {
+          descripcion4.value='';
+
+      $("#lista_ciudadescuatro").html(data);
+        }});
+    }
+    function obtenercampos4() 
+       {
+        var value4send = document.querySelector("#lista_ciudadescuatro option[value='"+document.getElementById("descripcion4").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+value4send,
+        success: function(data)
+        {var ar=data.split(' ');
+          codigo4.value=ar[0];
+          medida4.value=ar[1];
+        }});
+    }
+
+function obtenerCiudades5() 
+       {
+        var value5send = document.querySelector("#grupocinco option[value='"+document.getElementById("grupo5").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+value5send,
+        success: function(data)
+        {
+          descripcion5.value='';
+
+      $("#lista_ciudadescinco").html(data);
+        }});
+    }
+    function obtenercampos5() 
+       {
+        var value5send = document.querySelector("#lista_ciudadescinco option[value='"+document.getElementById("descripcion5").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+value5send,
+        success: function(data)
+        {var ar=data.split(' ');
+          codigo5.value=ar[0];
+          medida5.value=ar[1];
+        }});
+    }
+
+
+function obtenerCiudades6() 
+       {
+        var value6send = document.querySelector("#gruposeis option[value='"+document.getElementById("grupo6").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+value6send,
+        success: function(data)
+        {
+          descripcion6.value='';
+
+      $("#lista_ciudadesseis").html(data);
+        }});
+    }
+    function obtenercampos6() 
+       {
+        var value6send = document.querySelector("#lista_ciudadesseis option[value='"+document.getElementById("descripcion6").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+value6send,
+        success: function(data)
+        {var ar=data.split(' ');
+          codigo6.value=ar[0];
+          medida6.value=ar[1];
+        }});
+    }
+
+
+function obtenerCiudades7() 
+       {
+        var value7send = document.querySelector("#gruposiete option[value='"+document.getElementById("grupo7").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+value7send,
+        success: function(data)
+        {
+          descripcion7.value='';
+
+      $("#lista_ciudadessiete").html(data);
+        }});
+    }
+    function obtenercampos7() 
+       {
+        var value7send = document.querySelector("#lista_ciudadessiete option[value='"+document.getElementById("descripcion7").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+value7send,
+        success: function(data)
+        {var ar=data.split(' ');
+          codigo7.value=ar[0];
+          medida7.value=ar[1];
+        }});
+    }
+
+function obtenerCiudades8() 
+       {
+        var value8send = document.querySelector("#grupoocho option[value='"+document.getElementById("grupo8").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+value8send,
+        success: function(data)
+        {
+          descripcion8.value='';
+
+      $("#lista_ciudadesocho").html(data);
+        }});
+    }
+    function obtenercampos8() 
+       {
+        var value8send = document.querySelector("#lista_ciudadesocho option[value='"+document.getElementById("descripcion8").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+value8send,
+        success: function(data)
+        {var ar=data.split(' ');
+          codigo8.value=ar[0];
+          medida8.value=ar[1];
+        }});
+    }
+
+function obtenerCiudades9() 
+       {
+        var value9send = document.querySelector("#gruponueve option[value='"+document.getElementById("grupo9").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+value9send,
+        success: function(data)
+        {
+          descripcion9.value='';
+
+      $("#lista_ciudadesnueve").html(data);
+        }});
+    }
+    function obtenercampos9() 
+       {
+        var value9send = document.querySelector("#lista_ciudadesnueve option[value='"+document.getElementById("descripcion9").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+value9send,
+        success: function(data)
+        {var ar=data.split(' ');
+          codigo9.value=ar[0];
+          medida9.value=ar[1];
+        }});
+    }
+
+function obtenerCiudades10() 
+       {
+        var value10send = document.querySelector("#grupodiez option[value='"+document.getElementById("grupo10").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "POST",
+        url: "get_ciudad.php",
+        data:'id_pais='+value10send,
+        success: function(data)
+        {
+          descripcion10.value='';
+
+      $("#lista_ciudadesdiez").html(data);
+        }});
+    }
+    function obtenercampos10() 
+       {
+        var value10send = document.querySelector("#lista_ciudadesdiez option[value='"+document.getElementById("descripcion10").value+"']").dataset.value;
+    $.ajax
+    ({
+        type: "GET",
+        url: "get_codigo.php",
+        data:'codigo='+value10send,
+        success: function(data)
+        {var ar=data.split(' ');
+          codigo10.value=ar[0];
+          medida10.value=ar[1];
+        }});
+    }
+
+
+
 
     function multiplicar1(){
   m1 = document.getElementById("cantidad1").value;
