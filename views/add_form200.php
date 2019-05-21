@@ -89,8 +89,8 @@ function obtenerCiudades2()
         data:'codigo='+value2send,
         success: function(data)
         {var ar=data.split(' ');
-          codigo1.value=ar[0];
-          medida1.value=ar[1];
+          codigo2.value=ar[0];
+          medida2.value=ar[1];
         }});
     }
 
@@ -277,12 +277,7 @@ document.getElementById("prueba").value = shownVal;
 <center><h2>DATOS BASICOS DEL PRODUCTO</h2></center>
 <br/>
 <br/>
-<?php
-$conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
-          $query = "SELECT * FROM OITB";
-         $result1 = odbc_exec($conn, $query);
-         $result2 = odbc_exec($conn, $query);
-?>
+
 <div class="field_wrapper">
 <table border="10">            
             
@@ -335,10 +330,14 @@ $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes
           <datalist name="pais" class="form-styling" id="grupouno">
           <option value=''>Seleccione grupo</option>
           <?php
-          while(odbc_fetch_row($result1)){
-          $idgrupo = odbc_result($result1, 1);$desgrupo = odbc_result($result1, 2);
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
           echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
           }
+          odbc_close($conn);
           ?>
           </datalist>
           </td>
@@ -402,9 +401,11 @@ $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes
           <datalist name="pais" class="form-styling" id="grupodos">
           <option value=''>Seleccione grupo</option>
           <?php
-          
-          while(odbc_fetch_row($result2)){
-          $idgrupo = odbc_result($result2, 1);$desgrupo = odbc_result($result2, 2);
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
           echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
           }
           odbc_close($conn);
