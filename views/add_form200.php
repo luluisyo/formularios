@@ -409,8 +409,8 @@ document.getElementById("prueba").value = shownVal;
           $query1 = "SELECT * FROM OITB";
           $result1 = odbc_exec($conn1, $query1);
           while(odbc_fetch_row($result1)){
-          $idgrupo = odbc_result($result1, 1);$desgrupo = odbc_result($result1, 2);
-          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          $idgrupo1 = odbc_result($result1, 1);$desgrupo1 = odbc_result($result1, 2);
+          echo "<option data-value='".$idgrupo1."' value = '".$desgrupo1."'></option>";
           }
           odbc_close($conn1);
           ?>
