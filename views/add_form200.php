@@ -59,7 +59,7 @@ $(document).ready(function(){
         success: function(data)
         {var ar=data.split(' ');
           codigo1.value=ar[0];
-          medida1.value=ar[2];
+          medida1.value=ar[1];
         }});
     }
 
