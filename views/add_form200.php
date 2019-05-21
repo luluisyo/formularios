@@ -1314,13 +1314,13 @@ function sumart(){
           <input class="form-styling" type="number" name="precio10" id="precio10" title="precio10"  onChange="multiplicar10();" autocomplete="off">
           </td>
           <td>
-          <input class="form-styling" type="text" name="total10" id="total10" title="total10" value="0" readonly="readonly" onChange="sumart();">
+          <input class="form-styling" type="text" name="total10" id="total10" title="total10" value="" readonly="readonly" onChange="sumart();">
           </td>
           </tr>
 
 <tr>
   <td colspan="10"></td>
-  <td><input class="form-styling" type="text" name="totalt" id="totalt" title="totalt" value="" readonly="readonly"></td>
+  <td><input class="form-styling" type="text" name="totalt" id="totalt" title="totalt" value="0" readonly="readonly"></td>
 </tr>
          
 
