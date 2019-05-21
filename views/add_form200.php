@@ -1314,7 +1314,7 @@ function multiplicar10(){
           </tr>
 
 <tr>
-  <td colspan="10"><label class="form-styling">TOTAL</label></td>
+  <td colspan="10"><label>TOTAL</label></td>
   <td><input class="form-styling" type="text" name="totalt" id="totalt" title="totalt" value="0" readonly="readonly"></td>
 </tr>
          
