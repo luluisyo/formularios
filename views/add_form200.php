@@ -139,10 +139,7 @@ document.getElementById("prueba").value = shownVal;
 }
   </script>
  
-  <?php
-      $consulta_paises = $link->query("select id as 'valor', descripcion as 'descripcion' from paises order by descripcion");
-      $consulta_ciudades = $link->query("select id as 'valor', descripcion as 'descripcion' from ciudades order by descripcion");
-  ?>
+  
 
   <nav class="cd-stretchy-nav">
     <a class="cd-nav-trigger" href="#0">
@@ -463,7 +460,7 @@ document.getElementById("prueba").value = shownVal;
 
 
 
-
+<!--
           <tr>
           <td>
           <input class="form-styling" type="numero" name="item3" id="item3" value="3" title="item3" readonly="readonly">
@@ -1018,7 +1015,7 @@ document.getElementById("prueba").value = shownVal;
           </tr>
 
 
-
+-->
          
 
 <tr>
