@@ -94,6 +94,10 @@ function obtenerCiudades2()
         }});
     }
 
+
+
+
+
   
 
     function multiplicar1(){
@@ -394,14 +398,14 @@ document.getElementById("prueba").value = shownVal;
           <input class="form-styling" type="numero" name="item2" id="item2" value="2" title="item2" readonly="readonly">
           </td>
           <td>
-          <input class="form-styling" type="text" name="codigo2" id="codigo2"  title="codigo2" readonly="readonly">
+          <input class="form-styling" type="text" name="codigo2" id="codigo2" title="codigo2" readonly="readonly">
           </td>
           <td>
           <input class="form-styling" type="text" id='grupo2' name="grupo2" list="grupodos" onChange="obtenerCiudades2();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupodos">
           <option value=''>Seleccione grupo</option>
           <?php
-          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia22345');
           $query = "SELECT * FROM OITB";
           $result = odbc_exec($conn, $query);
           while(odbc_fetch_row($result)){
@@ -413,15 +417,15 @@ document.getElementById("prueba").value = shownVal;
           </datalist>
           </td>
           <td>
-          <input class="form-styling" type="text" id="descripcion1" name="descripcion1" id="descripcion1" list="lista_ciudadesuno" onChange="obtenercampos();" autocomplete="off">
-          <datalist name="ciudad" id="lista_ciudadesuno" class="form-styling">
+          <input class="form-styling" type="text" id="descripcion2" name="descripcion2" id="descripcion2" list="lista_ciudadesdos" onChange="obtenercampos2();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadesdos" class="form-styling">
           <option value='Seleccione material' data-value="0"></option>
           <?php
-          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia12345');
+          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia22345');
           $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
           $result = odbc_exec($conn, $query);
           while(odbc_fetch_row($result)){
-          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          $idgrupo = odbc_result($result, 2);$desgrupo = odbc_result($result, 2);
           echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
           }
           odbc_close($conn);
@@ -429,38 +433,589 @@ document.getElementById("prueba").value = shownVal;
           </datalist>
           </td>
           <td>
-          <input class="form-styling" type="text" name="destino1" id="destino1" placeholder="" title="destino1">
+          <input class="form-styling" type="text" name="destino2" id="destino2" title="destino2" autocomplete="off">
           </td>
           <td>
-          <select class="form-styling" name="control1" id="control1">
+          <select class="form-styling" name="control2" id="control2">
             <option></option>
             <option>si</option>
             <option>no</option>
           </select>
           </td>
           <td>
-          <input class="form-styling" type="number" name="cantidad1" id="cantidad1" placeholder="" title="cantidad1"  onChange="multiplicar1();">
+          <input class="form-styling" type="number" name="cantidad2" id="cantidad2" title="cantidad2"  onChange="multiplicar2();" autocomplete="off">
           </td>
           <td>
-          <input class="form-styling" type="text" name="medida2" id="medida2" placeholder="" title="medida2">
+          <input class="form-styling" type="text" name="medida2" id="medida2" title="medida2" readonly="readonly">
           </td>
           <td>
-          <select class="form-styling" type="text" name="moneda1" id="moneda1" placeholder="" title="moneda1">
+          <select class="form-styling" type="text" name="moneda2" id="moneda2" title="moneda2">
             <option></option><option>Bolivianos</option><option>Dolares</option>
+          </select>
           </td>
           <td>
-          <input class="form-styling" type="number" name="precio1" id="precio1" placeholder="" title="precio1"  onChange="multiplicar1();">
+          <input class="form-styling" type="number" name="precio2" id="precio2" title="precio2"  onChange="multiplicar2();" autocomplete="off">
           </td>
           <td>
-          <input class="form-styling" type="text" name="total1" id="total1" placeholder="" title="total1" value="" readonly="readonly">
+          <input class="form-styling" type="text" name="total2" id="total2" title="total2" value="" readonly="readonly" onChange="sumart();">
           </td>
           </tr>
 
 
 
 
+          <tr>
+          <td>
+          <input class="form-styling" type="numero" name="item3" id="item3" value="3" title="item3" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo3" id="codigo3" title="codigo3" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" id='grupo3' name="grupo3" list="grupotres" onChange="obtenerCiudades3();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="gruptres">
+          <option value=''>Seleccione grupo</option>
+          <?php
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia33345');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          ?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" id="descripcion3" name="descripcion3" id="descripcion3" list="lista_ciudadestres" onChange="obtenercampos3();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadestres" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
+          <?php
+          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia33345');
+          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 3);$desgrupo = odbc_result($result, 3);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          */?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="destino3" id="destino3" title="destino3" autocomplete="off">
+          </td>
+          <td>
+          <select class="form-styling" name="control3" id="control3">
+            <option></option>
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="cantidad3" id="cantidad3" title="cantidad3"  onChange="multiplicar3();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida3" id="medida3" title="medida3" readonly="readonly">
+          </td>
+          <td>
+          <select class="form-styling" type="text" name="moneda3" id="moneda3" title="moneda3">
+            <option></option><option>Bolivianos</option><option>Dolares</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="precio3" id="precio3" title="precio3"  onChange="multiplicar3();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total3" id="total3" title="total3" value="" readonly="readonly" onChange="sumart();">
+          </td>
+          </tr>
 
 
+
+          <tr>
+          <td>
+          <input class="form-styling" type="numero" name="item4" id="item4" value="4" title="item4" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo4" id="codigo4" title="codigo4" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" id='grupo4' name="grupo4" list="grupocutro" onChange="obtenerCiudades4();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="grupocuatro">
+          <option value=''>Seleccione grupo</option>
+          <?php
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia44445');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          ?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" id="descripcion4" name="descripcion4" id="descripcion4" list="lista_ciudadescuatro" onChange="obtenercampos4();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadescuatro" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
+          <?php
+          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia44445');
+          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 4);$desgrupo = odbc_result($result, 4);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          */?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="destino4" id="destino4" title="destino4" autocomplete="off">
+          </td>
+          <td>
+          <select class="form-styling" name="control4" id="control4">
+            <option></option>
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="cantidad4" id="cantidad4" title="cantidad4"  onChange="multiplicar4();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida4" id="medida4" title="medida4" readonly="readonly">
+          </td>
+          <td>
+          <select class="form-styling" type="text" name="moneda4" id="moneda4" title="moneda4">
+            <option></option><option>Bolivianos</option><option>Dolares</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="precio4" id="precio4" title="precio4"  onChange="multiplicar4();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total4" id="total4" title="total4" value="" readonly="readonly" onChange="sumart();">
+          </td>
+          </tr>
+
+          <tr>
+          <td>
+          <input class="form-styling" type="numero" name="item5" id="item5" value="5" title="item5" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo5" id="codigo5" title="codigo5" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" id='grupo5' name="grupo5" list="grupocinco" onChange="obtenerCiudades5();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="grupocinco">
+          <option value=''>Seleccione grupo</option>
+          <?php
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia55555');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          ?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" id="descripcion5" name="descripcion5" id="descripcion5" list="lista_ciudadescinco" onChange="obtenercampos5();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadescinco" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
+          <?php
+          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia55555');
+          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 5);$desgrupo = odbc_result($result, 5);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          */?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="destino5" id="destino5" title="destino5" autocomplete="off">
+          </td>
+          <td>
+          <select class="form-styling" name="control5" id="control5">
+            <option></option>
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="cantidad5" id="cantidad5" title="cantidad5"  onChange="multiplicar5();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida5" id="medida5" title="medida5" readonly="readonly">
+          </td>
+          <td>
+          <select class="form-styling" type="text" name="moneda5" id="moneda5" title="moneda5">
+            <option></option><option>Bolivianos</option><option>Dolares</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="precio5" id="precio5" title="precio5"  onChange="multiplicar5();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total5" id="total5" title="total5" value="" readonly="readonly" onChange="sumart();">
+          </td>
+          </tr>
+
+
+          <tr>
+          <td>
+          <input class="form-styling" type="numero" name="item6" id="item6" value="6" title="item6" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo6" id="codigo6" title="codigo6" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" id='grupo6' name="grupo6" list="gruposeis" onChange="obtenerCiudades6();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="gruposeis">
+          <option value=''>Seleccione grupo</option>
+          <?php
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia66666');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          ?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" id="descripcion6" name="descripcion6" id="descripcion6" list="lista_ciudadesseis" onChange="obtenercampos6();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadesseis" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
+          <?php
+          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia66666');
+          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 6);$desgrupo = odbc_result($result, 6);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          */?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="destino6" id="destino6" title="destino6" autocomplete="off">
+          </td>
+          <td>
+          <select class="form-styling" name="control6" id="control6">
+            <option></option>
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="cantidad6" id="cantidad6" title="cantidad6"  onChange="multiplicar6();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida6" id="medida6" title="medida6" readonly="readonly">
+          </td>
+          <td>
+          <select class="form-styling" type="text" name="moneda6" id="moneda6" title="moneda6">
+            <option></option><option>Bolivianos</option><option>Dolares</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="precio6" id="precio6" title="precio6"  onChange="multiplicar6();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total6" id="total6" title="total6" value="" readonly="readonly" onChange="sumart();">
+          </td>
+          </tr>
+
+
+
+          <tr>
+          <td>
+          <input class="form-styling" type="numero" name="item7" id="item7" value="7" title="item7" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo7" id="codigo7" title="codigo7" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" id='grupo7' name="grupo7" list="gruposiete" onChange="obtenerCiudades7();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="gruposiete">
+          <option value=''>Seleccione grupo</option>
+          <?php
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia77777');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          ?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" id="descripcion7" name="descripcion7" id="descripcion7" list="lista_ciudadessiete" onChange="obtenercampos7();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadessiete" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
+          <?php
+          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia77777');
+          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 7);$desgrupo = odbc_result($result, 7);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          */?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="destino7" id="destino7" title="destino7" autocomplete="off">
+          </td>
+          <td>
+          <select class="form-styling" name="control7" id="control7">
+            <option></option>
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="cantidad7" id="cantidad7" title="cantidad7"  onChange="multiplicar7();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida7" id="medida7" title="medida7" readonly="readonly">
+          </td>
+          <td>
+          <select class="form-styling" type="text" name="moneda7" id="moneda7" title="moneda7">
+            <option></option><option>Bolivianos</option><option>Dolares</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="precio7" id="precio7" title="precio7"  onChange="multiplicar7();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total7" id="total7" title="total7" value="" readonly="readonly" onChange="sumart();">
+          </td>
+          </tr>
+
+
+          <tr>
+          <td>
+          <input class="form-styling" type="numero" name="item8" id="item8" value="8" title="item8" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo8" id="codigo8" title="codigo8" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" id='grupo8' name="grupo8" list="grupoocho" onChange="obtenerCiudades8();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="grupoocho">
+          <option value=''>Seleccione grupo</option>
+          <?php
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia88888');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          ?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" id="descripcion8" name="descripcion8" id="descripcion8" list="lista_ciudadesocho" onChange="obtenercampos8();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadesocho" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
+          <?php
+          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia88888');
+          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 8);$desgrupo = odbc_result($result, 8);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          */?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="destino8" id="destino8" title="destino8" autocomplete="off">
+          </td>
+          <td>
+          <select class="form-styling" name="control8" id="control8">
+            <option></option>
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="cantidad8" id="cantidad8" title="cantidad8"  onChange="multiplicar8();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida8" id="medida8" title="medida8" readonly="readonly">
+          </td>
+          <td>
+          <select class="form-styling" type="text" name="moneda8" id="moneda8" title="moneda8">
+            <option></option><option>Bolivianos</option><option>Dolares</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="precio8" id="precio8" title="precio8"  onChange="multiplicar8();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total8" id="total8" title="total8" value="" readonly="readonly" onChange="sumart();">
+          </td>
+          </tr>
+
+
+
+          <tr>
+          <td>
+          <input class="form-styling" type="numero" name="item9" id="item9" value="9" title="item9" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo9" id="codigo9" title="codigo9" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" id='grupo9' name="grupo9" list="gruponueve" onChange="obtenerCiudades9();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="gruponueve">
+          <option value=''>Seleccione grupo</option>
+          <?php
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia99999');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          ?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" id="descripcion9" name="descripcion9" id="descripcion9" list="lista_ciudadesnueve" onChange="obtenercampos9();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadesnueve" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
+          <?php
+          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia99999');
+          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 9);$desgrupo = odbc_result($result, 9);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          */?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="destino9" id="destino9" title="destino9" autocomplete="off">
+          </td>
+          <td>
+          <select class="form-styling" name="control9" id="control9">
+            <option></option>
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="cantidad9" id="cantidad9" title="cantidad9"  onChange="multiplicar9();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida9" id="medida9" title="medida9" readonly="readonly">
+          </td>
+          <td>
+          <select class="form-styling" type="text" name="moneda9" id="moneda9" title="moneda9">
+            <option></option><option>Bolivianos</option><option>Dolares</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="precio9" id="precio9" title="precio9"  onChange="multiplicar9();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total9" id="total9" title="total9" value="" readonly="readonly" onChange="sumart();">
+          </td>
+          </tr>
+
+
+          <tr>
+          <td>
+          <input class="form-styling" type="numero" name="item10" id="item10" value="10" title="item10" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="codigo10" id="codigo10" title="codigo10" readonly="readonly">
+          </td>
+          <td>
+          <input class="form-styling" type="text" id='grupo10' name="grupo10" list="grupodiez" onChange="obtenerCiudades10();" autocomplete="off">
+          <datalist name="pais" class="form-styling" id="grupodiez">
+          <option value=''>Seleccione grupo</option>
+          <?php
+          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia1010101010');
+          $query = "SELECT * FROM OITB";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          ?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" id="descripcion10" name="descripcion10" id="descripcion10" list="lista_ciudadesdiez" onChange="obtenercampos10();" autocomplete="off">
+          <datalist name="ciudad" id="lista_ciudadesdiez" class="form-styling">
+          <option value='Seleccione material' data-value="0"></option>
+          <?php
+          /* $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia1010101010');
+          $query = "SELECT ItemCode, ItemName, ItmsGrpCod ,InvntItem FROM OITM";
+          $result = odbc_exec($conn, $query);
+          while(odbc_fetch_row($result)){
+          $idgrupo = odbc_result($result, 10);$desgrupo = odbc_result($result, 10);
+          echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
+          }
+          odbc_close($conn);
+          */?>
+          </datalist>
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="destino10" id="destino10" title="destino10" autocomplete="off">
+          </td>
+          <td>
+          <select class="form-styling" name="control10" id="control10">
+            <option></option>
+            <option>si</option>
+            <option>no</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="cantidad10" id="cantidad10" title="cantidad10"  onChange="multiplicar10();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="medida10" id="medida10" title="medida10" readonly="readonly">
+          </td>
+          <td>
+          <select class="form-styling" type="text" name="moneda10" id="moneda10" title="moneda10">
+            <option></option><option>Bolivianos</option><option>Dolares</option>
+          </select>
+          </td>
+          <td>
+          <input class="form-styling" type="number" name="precio10" id="precio10" title="precio10"  onChange="multiplicar10();" autocomplete="off">
+          </td>
+          <td>
+          <input class="form-styling" type="text" name="total10" id="total10" title="total10" value="" readonly="readonly" onChange="sumart();">
+          </td>
+          </tr>
 
 
 
