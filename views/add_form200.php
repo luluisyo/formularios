@@ -405,11 +405,11 @@ document.getElementById("prueba").value = shownVal;
           <datalist name="pais" class="form-styling" id="grupodos">
           <option value=''>Seleccione grupo</option>
           <?php
-          $conn = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia22345');
-          $query = "SELECT * FROM OITB";
-          $result = odbc_exec($conn, $query);
-          while(odbc_fetch_row($result)){
-          $idgrupo = odbc_result($result, 1);$desgrupo = odbc_result($result, 2);
+          $conn1 = odbc_connect("Driver=FreeTDS;DSN=test;Database=MOLINO_ANDINO", 'Reportes', 'Bolivia22345');
+          $query1 = "SELECT * FROM OITB";
+          $result1 = odbc_exec($conn1, $query1);
+          while(odbc_fetch_row($result1)){
+          $idgrupo = odbc_result($result1, 1);$desgrupo = odbc_result($result1, 2);
           echo "<option data-value='".$idgrupo."' value = '".$desgrupo."'></option>";
           }
           odbc_close($conn);
