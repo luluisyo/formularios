@@ -58,7 +58,7 @@ $(document).ready(function(){
         data:'codigo='+value2send,
         success: function(data)
         {var ar=data.split(' ');
-          codigo1.value=ar;
+          codigo1.value=ar[0];
           medida1.value=ar[2];
         }});
     }
@@ -526,7 +526,7 @@ document.getElementById("prueba").value = shownVal;
           <input class="form-styling" type="number" name="cantidad1" id="cantidad1" placeholder="" title="cantidad1"  onChange="multiplicar1();">
           </td>
           <td>
-          <input class="form-styling" type="text" name="medida1" id="medida1" placeholder="" title="medida1">
+          <input class="form-styling" type="text" name="medida2" id="medida2" placeholder="" title="medida2">
           </td>
           <td>
           <select class="form-styling" type="text" name="moneda1" id="moneda1" placeholder="" title="moneda1">
