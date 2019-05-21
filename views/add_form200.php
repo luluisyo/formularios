@@ -294,14 +294,14 @@ document.getElementById("prueba").value = shownVal;
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">AREA:</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="area" id="area" placeholder="Area" title="area" value="<?php echo $_SESSION["area"]  ?>" required>
+              <td colspan="5"><input class="form-styling" type="text" name="area" id="area" placeholder="Area" title="area" value="<?php echo $_SESSION["area"];  ?>" required>
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">PROVEEDOR:</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="proveedor" id="proveedor" placeholder="Proveedor" title="proveedor" required>
+              <td colspan="5">
           <input class="form-styling" type="text" id='proveedor' name="proveedor" list="prove" autocomplete="off" placeholder="Proveedor">
           <datalist name="pais" class="form-styling" id="prove">
           <option value=''>Seleccione proveedor</option>
