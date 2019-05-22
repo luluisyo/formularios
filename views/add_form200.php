@@ -438,7 +438,7 @@ function multiplicar10(){
     </a>
 
     <ul>
-      <li><a href="../views/view_user.php" class="active"><span>Ver usuarios con acceso al sistema</span></a></li>
+      <li><a href="../views/view_form200.php" class="active"><span>Ver formularios</span></a></li>
       <li><a href="../controller/logout.php"><span>Salir: <?php echo $_SESSION["apellidos"]  ?></span></a></li>
     </ul>
     <span aria-hidden="true" class="stretchy-nav-bg"></span>

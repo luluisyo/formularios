@@ -357,6 +357,8 @@ print 'cuarta opcion';
 }}
 
 ?>
-<a href="../html2pdf/examples/exemple02.php?id=<?php echo $row; ?>">
+<a href="../html2pdf/examples/exemple02.php?id=<?php echo $row; ?>" target="_blank">
 	descargar pdf
 </a>
+
+<a href="http://20.0.0.196/formularios/views/view_form200.php">VOLVER</a>
