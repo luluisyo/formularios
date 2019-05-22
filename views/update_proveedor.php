@@ -5,7 +5,7 @@ if(!isset($_SESSION["user_id"])){
 }
 ?>
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -22,6 +22,7 @@ if(!isset($_SESSION["user_id"])){
         <a class="cd-nav-trigger" href="#0">
             <span aria-hidden="true"></span>
         </a>
+
         <ul>
           <li><a href="../views/view_proveedor.php"><span><font color="#5484FF">Volver a Proveedores</font></span></a></li>
           <li><a href="../views/principal.php"><span><font color="#5484FF">Ver requerimientos</font></span></a></li>
@@ -375,7 +376,7 @@ if(!isset($_SESSION["user_id"])){
           </td>
           <td>
           <select class="form-styling" type="text" name="moneda3" id="moneda3" title="moneda3">
-            <option><?php echo $mon[3] ?>"</option><option>Bolivianos</option><option>Dolares</option>
+            <option><?php echo $mon[3] ?></option><option>Bolivianos</option><option>Dolares</option>
           </select>
           </td>
           <td>

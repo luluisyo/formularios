@@ -4,9 +4,7 @@ session_start();
 if(!isset($_SESSION["user_id"])){
     print "<script>alert(\"Acceso Restringido, Debe identificarse\");window.location='../index.php';</script>";
 }
-if(!($_SESSION["tipo"]=='m')){
-    print "<script>window.location='./view_form200usu.php';</script>";
-}
+
 
  
 ?>
@@ -150,7 +148,7 @@ if(!($_SESSION["tipo"]=='m')){
             $campo=null;
             $suma=0;
             require("../controller/conexion.php");
-            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.idreq,r.grupo,r.descripcion,r.control,r.cantidad,r.unidad,r.moneda,r.precio from form200 f, requerimiento r where f.idform=r.idform");
+            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.idreq,r.grupo,r.descripcion,r.control,r.cantidad,r.unidad,r.moneda,r.precio from form200 f, requerimiento r where f.idform=r.idform and f.idusu=".$_SESSION["user_id"]);
             $query=mysqli_query($con,$sql);
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
@@ -171,7 +169,7 @@ if(!($_SESSION["tipo"]=='m')){
               echo "<td>$arreglo[12]</td>";
               echo "<td>$arreglo[13]</td>";
               
-              echo "<td><a class='button' href='../views/update_proveedor.php?id=$arreglo[0]'>Modificar</a> <a class='button' href='../controller/delete_proveedor.php?id=$arreglo[0]' style='background:#FF3B3B'>Eliminar</a>
+              echo "<td>
               <a class='button' href='?id=$arreglo[0]#openModal' style='background:#FF3B3B'>VER</a>
               </td>";
               echo "</tr>";
