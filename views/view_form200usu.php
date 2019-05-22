@@ -91,11 +91,8 @@ if(!isset($_SESSION["user_id"])){
             <span aria-hidden="true"></span>
         </a>
         <ul>
-            <li><a href="../views/add_proveedor.php"><span><font color="blue">Registrar Proveedores</font></span></a></li>
-            <li><a href="../views/add_request.php" class="active"><span><font color="blue">Registrar Requerimiento</font></span></a></li>
-            <li><a href="../views/principal.php"><span><font color="blue">Ver Requerimientos</font></span></a></li>
-            <li><a href="../views/add_proveedor.php"><span><font color="blue">¿Tienes dudas de como hacer un nuevo registro?</font></span></a></li>
-            <li><a href="../views/update_user.php"><span><font color="blue">Cambiar contraseña</font></span></a></li>
+            <li><a href="../views/add_proveedor.php"><span><font color="blue">Registrar Formulario</font></span></a></li>
+            
             <li><a href="../controller/logout.php"><span><font color="blue">Salir: <?php echo $_SESSION["nombre"]  ?></font></span></a></li>
         </ul>
 
