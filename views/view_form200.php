@@ -155,9 +155,9 @@ if(!($_SESSION["tipo"]=='m')){
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
               if(($arreglo[14]==0) && ($arreglo[15]>=1)){
-             echo "<tr id='$campo'  style='background-color: red;'>";}
+             echo "<tr id='$campo'  style='background-color: rgba(251, 69, 17, 0.9882352941176471);'>";}
              else{if ($arreglo[14]==0) {
-                echo "<tr id='$campo'  style='background-color: blue;'>";
+                echo "<tr id='$campo'  style='background-color: rgba(255, 180, 18, 0.9607843137254902);'>";
              }else{
 
                 echo "<tr id='$campo'>";}}
