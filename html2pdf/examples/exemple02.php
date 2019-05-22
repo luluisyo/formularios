@@ -110,7 +110,7 @@ z90e-2hwh
 
 </table>
 
-<table style="width: 90%; border-collapse: collapse;" align="center" border="1">
+<table style="width: 80%; border-collapse: collapse;" align="center" border="1">
     <tr>
         <th>
         ITEM    
