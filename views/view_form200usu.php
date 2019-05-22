@@ -145,11 +145,13 @@ if(!isset($_SESSION["user_id"])){
             $campo=null;
             $suma=0;
             require("../controller/conexion.php");
-            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.idreq,r.grupo,r.descripcion,r.control,r.cantidad,r.unidad,r.moneda,r.precio from form200 f, requerimiento r where f.idform=r.idform and f.idusu=".$_SESSION["user_id"]);
+            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.idreq,r.grupo,r.descripcion,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw from form200 f, requerimiento r where f.idform=r.idform and f.idusu=".$_SESSION["user_id"]);
             $query=mysqli_query($con,$sql);
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
-             echo "<tr id='$campo'>";
+            if($arreglo[14]==0){
+             echo "<tr id='$campo'  style='background-color: red;'>";}
+             else{echo "<tr id='$campo'>";}
 
               echo "<td>$arreglo[0]</td>";
               echo "<td>$arreglo[1]</td>";
