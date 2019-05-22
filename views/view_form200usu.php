@@ -91,7 +91,7 @@ if(!isset($_SESSION["user_id"])){
             <span aria-hidden="true"></span>
         </a>
         <ul>
-            <li><a href="../views/add_proveedor.php"><span><font color="blue">Registrar Formulario</font></span></a></li>
+            <li><a href="../views/add_form200.php"><span><font color="blue">Registrar Formulario</font></span></a></li>
             
             <li><a href="../controller/logout.php"><span><font color="blue">Salir: <?php echo $_SESSION["nombre"]  ?></font></span></a></li>
         </ul>
