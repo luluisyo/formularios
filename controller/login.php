@@ -38,9 +38,9 @@
 				$_SESSION["tipo"]=$tipo;
 				
 				if ($user_id == 0) {
-					print "<script>window.location='../views/view_form200.php';</script>";
+					print "<script>window.location='../views/view_form200.php#faltantes';</script>";
 				}
-				print "<script>window.location='../views/view_form200.php';</script>";
+				print "<script>window.location='../views/view_form200.php#faltantes';</script>";
 				}			
 			}
 			

@@ -183,7 +183,19 @@ if(!($_SESSION["tipo"]=='m')){
 
 
 
-<a class='button form-styling' style="width: 30%; float: right;" href='?id=22#openModal'>Visualizar</a>
+<div  class='modalbg' id="faltantes" >
+                        <div class='dialog'>
+                          <a href='#close' title='Close' class='close'>X</a>
+alerta de faltantes
+
+
+
+                      </div></div>
+
+
+
+
+<a class='button form-styling' style="width: 30%; float: right;" href='#faltantes'>Visualizar</a>
           
                    <div  class='modalbg' id="openModal" >
                         <div class='dialog'>
