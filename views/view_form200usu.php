@@ -150,7 +150,7 @@ if(!isset($_SESSION["user_id"])){
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
             if($arreglo[14]==0){
-             echo "<tr id='$campo'  style='background-color: red;'>";}
+             echo "<tr id='$campo'  style='background-color: rgba(251, 61, 33, 0.9607843137254902);'>";}
              else{echo "<tr id='$campo'>";}
 
               echo "<td>$arreglo[0]</td>";

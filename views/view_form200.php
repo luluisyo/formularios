@@ -150,13 +150,17 @@ if(!($_SESSION["tipo"]=='m')){
             $campo=null;
             $suma=0;
             require("../controller/conexion.php");
-            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.idreq,r.grupo,r.descripcion,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw from form200 f, requerimiento r where f.idform=r.idform");
+            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.idreq,r.grupo,r.descripcion,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw,DATEDIFF(CURDATE(),f.fecha) as dias from form200 f, requerimiento r where f.idform=r.idform");
             $query=mysqli_query($con,$sql);
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
-              if($arreglo[14]==0){
+              if(($arreglo[14]==0) && ($arreglo[15]>=1)){
              echo "<tr id='$campo'  style='background-color: red;'>";}
-             else{echo "<tr id='$campo'>";}
+             else{if ($arreglo[14]==0) {
+                echo "<tr id='$campo'  style='background-color: blue;'>";
+             }else{
+
+                echo "<tr id='$campo'>";}}
 
               echo "<td>$arreglo[0]</td>";
               echo "<td>$arreglo[1]</td>";
