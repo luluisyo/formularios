@@ -204,8 +204,6 @@ alerta de faltantes
 
 
 
-
-<a class='button form-styling' style="width: 30%; float: right;" href='#faltantes'>Visualizar</a>
           
                    <div  class='modalbg' id="openModal" >
                         <div class='dialog'>

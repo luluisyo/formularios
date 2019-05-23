@@ -185,9 +185,6 @@ if(!isset($_SESSION["user_id"])){
         </tbody>
     </table>
 
-
-
-<a class='button form-styling' style="width: 30%; float: right;" href='?id=22#openModal'>Visualizar</a>
           
                    <div  class='modalbg' id="openModal" >
                         <div class='dialog'>
