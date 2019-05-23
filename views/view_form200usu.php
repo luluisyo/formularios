@@ -176,7 +176,7 @@ if(!isset($_SESSION["user_id"])){
               echo "<td>$arreglo[14]</td>";
 
               echo "<td>
-              <a class='button' href='?id=$arreglo[0]#openModal' style='background:#FF3B3B'>VER</a>
+              <a class='button' href='?id=$arreglo[0]#openModal'>VER</a>
               </td>";
               echo "</tr>";
             }
