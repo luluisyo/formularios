@@ -181,7 +181,7 @@ if(!($_SESSION["tipo"]=='m')){
               echo "<td>$arreglo[14]</td>";
               
               
-              echo "<td><a class='button' href='../views/update_proveedor.php?id=$arreglo[0]'>Modificar</a> <a class='button' href='../controller/delete_proveedor.php?id=$arreglo[0]' style='background:#FF3B3B'>Eliminar</a>
+              echo "<td><a class='button' href='../views/update_form200.php?id=$arreglo[0]'>Modificar</a> <a class='button' href='../controller/delete_form200.php?id=$arreglo[0]' style='background:#FF3B3B'>Eliminar</a>
               <a class='button' href='?id=$arreglo[0]#openModal' style='background:#FF3B3B'>VER</a>
               </td>";
               echo "</tr>";
