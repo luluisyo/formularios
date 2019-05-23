@@ -83,7 +83,7 @@ if(!isset($_SESSION["user_id"])){
               
             </td>
           <td colspan="2" align="center">
-              datos: <input class="form-styling" type="" name="dato" id="dato" value="<?php echo $id ?>">
+              dato: <input class="form-styling" type="" name="dato" id="dato" readonly="readonly"> value="<?php echo $id ?>">
             </td>
           </tr>
             <tr>
@@ -221,6 +221,7 @@ if(!isset($_SESSION["user_id"])){
           $cont=1;
           $cod=[11];$gru=[11];$desc=[11];$des=[11];$con=[11];$can=[11];$uni=[11];$mon=[11];$pre=[11];$tot=[110];
           while ($row=mysqli_fetch_row($ressql)) {
+            $r[$cont]=$row[1];
             $cod[$cont]=$row[2];
             $gru[$cont]=$row[3];
             $desc[$cont]=$row[4];
@@ -234,6 +235,7 @@ if(!isset($_SESSION["user_id"])){
             $cont=$cont+1;
           }
           while ($cont <= 11) {
+            $r[$cont]='';
            $cod[$cont]='';
             $gru[$cont]='';
             $desc[$cont]='';
@@ -255,6 +257,7 @@ if(!isset($_SESSION["user_id"])){
 
           <tr>
           <td>
+            <input id="r1" name="r1" type="hidden" value="<?php echo $r[1] ?>">
           <input class="form-styling" type="numero" name="item1" id="item1" value="1" title="item1" readonly="readonly" >
           </td>
           <td>
