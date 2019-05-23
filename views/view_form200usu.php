@@ -149,9 +149,13 @@ if(!isset($_SESSION["user_id"])){
             $query=mysqli_query($con,$sql);
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
-            if($arreglo[14]==0){
-             echo "<tr id='$campo'  style='background-color: rgba(251, 61, 33, 0.9607843137254902);'>";}
-             else{echo "<tr id='$campo'>";}
+              if(($arreglo[14]==0) && ($arreglo[15]>=1)){
+             echo "<tr  style='background-color: rgba(251, 69, 17, 0.9882352941176471);'>";}
+             else{if ($arreglo[14]==0) {
+                echo "<tr  style='background-color: rgba(255, 180, 18, 0.9607843137254902);'>";
+             }else{
+
+                echo "<tr id='$campo'>";}}
 
               echo "<td>$arreglo[0]</td>";
               echo "<td>$arreglo[1]</td>";

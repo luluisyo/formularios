@@ -142,6 +142,7 @@ if(!($_SESSION["tipo"]=='m')){
                 <th>UNIDAD</th>
                 <th>MONEDA</th>
                 <th>PRECIO</th>
+                <th>OPERACIONES</th>
             </tr>
         </tfoot>
         <tbody>
@@ -150,14 +151,14 @@ if(!($_SESSION["tipo"]=='m')){
             $campo=null;
             $suma=0;
             require("../controller/conexion.php");
-            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.idreq,r.grupo,r.descripcion,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw,DATEDIFF(CURDATE(),f.fecha) as dias from form200 f, requerimiento r where f.idform=r.idform");
+            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.codigo,r.grupo,r.descripcion,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw,DATEDIFF(CURDATE(),f.fecha) as dias,r.precio from form200 f, requerimiento r where f.idform=r.idform");
             $query=mysqli_query($con,$sql);
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
               if(($arreglo[14]==0) && ($arreglo[15]>=1)){
-             echo "<tr id='$campo'  style='background-color: rgba(251, 69, 17, 0.9882352941176471);'>";}
+             echo "<tr  style='background-color: rgba(251, 69, 17, 0.9882352941176471);'>";}
              else{if ($arreglo[14]==0) {
-                echo "<tr id='$campo'  style='background-color: rgba(255, 180, 18, 0.9607843137254902);'>";
+                echo "<tr  style='background-color: rgba(255, 180, 18, 0.9607843137254902);'>";
              }else{
 
                 echo "<tr id='$campo'>";}}
@@ -176,6 +177,7 @@ if(!($_SESSION["tipo"]=='m')){
               echo "<td>$arreglo[11]</td>";
               echo "<td>$arreglo[12]</td>";
               echo "<td>$arreglo[13]</td>";
+              echo "<td>$arreglo[16]</td>";
               
               echo "<td><a class='button' href='../views/update_proveedor.php?id=$arreglo[0]'>Modificar</a> <a class='button' href='../controller/delete_proveedor.php?id=$arreglo[0]' style='background:#FF3B3B'>Eliminar</a>
               <a class='button' href='?id=$arreglo[0]#openModal' style='background:#FF3B3B'>VER</a>
