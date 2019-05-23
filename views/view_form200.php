@@ -156,7 +156,7 @@ if(!($_SESSION["tipo"]=='m')){
             $query=mysqli_query($con,$sql);
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
-              if(($arreglo[15]==0) && ($arreglo[16]>=1)){
+              if(($arreglo[15]==0) && ($arreglo[16]>=10)){
              echo "<tr  style='background-color: rgba(251, 69, 17, 0.9882352941176471);'>";}
              else{if ($arreglo[15]==0) {
                 echo "<tr  style='background-color: rgba(255, 180, 18, 0.9607843137254902);'>";
