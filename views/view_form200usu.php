@@ -118,6 +118,7 @@ if(!isset($_SESSION["user_id"])){
                 <th>UNIDAD</th>
                 <th>MONEDA</th>
                 <th>PRECIO</th>
+                <th>OPERACIONES</th>
             </tr>
         </thead>
         <tfoot>
@@ -137,6 +138,7 @@ if(!isset($_SESSION["user_id"])){
                 <th>UNIDAD</th>
                 <th>MONEDA</th>
                 <th>PRECIO</th>
+                 <th>OPERACIONES</th>
             </tr>
         </tfoot>
         <tbody>
@@ -145,13 +147,13 @@ if(!isset($_SESSION["user_id"])){
             $campo=null;
             $suma=0;
             require("../controller/conexion.php");
-            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.idreq,r.grupo,r.descripcion,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw from form200 f, requerimiento r where f.idform=r.idform and f.idusu=".$_SESSION["user_id"]);
+            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.codigo,r.grupo,r.descripcion,r.destino,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw,DATEDIFF(CURDATE(),f.fecha) as dias from form200 f, requerimiento r where f.idform=r.idform and f.idusu=".$_SESSION["user_id"]);
             $query=mysqli_query($con,$sql);
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
-              if(($arreglo[14]==0) && ($arreglo[15]>=1)){
+              if(($arreglo[15]==0) && ($arreglo[16]>=1)){
              echo "<tr  style='background-color: rgba(251, 69, 17, 0.9882352941176471);'>";}
-             else{if ($arreglo[14]==0) {
+             else{if ($arreglo[15]==0) {
                 echo "<tr  style='background-color: rgba(255, 180, 18, 0.9607843137254902);'>";
              }else{
 
@@ -171,7 +173,8 @@ if(!isset($_SESSION["user_id"])){
               echo "<td>$arreglo[11]</td>";
               echo "<td>$arreglo[12]</td>";
               echo "<td>$arreglo[13]</td>";
-              
+              echo "<td>$arreglo[14]</td>";
+
               echo "<td>
               <a class='button' href='?id=$arreglo[0]#openModal' style='background:#FF3B3B'>VER</a>
               </td>";
