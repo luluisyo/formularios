@@ -83,7 +83,7 @@ if(!isset($_SESSION["user_id"])){
               
             </td>
           <td colspan="2" align="center">
-              datos: <input class="form-styling" type="" name="dato" id="dato" value="<?php echo $idform ?>">
+              datos: <input class="form-styling" type="" name="dato" id="dato" value="<?php echo $id ?>">
             </td>
           </tr>
             <tr>
