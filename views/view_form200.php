@@ -123,6 +123,7 @@ if(!($_SESSION["tipo"]=='m')){
                 <th>UNIDAD</th>
                 <th>MONEDA</th>
                 <th>PRECIO</th>
+                <th>OPERACIONES</th>
             </tr>
         </thead>
         <tfoot>
@@ -155,9 +156,9 @@ if(!($_SESSION["tipo"]=='m')){
             $query=mysqli_query($con,$sql);
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
-              if(($arreglo[14]==0) && ($arreglo[15]>=1)){
+              if(($arreglo[15]==0) && ($arreglo[16]>=1)){
              echo "<tr  style='background-color: rgba(251, 69, 17, 0.9882352941176471);'>";}
-             else{if ($arreglo[14]==0) {
+             else{if ($arreglo[15]==0) {
                 echo "<tr  style='background-color: rgba(255, 180, 18, 0.9607843137254902);'>";
              }else{
 
@@ -177,6 +178,7 @@ if(!($_SESSION["tipo"]=='m')){
               echo "<td>$arreglo[11]</td>";
               echo "<td>$arreglo[12]</td>";
               echo "<td>$arreglo[13]</td>";
+              echo "<td>$arreglo[14]</td>";
               
               
               echo "<td><a class='button' href='../views/update_proveedor.php?id=$arreglo[0]'>Modificar</a> <a class='button' href='../controller/delete_proveedor.php?id=$arreglo[0]' style='background:#FF3B3B'>Eliminar</a>
