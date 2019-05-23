@@ -304,6 +304,7 @@ if(!isset($_SESSION["user_id"])){
 
           <tr>
           <td>
+            <input id="r2" name="r2" type="hidden" value="<?php echo $r[2] ?>">
           <input class="form-styling" type="numero" name="item2" id="item2" value="2" title="item2" readonly="readonly">
           </td>
           <td>
@@ -348,6 +349,7 @@ if(!isset($_SESSION["user_id"])){
 
            <tr>
           <td>
+            <input id="r3" name="r3" type="hidden" value="<?php echo $r[3] ?>">
           <input class="form-styling" type="numero" name="item3" id="item3" value="3" title="item3" readonly="readonly">
           </td>
           <td>
@@ -394,6 +396,7 @@ if(!isset($_SESSION["user_id"])){
 
           <tr>
           <td>
+            <input id="r4" name="r4" type="hidden" value="<?php echo $r[4] ?>">
           <input class="form-styling" type="numero" name="item4" id="item4" value="4" title="item4" readonly="readonly">
           </td>
           <td>
@@ -440,6 +443,7 @@ if(!isset($_SESSION["user_id"])){
 
           <tr>
           <td>
+            <input id="r5" name="r5" type="hidden" value="<?php echo $r[5] ?>">
           <input class="form-styling" type="numero" name="item5" id="item5" value="5" title="item5" readonly="readonly">
           </td>
           <td>
@@ -483,6 +487,7 @@ if(!isset($_SESSION["user_id"])){
 
           <tr>
           <td>
+            <input id="r6" name="r6" type="hidden" value="<?php echo $r[6] ?>">
           <input class="form-styling" type="numero" name="item6" id="item6" value="6" title="item6" readonly="readonly">
           </td>
           <td>
@@ -527,6 +532,7 @@ if(!isset($_SESSION["user_id"])){
 
           <tr>
           <td>
+            <input id="r7" name="r7" type="hidden" value="<?php echo $r[7] ?>">
           <input class="form-styling" type="numero" name="item7" id="item7" value="7" title="item7" readonly="readonly">
           </td>
           <td>
@@ -570,6 +576,7 @@ if(!isset($_SESSION["user_id"])){
 
           <tr>
           <td>
+            <input id="r8" name="r8" type="hidden" value="<?php echo $r[8] ?>">
           <input class="form-styling" type="numero" name="item8" id="item8" value="8" title="item8" readonly="readonly">
           </td>
           <td>
@@ -614,6 +621,7 @@ if(!isset($_SESSION["user_id"])){
 
           <tr>
           <td>
+            <input id="r9" name="r9" type="hidden" value="<?php echo $r[9] ?>">
           <input class="form-styling" type="numero" name="item9" id="item9" value="9" title="item9" readonly="readonly">
           </td>
           <td>
@@ -659,6 +667,7 @@ if(!isset($_SESSION["user_id"])){
 
           <tr>
           <td>
+            <input id="r10" name="r10" type="hidden" value="<?php echo $r[10] ?>">
           <input class="form-styling" type="numero" name="item10" id="item10" value="10" title="item10" readonly="readonly">
           </td>
           <td>
