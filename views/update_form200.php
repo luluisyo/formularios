@@ -791,7 +791,16 @@ function multiplicar10(){
           </tr>
 
 
-    
+    <tr>
+  <td colspan="11" align="center">
+   <label for="fullname">OBSERVACIONES Y RECOMENDACIONES</label>
+</td>
+  </tr>
+  <tr>
+  <td colspan="11">
+   <input class="form-styling" type="text" name="obs" id="obs" title="obs" value=""  >
+</td>
+  </tr>
           <tr>
             <td colspan="4"></td>
             <td>

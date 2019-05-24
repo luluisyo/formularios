@@ -468,7 +468,7 @@ function multiplicar10(){
               
             </td>
           <td colspan="2" >
-              datos
+             
             </td>
           </tr>
             <tr>
