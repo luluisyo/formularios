@@ -18,26 +18,26 @@
 table
 {
     width:  100%;
-    border: solid 1px #5544DD;
+   
 
 }
 
 th
 {
     text-align: center;
-    border: solid 1px #113300;
-    background: #EEFFEE;
+    border: solid 1px black;
+    background: #dfdedd;
 }
 
 td
 {
     text-align: left;
-    border: solid 1px #55DD44;
+    border: solid 1px black;
 }
 
 td.col1
 {
-    border: solid 1px red;
+    border: solid 1px black;
     text-align: right;
 }
 
@@ -50,144 +50,176 @@ td.col1
     <table style="width: 90%; font-size: 16px;" align="center">
 
         <tr>
-            <td style="width: 25%; text-align: center; "><img src="./res/tcpdf_logo.jpg" alt="" ></td>
-            <td style="width: 55%; text-align: center;"><h3>GERENCIA DE ADMINISTRACION Y FINANZAS</h3>                           
+            <td style="width: 20%; text-align: center; "><img src="./res/tcpdf_logo.jpg" alt="" ></td>
+            <td style="width: 65%; text-align: center;">GERENCIA DE ADMINISTRACION Y FINANZAS<br>                           
  REQUERIMIENTO DE COMPRA y/o CONTRATACION DE SERVICIOS
-
 FORMULARIO 200                          
 </td>
-            <td style="width: 20%; text-align: center; "><?php echo $row->idform; ?></td>
+            <td style="width: 15%; text-align: center;font-size:10px">
+                <h5>CODIGO: <?php echo $row->idform; ?></h5>
+                    Rev:0<br>
+                    Pag:1 de 1
+                </td>
         </tr>
-    </table >
-z90e-2hwh
-        <table style="width: 90%; font-size: 16px;" align="center" >
+    </table>
+    <br>
+
+        <table style="width: 90%; font-size: 12px;   border-radius:9px; background-color: #dfdedd; " align="center" >
         <tr>
-            <td style="width: 60%; text-align: center;background-color: #5544DD;  border-radius:9px;">DATOS BASICOS</td>
+            <td style="width: 70%; text-align: center; border: none;">DATOS BASICOS</td>
         </tr>
-    </table >
+    </table>
     
-    <table style="width: 90%; font-size: 16px;" align="center" border="1">
+    <table style="width: 90%; font-size: 13px;" align="center">
     <tr>
-        <td>REQUIRIENTE DE LA COMPRA:</td>
-        <td><?php echo $row->requiriente; ?></td>
+        <td style="width: 30%;">REQUIRIENTE DE LA COMPRA:</td>
+        <td style="width: 40%;"><?php echo $row->requiriente; ?></td>
     </tr>
         <tr>
-        <td>EMPRESA:</td>
-        <td><?php echo $row->emprersa; ?></td>
+        <td style="width: 30%;">EMPRESA:</td>
+        <td style="width: 40%;"><?php echo $row->emprersa; ?></td>
     </tr>
 
     <tr>
-        <td>AREA:</td>
-        <td><?php echo $row->area; ?></td>
+        <td style="width: 30%;">AREA:</td>
+        <td style="width: 40%;"><?php echo $row->area; ?></td>
     </tr>
 
     <tr>
-        <td>PROVEEDOR:</td>
-        <td><?php echo $row->proveedor; ?></td>
+        <td style="width: 30%;">PROVEEDOR:</td>
+        <td style="width: 40%;"><?php echo $row->proveedor; ?></td>
     </tr>
 
     <tr>
-        <td>CHEQUE A NOMBRE DE:</td>
-        <td><?php echo $row->cheque; ?></td>
+        <td style="width: 30%;">CHEQUE A NOMBRE DE:</td>
+        <td style="width: 40%;"><?php echo $row->cheque; ?></td>
     </tr>
 
     <tr>
-        <td>PROFORMA O COTIZACION APROBADA ADJUNTA:</td>
-        <td><?php echo $row->proforma; ?></td>
+        <td style="width: 30%;">PROFORMA O COTIZACION APROBADA ADJUNTA:</td>
+        <td style="width: 40%;"><?php echo $row->proforma; ?></td>
     </tr>
         <tr>
-        <td>CONDICION DE PAO SEGUN PROFORMA:</td>
-        <td><?php echo $row->condicion; ?></td>
+        <td style="width: 30%;">CONDICION DE PAO SEGUN PROFORMA:</td>
+        <td style="width: 40%;"><?php echo $row->condicion; ?></td>
     </tr>
         <tr>
-        <td>FECHA DE REQUERIEMIENTO:</td>
-        <td><?php echo $row->fecha; ?></td>
+        <td style="width: 30%;">FECHA DE REQUERIEMIENTO:</td>
+        <td style="width: 40%;"><?php echo $row->fecha; ?></td>
     </tr>
         <tr>
-        <td>PROYECTO:</td>
-        <td><?php echo $row->proyecto; ?></td>
+        <td style="width: 30%;">PROYECTO:</td>
+        <td style="width: 40%;"><?php echo $row->proyecto; ?></td>
     </tr>
 
 </table>
-
-<table style="width: 80%; border-collapse: collapse;" align="center" border="1">
+<br>
+<table style="width: 100%; font-size: 12px;   border-radius:9px; background-color: #dfdedd; " align="center" >
+        <tr>
+            <td style="width: 100%; text-align: center; border: none;">DETALLE DE LA COMPRA</td>
+        </tr>
+    </table >
+<br>
+    <table style="width: 100%; font-size: 12px;   border-radius:9px; background-color: #dfdedd; " align="center" >
+        <tr>
+            <td style="width: 100%; text-align: center; border: none;">PRODUCTOS DE INVENTARIO</td>
+        </tr>
+    </table >
+<br>
+<table style="width: 100%;  font-size:10px" align="center">
     <tr>
-        <th>
-        ITEM    
+        <th style="text-align: center;    width: 2%">
+            ITEM    
         </th>
-        <th><h2>
-            CODIGO
-        </h2></th>
-     
-        <th>
-            GRUPO
+        <th style="text-align: center;    width: 9%">
+            CODIGO DEL ARTICULO
         </th>
-     
-        <th>
-            DESCRIPCION
+        <th style="text-align: center;    width: 15%">
+            GRUPO DE ARTICULO
         </th>
-                <th>
-            DESTINO
+        <th style="text-align: center;    width: 25%">
+            DESCRIPCION MATERIAL
         </th>
-                <th>
-            CONTROL
+        <th style="text-align: center;    width: 7%">
+            DESTINO DESTINO
         </th>
-             <th>
-            CANTIDAD
+                <th style="text-align: center;    width: 7%">
+            Control de Calidad SI/NO
         </th>
-                <th>
-            MEDIDA
+             <th style="text-align: center;    width: 7%">
+            CANTIDAD 
         </th>
-                <th>
+                <th style="text-align: center;    width: 5%">
+            U/M
+        </th>
+                <th style="text-align: center;    width: 7%">
             MONEDA
         </th>
-                <th>
-            PRECIO
+                <th style="text-align: center;    width: 6%">
+            PRECIO UNIT
         </th>
-                <th>
+                <th style="text-align: center;    width: 5%">
             TOTAL
         </th>
      </tr>
-<tr>
+
 
     <?php 
     $contador=1;
+    $cont2=0;
 while($row2= $requi->fetch_object()){
 echo '<tr>
-<td>'.$contador.'</td>
-<td>'.$row2->codigo.'</td>
-<td>'.$row2->grupo.'</td>
-<td>'.$row2->descripcion.'</td>
-<td>'.$row2->destino.'</td>
-<td>'.$row2->control.'</td>
-<td>'.$row2->cantidad.'</td>
-<td>'.$row2->unidad.'</td>
-<td>'.$row2->moneda.'</td>
-<td>'.$row2->precio.'</td>
-<td>'.$row2->total.'</td>
+<td style="text-align: center;    width: 2%">'.$contador.'</td>
+<td style="text-align: center;    width: 9%">'.$row2->codigo.'</td>
+<td style="text-align: center;    width: 15%">'.$row2->grupo.'</td>
+<td style="text-align: center;    width: 30%">'.$row2->descripcion.'</td>
+<td style="text-align: center;    width: 7%">'.$row2->destino.'</td>
+<td style="text-align: center;    width: 7%">'.$row2->control.'</td>
+<td style="text-align: center;    width: 7%">'.$row2->cantidad.'</td>
+<td style="text-align: center;    width: 5%">'.$row2->unidad.'</td>
+<td style="text-align: center;    width: 7%">'.$row2->moneda.'</td>
+<td style="text-align: center;    width: 6%">'.$row2->precio.'</td>
+<td style="text-align: center;    width: 5%">'.$row2->total.'</td>
 </tr>';
+$cont2=$cont2+$row2->total;
 $contador=$contador+1;
 }
      
 
 ?>
 
-    
-</tr>
-<tr>
-<td colspan="2">"Elaborado por: 
-<br/>(Nombre, Cargo y Firma)"    
-</td>
-<td colspan="3"></td>
-<td colspan="2">"Autorizado por:
-<br/>(Nombre, Cargo y Firma)"        
-</td>
-<td colspan="2"></td>
-<td colspan="2"></td>
-
+<tr><td colspan="10" style="text-align: center;    width: 95%">TOTAL</td>
+<td style="text-align: center;    width: 5%"><?php echo $cont2 ?></td>
 </tr>
 
 </table>
+
+        <table style="width: 100%; font-size: 12px;   border-radius:9px; background-color: #dfdedd; " align="center" >
+        <tr>
+            <td style="width: 100%; text-align: center; border: none;">Observaciones y recomendaciones: (Datos adicionales a la pro-forma o cotizacion del proveedor que no fueron incluidos)</td>
+        </tr>
+    </table>
+    <br>
+
+
+        <table style="width: 100%; font-size: 12px;   border-radius:9px; background-color: #dfdedd; " align="center" >
+        <tr>
+            <td style="width: 100%; text-align: center; border: none;">Compras para pruebas de laboratotio</td>
+        </tr>
+    </table><br>
+    <table style="width: 100%; font-size: 12px; " align="center" >
+        <tr>
+            <td style="width: 15%; text-align: center; background-color: #dfdedd; border: none;">Elaborado por;<br>(Nombre,Cargo y Firma)</td>
+            <td style="width: 14%; text-align: center;"><?php echo $row->requiriente; ?></td>
+            <td style="width: 14%; text-align: center;"><br/><br/><br/></td>
+            <td style="width: 14%; text-align: center;"></td>
+            <td style="width: 15%; text-align: center; background-color: #dfdedd; border: none;">Autorizao por;<br>(Nombre,Cargo y Firma)</td>
+    
+            <td style="width: 14%; text-align: center;"></td>
+            <td style="width: 14%; text-align: center;"></td>
+        
+        </tr>
+    </table>
 
 
 </page>

@@ -425,7 +425,6 @@ function multiplicar10(){
 
 
   </script>
- 
   <?php
       $consulta_paises = $link->query("select id as 'valor', descripcion as 'descripcion' from paises order by descripcion");
       $consulta_ciudades = $link->query("select id as 'valor', descripcion as 'descripcion' from ciudades order by descripcion");
@@ -509,7 +508,7 @@ function multiplicar10(){
               <td></td><td></td>
               <td colspan="2"><label for="fullname">PROVEEDOR:</label></td>
               <td colspan="5">
-          <input class="form-styling" type="text" id='proveedor' name="proveedor" list="prove" autocomplete="off" placeholder="Proveedor">
+          <input class="form-styling" type="text" id='proveedor' name="proveedor" list="prove" autocomplete="off" placeholder="Proveedor" >
           <datalist name="pais" class="form-styling" id="prove">
           <option value=''>Seleccione proveedor</option>
           <?php
@@ -1320,17 +1319,14 @@ function multiplicar10(){
          
 
 <tr>
-  <td colspan="2">
-   <label class="form-styling"> Elaborado por:<br/> 
-(Nombre, Cargo y Firma) </label> 
+  <td colspan="11">
+   <label class="form-styling"> OBSERVACIONES Y RECOMENDACIONES </label> 
 </td>
-  <td colspan="2">  </td>
-  <td colspan="2"></td>
-  <td colspan="2"><label class="form-styling">Autorizado por:<br/>
-(Nombre, Cargo y Firma)    </label>
+  </tr>
+  <tr>
+  <td colspan="11">
+   <input class="form-styling" type="text" name="obs" id="obs" title="obs" value=""  >
 </td>
-  <td colspan="2"></td>
-  <td colspan="3"></td>
   </tr>    
           <tr>
             <td colspan="4"></td>

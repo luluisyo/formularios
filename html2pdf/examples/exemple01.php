@@ -84,62 +84,62 @@
 
 </table>
 
-<table style="width: 90%; border-collapse: collapse;" align="center" border="1">
+<table style="width: 100%; border: solid 1px black;" align="center">
     <tr>
-        <th>
-        ITEM    
+        <th style="text-align: center;    width: 2%">
+            ITEM    
         </th>
-           <th>
+        <th style="text-align: center;    width: 9%">
             CODIGO
         </th>
-     
-        <th>
+        <th style="text-align: center;    width: 15%">
             GRUPO
         </th>
-     
-        <th>
+        <th style="text-align: center;    width: 25%">
             DESCRIPCION
         </th>
-                <th>
+        <th style="text-align: center;    width: 7%">
             DESTINO
         </th>
-                <th>
+                <th style="text-align: center;    width: 7%">
             CONTROL
         </th>
-             <th>
+             <th style="text-align: center;    width: 7%">
             CANTIDAD
         </th>
-                <th>
-            MEDIDA
+                <th style="text-align: center;    width: 5%">
+            U/M
         </th>
-                <th>
+                <th style="text-align: center;    width: 7%">
             MONEDA
         </th>
-                <th>
+                <th style="text-align: center;    width: 6%">
             PRECIO
         </th>
-                <th>
+                <th style="text-align: center;    width: 5%">
             TOTAL
         </th>
      </tr>
-<tr>
+
 
     <?php 
     $contador=1;
+    $cont2=0;
 while($row2= $requi->fetch_object()){
 echo '<tr>
-<td>'.$contador.'</td>
-<td>'.$row2->codigo.'</td>
-<td>'.$row2->grupo.'</td>
-<td>'.$row2->descripcion.'</td>
-<td>'.$row2->destino.'</td>
-<td>'.$row2->control.'</td>
-<td>'.$row2->cantidad.'</td>
-<td>'.$row2->unidad.'</td>
-<td>'.$row2->moneda.'</td>
-<td>'.$row2->precio.'</td>
-<td>'.$row2->total.'</td>
+<td style="text-align: center;    width: 2%">'.$contador.'</td>
+<td style="text-align: center;    width: 9%">'.$row2->codigo.'</td>
+<td style="text-align: center;    width: 15%">'.$row2->grupo.'</td>
+<td style="text-align: center;    width: 30%">'.$row2->descripcion.'</td>
+<td style="text-align: center;    width: 7%">'.$row2->destino.'</td>
+<td style="text-align: center;    width: 7%">'.$row2->control.'</td>
+<td style="text-align: center;    width: 7%">'.$row2->cantidad.'</td>
+<td style="text-align: center;    width: 5%">'.$row2->unidad.'</td>
+<td style="text-align: center;    width: 7%">'.$row2->moneda.'</td>
+<td style="text-align: center;    width: 6%">'.$row2->precio.'</td>
+<td style="text-align: center;    width: 5%">'.$row2->total.'</td>
 </tr>';
+$cont2=$cont2+$row2->total;
 $contador=$contador+1;
 }
      
@@ -147,19 +147,7 @@ $contador=$contador+1;
 ?>
 
     
-</tr>
-<tr>
-<td colspan="2">"Elaborado por: 
-<br/>(Nombre, Cargo y Firma)"    
-</td>
-<td colspan="3"></td>
-<td colspan="2">"Autorizado por:
-<br/>(Nombre, Cargo y Firma)"        
-</td>
-<td colspan="2"></td>
-<td colspan="2"></td>
 
-</tr>
 
 </table>
 

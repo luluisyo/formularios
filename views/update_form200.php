@@ -18,6 +18,90 @@ if(!isset($_SESSION["user_id"])){
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+<script>
+  
+    function multiplicar1(){
+  m1 = document.getElementById("cantidad1").value;
+  m2 = document.getElementById("precio1").value;
+  r = m1*m2;
+  document.getElementById("total1").value = r;
+ document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
+
+}
+
+function multiplicar2(){
+  m1 = document.getElementById("cantidad2").value;
+  m2 = document.getElementById("precio2").value;
+  r = m1*m2;
+  document.getElementById("total2").value = r;
+  document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
+}
+function multiplicar3(){
+  m1 = document.getElementById("cantidad3").value;
+  m2 = document.getElementById("precio3").value;
+  r = m1*m2;
+  document.getElementById("total3").value = r;
+  document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
+}
+function multiplicar4(){
+  m1 = document.getElementById("cantidad4").value;
+  m2 = document.getElementById("precio4").value;
+  r = m1*m2;
+  document.getElementById("total4").value = r;
+  document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
+}
+function multiplicar5(){
+  m1 = document.getElementById("cantidad5").value;
+  m2 = document.getElementById("precio5").value;
+  r = m1*m2;
+  document.getElementById("total5").value = r;
+  document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
+}
+function multiplicar5(){
+  m1 = document.getElementById("cantidad5").value;
+  m2 = document.getElementById("precio5").value;
+  r = m1*m2;
+  document.getElementById("total5").value = r;
+  document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
+}
+function multiplicar6(){
+  m1 = document.getElementById("cantidad6").value;
+  m2 = document.getElementById("precio6").value;
+  r = m1*m2;
+  document.getElementById("total6").value = r;
+  document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
+}
+function multiplicar7(){
+  m1 = document.getElementById("cantidad7").value;
+  m2 = document.getElementById("precio7").value;
+  r = m1*m2;
+  document.getElementById("total7").value = r;
+  document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
+}
+function multiplicar8(){
+  m1 = document.getElementById("cantidad8").value;
+  m2 = document.getElementById("precio8").value;
+  r = m1*m2;
+  document.getElementById("total8").value = r;
+  document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
+}
+function multiplicar9(){
+  m1 = document.getElementById("cantidad9").value;
+  m2 = document.getElementById("precio9").value;
+  r = m1*m2;
+  document.getElementById("total9").value = r;
+  document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
+}
+function multiplicar10(){
+  m1 = document.getElementById("cantidad10").value;
+  m2 = document.getElementById("precio10").value;
+  r = m1*m2;
+  document.getElementById("total10").value = r;
+  document.getElementById("totalt").value = parseInt(document.getElementById("totalt").value) + r;
+}
+
+</script>
+
 <nav class="cd-stretchy-nav">
         <a class="cd-nav-trigger" href="#0">
             <span aria-hidden="true"></span>
@@ -83,7 +167,7 @@ if(!isset($_SESSION["user_id"])){
               
             </td>
           <td colspan="2" align="center">
-              dato: <input class="form-styling" type="" name="dato" id="dato" readonly="readonly"> value="<?php echo $id ?>">
+              dato: <input class="form-styling" type="text" name="dato" id="dato" readonly="readonly" value="<?php echo $id ?>">
             </td>
           </tr>
             <tr>
@@ -203,9 +287,7 @@ if(!isset($_SESSION["user_id"])){
           <td align="center">
             <label for="fullname">PRECIO UNITARIO</label>
           </td>
-          <td align="center">
-            <label for="fullname"> TOTAL</label>
-          </td>
+          
         </tr>  
 
 
@@ -221,7 +303,7 @@ if(!isset($_SESSION["user_id"])){
           $cont=1;
           $cod=[11];$gru=[11];$desc=[11];$des=[11];$con=[11];$can=[11];$uni=[11];$mon=[11];$pre=[11];$tot=[110];
           while ($row=mysqli_fetch_row($ressql)) {
-            $r[$cont]=$row[1];
+            $r[$cont]=$row[0];
             $cod[$cont]=$row[2];
             $gru[$cont]=$row[3];
             $desc[$cont]=$row[4];
@@ -708,11 +790,7 @@ if(!isset($_SESSION["user_id"])){
           </td>
           </tr>
 
-<tr>
-  <td colspan="10"><label>TOTAL</label></td>
-  <td><input class="form-styling" type="text" name="totalt" id="totalt" title="totalt" value="0" readonly="readonly"></td>
-</tr>
-         
+
     
           <tr>
             <td colspan="4"></td>
