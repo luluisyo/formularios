@@ -1320,7 +1320,7 @@ function multiplicar10(){
 
 <tr>
   <td colspan="11" align="center">
-   <label for="fullname">DESTINO</label>
+   <label for="fullname">OBSERVACIONES Y RECOMENDACIONES</label>
 </td>
   </tr>
   <tr>
