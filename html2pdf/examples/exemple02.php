@@ -74,38 +74,59 @@ FORMULARIO 200
     <tr>
         <td style="width: 30%;">REQUIRIENTE DE LA COMPRA:</td>
         <td style="width: 40%;"><?php echo $row->requiriente; ?></td>
+        <td style="width: 5%; border: none;"></td>
+        <td style="width: 12%; border: none;"></td>
+        <td style="width: 13%; border: none;"></td>
     </tr>
         <tr>
         <td style="width: 30%;">EMPRESA:</td>
         <td style="width: 40%;"><?php echo $row->emprersa; ?></td>
+        <td style="width: 5%; border: none;" rowspan="2"></td>
+        <td style="width: 12%; font-size: 9px;" rowspan="2">USO EXCLUSIVO DEL DEPARTAMENTO DE CO MPRAS</td>
+        <td style="width: 13%; font-size: 9px;" rowspan="2"></td>
     </tr>
 
     <tr>
         <td style="width: 30%;">AREA:</td>
         <td style="width: 40%;"><?php echo $row->area; ?></td>
+        
+        
     </tr>
 
     <tr>
         <td style="width: 30%;">PROVEEDOR:</td>
         <td style="width: 40%;"><?php echo $row->proveedor; ?></td>
+        <td style="width: 5%; border: none;"></td>
+        <td style="width: 12%; font-size: 9px;">Fecha de Res.</td>
+        <td style="width: 13%;"></td>
     </tr>
 
     <tr>
         <td style="width: 30%;">CHEQUE A NOMBRE DE:</td>
         <td style="width: 40%;"><?php echo $row->cheque; ?></td>
+        <td style="width: 5%; border: none;"></td>
+        <td style="width: 12%; font-size: 9px;" >Persona Resp.</td>
+        <td style="width: 13%;"></td>
     </tr>
 
     <tr>
         <td style="width: 30%;">PROFORMA O COTIZACION APROBADA ADJUNTA:</td>
         <td style="width: 40%;"><?php echo $row->proforma; ?></td>
+        <td style="width: 5%; border: none;" rowspan="2"></td>
+        <td style="width: 12%; font-size: 9px;" rowspan="2">Observacion</td>
+        <td style="width: 13%;" rowspan="2"></td>
     </tr>
         <tr>
         <td style="width: 30%;">CONDICION DE PAO SEGUN PROFORMA:</td>
         <td style="width: 40%;"><?php echo $row->condicion; ?></td>
+        
     </tr>
         <tr>
         <td style="width: 30%;">FECHA DE REQUERIEMIENTO:</td>
         <td style="width: 40%;"><?php echo $row->fecha; ?></td>
+        <td style="width: 5%; border: none;" rowspan="2"></td>
+        <td style="width: 12%; font-size: 9px;" rowspan="2">Requirie control de Calidad</td>
+        <td style="width: 13%;" rowspan="2"></td>
     </tr>
         <tr>
         <td style="width: 30%;">PROYECTO:</td>

@@ -357,8 +357,86 @@ print 'cuarta opcion';
 }}
 
 ?>
-<a href="../html2pdf/examples/exemple02.php?id=<?php echo $row; ?>" target="_blank">
-	descargar pdf
-</a>
 
-<a href="http://20.0.0.196/formularios/views/view_form200.php">VOLVER</a>
+
+<head>
+    <style type="text/css">
+        body{
+              background: url(../assets/index.jpg) fixed;
+        -webkit-background-size:cover;
+        -moz-background-size:cover;
+        -o-background-size:cover;
+        background-size:cover;
+        padding-top: 3%;
+        }
+
+        input{
+            border: none;
+            content: " adsfasdf";
+            background: #eee;
+            border: 1px solid #ccc;
+            border-radius: 15px;
+        }
+        tr th{
+          background-color: #5974FF;
+          color: #fff;
+            text-align: center;
+        }
+        .valores{
+            text-align: right;
+        }
+        @font-face{
+            font-family: fuentenueva;
+            src: url(../fonts/quantifypremium/webdesignpro.ttf);
+        }
+        .titulo{
+            font-size: 40px;
+            font-family: fuentenueva;
+            color: #fff;
+        }
+        #unasemana{
+            background-color: #6FFF5C;
+        }
+        #dossemanas{
+            background-color: #FFF95E;
+        }
+        #tressemanas{
+            background-color: #FF9E50;
+        }
+        #cuatrosemanas{
+          background-color: #FF9494;
+        }
+        li:hover{
+          background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+<link rel="stylesheet" type="text/css" href="../css/modal.css">
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<center>
+<a class='button' href="../html2pdf/examples/exemple02.php?id=<?php echo $row; ?>" target="_blank">	
+	<br/>VISUALIZAR PDF<br/><br/>
+</a>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+<a class='button' href="http://20.0.0.196/formularios/views/view_form200.php"><br/>VOLVER A MIS REQUERIMIENTOS<br/><br/></a>
+</center>
+</body>
+

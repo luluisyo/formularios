@@ -152,11 +152,11 @@ if(!($_SESSION["tipo"]=='m')){
             $campo=null;
             $suma=0;
             require("../controller/conexion.php");
-            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.codigo,r.grupo,r.descripcion,r.destino,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw,DATEDIFF(CURDATE(),f.fecha) as dias from form200 f, requerimiento r where f.idform=r.idform");
+            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.codigo,r.grupo,r.descripcion,r.destino,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw,DATEDIFF(CURDATE(),f.fecha) as dias,r.idreq from form200 f, requerimiento r where f.idform=r.idform");
             $query=mysqli_query($con,$sql);
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
-              if(($arreglo[15]==0) && ($arreglo[16]>=10)){
+              if(($arreglo[15]==0) && ($arreglo[16]>=1)){
              echo "<tr  style='background-color: rgba(251, 69, 17, 0.9882352941176471);'>";}
              else{if ($arreglo[15]==0) {
                 echo "<tr  style='background-color: rgba(255, 180, 18, 0.9607843137254902);'>";
@@ -181,8 +181,11 @@ if(!($_SESSION["tipo"]=='m')){
               echo "<td>$arreglo[14]</td>";
               
               
-              echo "<td><a class='button' href='../views/update_form200.php?id=$arreglo[0]'>Modificar</a> <a class='button' href='../controller/delete_form200.php?id=$arreglo[0]' style='background:#FF3B3B'>Eliminar</a>
-              <a class='button' href='?id=$arreglo[0]#openModal' style='background:#FF3B3B'>VER</a>
+              echo "<td><a class='button' href='../views/update_form200.php?id=$arreglo[0]'>Modificar</a> <a class='button' href='../controller/delete_form200.php?id=$arreglo[17]' style='background:#FF3B3B'>Eliminar</a>
+              <a class='button' href='?id=$arreglo[0]#openModal'>VER</a>
+
+              <a class='button' href='?id=$arreglo[0]#term'>Finalizar</a>
+              
               </td>";
               echo "</tr>";
             }
