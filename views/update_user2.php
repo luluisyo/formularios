@@ -5,6 +5,26 @@ if(!isset($_SESSION["user_id"])){
     print "<script>alert(\"Acceso Restringido, Debe identificarse\");window.location='../index.php';</script>";
 }
 
+extract($_GET);
+          require("../controller/conexion.php");
+          $sql="select * from usuario where ci=$id";
+          $ressql=mysqli_query($con,$sql);
+        
+
+
+          while ($row=mysqli_fetch_row($ressql)) {
+            $ci=$row[0];
+            $nombre=$row[1];
+            $apellido=$row[2];
+            $sexo=$row[3];
+            $email=$row[4];
+            $usuario=$row[5];
+            $password=$row[6];
+            $cargo=$row[7];
+            $area=$row[8];
+            $tipo=$row[9];
+          }
+
 ?>
 <!DOCTYPE html>
 <html >
@@ -37,7 +57,7 @@ if(!isset($_SESSION["user_id"])){
   </nav>
 
   <div class="container">
-  <form  action="../controller/add_user2.php" method="post" name="form" enctype="multipart/form-data">
+  <form  action="../controller/update_user2.php" method="post" name="form" enctype="multipart/form-data">
   <div class="frame3" style="width: 400px;">
     <center>
     <div class="navi">
@@ -54,28 +74,28 @@ if(!isset($_SESSION["user_id"])){
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">CEDULA DE IDENTIDAD</label></td>
-              <td colspan="5"><input class="form-styling" type="number" name="ci"  placeholder="Cedula de Identidad" title="ci" require>
+              <td colspan="5"><input class="form-styling" type="number" name="ci"  placeholder="Cedula de Identidad" title="ci" require value="<?php echo $ci ?>">
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">NOMBRES</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="nombre" id="nombre" placeholder="Nombres" title="nombre" required>
+              <td colspan="5"><input class="form-styling" type="text" name="nombre" id="nombre" placeholder="Nombres" title="nombre" required value="<?php echo $nombre ?>">
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">APELLIDOS</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="apellido" id="apellido" placeholder="Aperllidos" title="apellido" required>
+              <td colspan="5"><input class="form-styling" type="text" name="apellido" id="apellido" placeholder="Aperllidos" title="apellido" required value="<?php echo $apellido ?>">
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">SEXO</label></td>
-              <td colspan="5"><select class="form-styling" name="sexo">
+              <td colspan="5"><select class="form-styling" name="sexo" value="<?php echo $sexo ?>">
                 <option value="M">MASCULINO</option>
                 <option value="F">FEMENINO</option>
               </select>
@@ -85,42 +105,42 @@ if(!isset($_SESSION["user_id"])){
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">EMAIL</label></td>
-              <td colspan="5"><input class="form-styling" type="email" name="email" id="email" placeholder="Email" title="email" required>
+              <td colspan="5"><input class="form-styling" type="email" name="email" id="email" placeholder="Email" title="email" required value="<?php echo $email ?>">
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">NOMBRE USUARIO</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="usuario" id="usuario" placeholder="Nombre de Usuario" title="usuario" required>
+              <td colspan="5"><input class="form-styling" type="text" name="usuario" id="usuario" placeholder="Nombre de Usuario" title="usuario" required value="<?php echo $usuario ?>">
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">PASSWORD</label></td>
-              <td colspan="5"><input class="form-styling" type="password" name="password" id="password" placeholder="Contraseña" title="password" required>
+              <td colspan="5"><input class="form-styling" type="password" name="password" id="password" placeholder="Contraseña" title="password" required value="<?php echo $password ?>">
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">CARGO</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="cargo" id="cargo"  title="cargo" required placeholder="Cargo">
+              <td colspan="5"><input class="form-styling" type="text" name="cargo" id="cargo"  title="cargo" required placeholder="Cargo" value="<?php echo $cargo ?>">
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">AREA</label></td>
-              <td colspan="5"><input class="form-styling" type="text" name="area" id="area" placeholder="Area" title="area" required>
+              <td colspan="5"><input class="form-styling" type="text" name="area" id="area" placeholder="Area" title="area" required value="<?php echo $area ?>">
           </td>
           <td></td><td></td>
             </tr>
             <tr>
               <td></td><td></td>
               <td colspan="2"><label for="fullname">TIPO</label></td>
-              <td colspan="5"><select class="form-styling" name="tipo">
+              <td colspan="5"><select class="form-styling" name="tipo" value="<?php echo $tipo ?>">
                 <option value="r">REGULAR</option>
                 <option value="m">ALMACEN</option>
                 <option value="a">ADMINISTRADOR</option>

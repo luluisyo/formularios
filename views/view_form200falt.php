@@ -94,8 +94,8 @@ if(!($_SESSION["tipo"]=='m')){
         </a>
         <ul>
             <li><a href="../views/add_form200.php"><span><font color="blue">REGISTRAR FORMULARIO</font></span></a></li>
-            <li><a href="../views/view_form200falt.php" class="active"><span><font color="blue">REQUERIMIENTOS FALTANTES</font></span></a></li>
-            <li><a href="../views/view_form200term.php"><span><font color="blue">REQUERIMIENTOS CUMPLIDOS</font></span></a></li>
+            <li><a href="../views/view_form200.php" class="active"><span><font color="blue">REQUERIMIENTOS</font></span></a></li>
+            <li><a href="../views/view_form200term.php"><span><font color="blue">REQUERIMEINTOS CUMPLIDOS</font></span></a></li>
             <li><a href="../views/view_user.php"><span><font color="blue">USUARIOS DEL SISTEMA</font></span></a></li>
             <li><a href="../controller/logout.php"><span><font color="blue">Salir: <?php echo $_SESSION["nombre"]  ?></font></span></a></li>
         </ul>
@@ -151,7 +151,7 @@ if(!($_SESSION["tipo"]=='m')){
             $campo=null;
             $suma=0;
             require("../controller/conexion.php");
-            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.codigo,r.grupo,r.descripcion,r.destino,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw,DATEDIFF(CURDATE(),f.fecha) as dias,r.idreq from form200 f, requerimiento r where f.idform=r.idform");
+            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.codigo,r.grupo,r.descripcion,r.destino,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw,DATEDIFF(CURDATE(),f.fecha) as dias,r.idreq from form200 f, requerimiento r where f.idform=r.idform and r.sw=0");
             $query=mysqli_query($con,$sql);
             while($arreglo=mysqli_fetch_array($query)){
               $count++;
@@ -160,7 +160,6 @@ if(!($_SESSION["tipo"]=='m')){
              else{if ($arreglo[15]==0) {
                 echo "<tr  style='background-color: rgba(255, 180, 18, 0.9607843137254902);'>";
              }else{
-
                 echo "<tr id='$campo'>";}}
 
               echo "<td>$arreglo[0]</td>";

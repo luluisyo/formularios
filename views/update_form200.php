@@ -3,6 +3,10 @@ session_start();
 if(!isset($_SESSION["user_id"])){
     print "<script>alert(\"Acceso Restringido, Debe identificarse\");window.location='../index.php';</script>";
 }
+if(!($_SESSION["tipo"]=='m')){
+    print "<script>window.location='./view_form200usu.php';</script>";
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -813,29 +817,6 @@ function multiplicar10(){
           </table>
 
   </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

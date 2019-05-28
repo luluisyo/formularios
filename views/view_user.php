@@ -106,40 +106,32 @@ if(!isset($_SESSION["user_id"])){
   <table id="example" class="display table table-bordered table-hover nowrap" cellspacing="0" width="100%">
         <thead>
             <tr>
-                <th>ID FORMULARIO</th>
-                <th>REQUIRIENTE</th>
-                <th>EMPRESA</th>
+                <th>ID USUARIO</th>
+                <th>NOMBRES</th>
+                <th>APELLIDOS</th>
+                <th>SEXO</th>
+                <th>EMAIL</th>
+                <th>USUARIO</th>
+                <th>PASSWORD</th>
+                <th>CARGO</th>
                 <th>AREA</th>
-                <th>PROVEEDOR</th>
-                <th>FECHA</th>
-                <th>CODIGO</th>
-                <th>GRUPO</th>
-                <th>DESCRIPCION</th>
-                <th>DESTINO</th>
-                <th>CONTROL</th>
-                <th>CANTIDAD</th>
-                <th>UNIDAD</th>
-                <th>MONEDA</th>
-                <th>PRECIO</th>
+                <th>TIPO</th>
+                <th>OPERACIONES</th>
             </tr>
         </thead>
         <tfoot>
             <tr>
-                <th>ID FORMULARIO</th>
-                <th>REQUIRIENTE</th>
-                <th>EMPRESA</th>
+                <th>ID USUARIO</th>
+                <th>NOMBRES</th>
+                <th>APELLIDOS</th>
+                <th>SEXO</th>
+                <th>EMAIL</th>
+                <th>USUARIO</th>
+                <th>PASSWORD</th>
+                <th>CARGO</th>
                 <th>AREA</th>
-                <th>PROVEEDOR</th>
-                <th>FECHA</th>
-                <th>CODIGO</th>
-                <th>GRUPO</th>
-                <th>DESCRIPCION</th>
-                <th>DESTINO</th>
-                <th>CONTROL</th>
-                <th>CANTIDAD</th>
-                <th>UNIDAD</th>
-                <th>MONEDA</th>
-                <th>PRECIO</th>
+                <th>TIPO</th>
+                <th>OPERACIONES</th>
             </tr>
         </tfoot>
         <tbody>
@@ -148,12 +140,10 @@ if(!isset($_SESSION["user_id"])){
             $campo=null;
             $suma=0;
             require("../controller/conexion.php");
-            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.idreq,r.grupo,r.descripcion,r.control,r.cantidad,r.unidad,r.moneda,r.precio from form200 f, requerimiento r where f.idform=r.idform");
+            $sql=("select * from usuario;");
             $query=mysqli_query($con,$sql);
             while($arreglo=mysqli_fetch_array($query)){
-              $count++;
-             echo "<tr id='$campo'>";
-
+              
               echo "<td>$arreglo[0]</td>";
               echo "<td>$arreglo[1]</td>";
               echo "<td>$arreglo[2]</td>";
@@ -163,15 +153,19 @@ if(!isset($_SESSION["user_id"])){
               echo "<td>$arreglo[6]</td>";
               echo "<td>$arreglo[7]</td>";
               echo "<td>$arreglo[8]</td>";
-              echo "<td>$arreglo[9]</td>";
-              echo "<td>$arreglo[10]</td>";
-              echo "<td>$arreglo[11]</td>";
-              echo "<td>$arreglo[12]</td>";
-              echo "<td>$arreglo[13]</td>";
+              if ($arreglo[9]=='a') {
+              echo "<td>Administrador</td>";   
+              }else{
+              if ($arreglo[9]=='m') {
+              echo "<td>Almacem</td>";   
+              }else{if ($arreglo[9]=='r') {
+              echo "<td>Regular</td>";   
+              }else{echo "<td></td>";}
+          }
+          }
               
-              echo "<td><a class='button' href='../views/update_proveedor.php?id=$arreglo[0]'>Modificar</a> <a class='button' href='../controller/delete_proveedor.php?id=$arreglo[0]' style='background:#FF3B3B'>Eliminar</a>
-              <a class='button' href='?id=$arreglo[0]#openModal' style='background:#FF3B3B'>VER</a>
 
+              echo "<td><a class='button' href='./update_user2.php?id=$arreglo[0]'>Modificar</a> <a class='button' href='../controller/delete_user.php?id=$arreglo[0]' style='background:#FF3B3B'>Eliminar</a>
               </td>";
               echo "</tr>";
             }
@@ -179,149 +173,6 @@ if(!isset($_SESSION["user_id"])){
             ?>
         </tbody>
     </table>
-
-
-
-<a class='button form-styling' style="width: 30%; float: right;" href='?id=22#openModal'>Visualizar</a>
-          
-                   <div  class='modalbg' id="openModal">
-                        <div class='dialog'>
-                          <a href='#close' title='Close' class='close'>X</a>
-
-
-
-<?php
-require("../controller/conexion.php");
-$query=mysqli_query($con,("select * from form200 where idform=".$_GET['id']));
-$arreglo=mysqli_fetch_array($query);
-
-$query1=mysqli_query($con,("select * from requerimiento where idform=".$_GET['id']));
-
-?>
-                          
-
-    <table class="display table table-bordered table-hover nowrap" cellspacing="0" width="100%">
-
-        <tr>  
-            <td style="width: 25%; text-align: center;"><img src="../html2pdf/examples/res/tcpdf_logo.jpg" alt="" ></td>
-            <td style="width: 55%; text-align: center;"><h3>GERENCIA DE ADMINISTRACION Y FINANZAS</h3>                           
- REQUERIMIENTO DE COMPRA y/o CONTRATACION DE SERVICIOS
-
-FORMULARIO 200                          
-</td>
-            <td style="width: 20%; text-align: center; "><?php echo $arreglo[0]; ?></td>
-        </tr>
-    </table>
-    <br>
-
-    <center>
-    <table class="display table-bordered table-hover nowrap">
-        
-    <thead>
-            <tr>
-                <th colspan="2">DATOS BASICOS</th>
-            </tr>
-        </thead>
-    <tr>
-        <td>REQUIRIENTE DE LA COMPRA:</td>
-        <td><?php echo $arreglo[2]; ?></td>
-    </tr>
-        <tr>
-        <td>EMPRESA:</td>
-        <td><?php echo $arreglo[3]; ?></td>
-    </tr>
-
-    <tr>
-        <td>AREA:</td>
-        <td><?php echo $arreglo[4]; ?></td>
-    </tr>
-
-    <tr>
-        <td>PROVEEDOR:</td>
-        <td><?php echo $arreglo[5]; ?></td>
-    </tr>
-
-    <tr>
-        <td>CHEQUE A NOMBRE DE:</td>
-        <td><?php echo $arreglo[6]; ?></td>
-    </tr>
-
-    <tr>
-        <td>PROFORMA O COTIZACION APROBADA ADJUNTA:</td>
-        <td><?php echo $arreglo[7]; ?></td>
-    </tr>
-        <tr>
-        <td>CONDICION DE PAO SEGUN PROFORMA:</td>
-        <td><?php echo $arreglo[8]; ?></td>
-    </tr>
-        <tr>
-        <td>FECHA DE REQUERIEMIENTO:</td>
-        <td><?php echo $arreglo[9]; ?></td>
-    </tr>
-        <tr>
-        <td>PROYECTO:</td>
-        <td><?php echo $arreglo[10]; ?></td>
-    </tr>
-
-</table></center>
-<br>
-<table align="center" border="1" class="display table table-bordered table-hover nowrap" cellspacing="0" width="100%">
-    <tr>
-        <th>
-        ITEM    
-        </th>
-        <th>
-            CODIGO
-        </th>
-     
-        <th>
-            GRUPO
-        </th>
-     
-        <th>
-            DESCRIPCION
-        </th>
-                <th>
-            DESTINO
-        </th>
-                <th>
-            CONTROL
-        </th>
-             <th>
-            CANTIDAD
-        </th>
-                <th>
-            MEDIDA
-        </th>
-                <th>
-            MONEDA
-        </th>
-                <th>
-            PRECIO
-        </th>
-                <th>
-            TOTAL
-        </th>
-     </tr>
-
-
-    <?php 
-    $contador=1;
-while($arreglo1=mysqli_fetch_array($query1)){
-echo '<tr><td>'.$contador.'</td><td>'.$arreglo1[0].'</td><td>'.$arreglo1[1].'</td><td>'.$arreglo1[2].'</td><td>'.$arreglo1[3].'</td><td>'.$arreglo1[4].'</td><td>'.$arreglo1[5].'</td><td>'.$arreglo1[6].'</td><td>'.$arreglo1[7].'</td><td>'.$arreglo1[8].'</td><td>'.$arreglo1[9].'</td></tr>';
-$contador=$contador+1;
-}
-mysqli_close($con);
-?>
-</table>
-
-
-</div></div>
-
-
-
-
-
 
 
 
@@ -368,6 +219,9 @@ mysqli_close($con);
     dom: 'Bfrtip',
         buttons: [
             'excel',
+            {extend: 'pdfHtml5',
+                orientation: 'landscape',
+                pageSize: 'LEGAL'},
     ]
     } );
 } );

@@ -426,7 +426,7 @@ print 'cuarta opcion';
 
 <center>
 <a class='button' href="../html2pdf/examples/exemple02.php?id=<?php echo $row; ?>" target="_blank">	
-	<br/>VISUALIZAR PDF<br/><br/>
+<br/>VISUALIZAR PDF<br/><br/>
 </a>
 <br/>
 <br/>

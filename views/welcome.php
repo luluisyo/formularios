@@ -1,4 +1,4 @@
-<?php 
+?php 
   include "../controller/conexion.php";
   $found=false;
   $sql1= "SELECT * FROM usuario WHERE ci = 0";

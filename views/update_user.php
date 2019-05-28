@@ -1,7 +1,7 @@
 <?php
 session_start();
 if(isset($_SESSION["user_id"])){
-    if($_SESSION["user_id"]!=0){
+    if(!$_SESSION["user_id"]){
         print "<script>alert(\"No esta autorizado para ver esta página, consulte con el administrador\");window.location='../index.php';</script>";
     }
 }
@@ -13,7 +13,7 @@ else{
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>REKADMIN</title>
+  <title>UPDATE FORM 200</title>
   <link rel="shortcut icon" href="../assets/favicono.ico">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->

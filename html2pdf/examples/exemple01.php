@@ -146,6 +146,9 @@ $contador=$contador+1;
 
 ?>
 
+<tr><td colspan="10">TOTAL</td>
+<td>$cont2</td>
+</tr>
     
 
 
