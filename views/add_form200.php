@@ -574,9 +574,7 @@ function multiplicar10(){
           <tr><td align="center">
             <label for="fullname">ITEM</label>
           </td>
-          <td align="center">
-            <label for="fullname">CÓDIGO DEL ARTICULO</label>
-          </td>
+          
           <td align="center">
             <label for="fullname">GRUPO DE ARTICULO</label>
           </td>
@@ -618,9 +616,9 @@ function multiplicar10(){
           <td>
           <input class="form-styling" type="numero" name="item1" id="item1" value="1" title="item1" readonly="readonly">
           </td>
-          <td>
+          
           <input class="form-styling" type="hidden" name="codigo1" id="codigo1" title="codigo1" readonly="readonly">
-          </td>
+          
           <td>
           <input class="form-styling" type="text" id='grupo1' name="grupo1" list="grupouno" onChange="obtenerCiudades1();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupouno">
@@ -689,9 +687,9 @@ function multiplicar10(){
           <td>
           <input class="form-styling" type="numero" name="item2" id="item2" value="2" title="item2" readonly="readonly">
           </td>
-          <td>
+          
           <input class="form-styling" type="hidden" name="codigo2" id="codigo2"  title="codigo2" readonly="readonly">
-          </td>
+          
           <td>
           <input class="form-styling" type="text" id='grupo2' name="grupo2" list="grupodos" onChange="obtenerCiudades2();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupodos">
@@ -759,9 +757,9 @@ function multiplicar10(){
           <td>
           <input class="form-styling" type="numero" name="item3" id="item3" value="3" title="item3" readonly="readonly">
           </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo3" id="codigo3" title="codigo3" readonly="readonly">
-          </td>
+          
+          <input class="form-styling" type="hidden" name="codigo3" id="codigo3" title="codigo3" readonly="readonly">
+          
           <td>
           <input class="form-styling" type="text" id='grupo3' name="grupo3" list="grupotres" onChange="obtenerCiudades3();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupotres">
@@ -829,9 +827,9 @@ function multiplicar10(){
           <td>
           <input class="form-styling" type="numero" name="item4" id="item4" value="4" title="item4" readonly="readonly">
           </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo4" id="codigo4" title="codigo4" readonly="readonly">
-          </td>
+          
+          <input class="form-styling" type="hidden" name="codigo4" id="codigo4" title="codigo4" readonly="readonly">
+          
           <td>
           <input class="form-styling" type="text" id='grupo4' name="grupo4" list="grupocuatro" onChange="obtenerCiudades4();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupocuatro">
@@ -901,9 +899,9 @@ function multiplicar10(){
           <td>
           <input class="form-styling" type="numero" name="item5" id="item5" value="5" title="item5" readonly="readonly">
           </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo5" id="codigo5" title="codigo5" readonly="readonly">
-          </td>
+          
+          <input class="form-styling" type="hidden" name="codigo5" id="codigo5" title="codigo5" readonly="readonly">
+          
           <td>
           <input class="form-styling" type="text" id='grupo5' name="grupo5" list="grupocinco" onChange="obtenerCiudades5();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupocinco">
@@ -970,9 +968,9 @@ function multiplicar10(){
           <td>
           <input class="form-styling" type="numero" name="item6" id="item6" value="6" title="item6" readonly="readonly">
           </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo6" id="codigo6" title="codigo6" readonly="readonly">
-          </td>
+          
+          <input class="form-styling" type="hidden" name="codigo6" id="codigo6" title="codigo6" readonly="readonly">
+          
           <td>
           <input class="form-styling" type="text" id='grupo6' name="grupo6" list="gruposeis" onChange="obtenerCiudades6();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="gruposeis">
@@ -1040,9 +1038,9 @@ function multiplicar10(){
           <td>
           <input class="form-styling" type="numero" name="item7" id="item7" value="7" title="item7" readonly="readonly">
           </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo7" id="codigo7" title="codigo7" readonly="readonly">
-          </td>
+          
+          <input class="form-styling" type="hidden" name="codigo7" id="codigo7" title="codigo7" readonly="readonly">
+          
           <td>
           <input class="form-styling" type="text" id='grupo7' name="grupo7" list="gruposiete" onChange="obtenerCiudades7();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="gruposiete">
@@ -1109,9 +1107,9 @@ function multiplicar10(){
           <td>
           <input class="form-styling" type="numero" name="item8" id="item8" value="8" title="item8" readonly="readonly">
           </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo8" id="codigo8" title="codigo8" readonly="readonly">
-          </td>
+          
+          <input class="form-styling" type="hidden" name="codigo8" id="codigo8" title="codigo8" readonly="readonly">
+          
           <td>
           <input class="form-styling" type="text" id='grupo8' name="grupo8" list="grupoocho" onChange="obtenerCiudades8();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupoocho">
@@ -1179,9 +1177,9 @@ function multiplicar10(){
           <td>
           <input class="form-styling" type="numero" name="item9" id="item9" value="9" title="item9" readonly="readonly">
           </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo9" id="codigo9" title="codigo9" readonly="readonly">
-          </td>
+          
+          <input class="form-styling" type="hidden" name="codigo9" id="codigo9" title="codigo9" readonly="readonly">
+          
           <td>
           <input class="form-styling" type="text" id='grupo9' name="grupo9" list="gruponueve" onChange="obtenerCiudades9();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="gruponueve">
@@ -1248,9 +1246,9 @@ function multiplicar10(){
           <td>
           <input class="form-styling" type="numero" name="item10" id="item10" value="10" title="item10" readonly="readonly">
           </td>
-          <td>
-          <input class="form-styling" type="text" name="codigo10" id="codigo10" title="codigo10" readonly="readonly">
-          </td>
+          
+          <input class="form-styling" type="hidden" name="codigo10" id="codigo10" title="codigo10" readonly="readonly">
+          
           <td>
           <input class="form-styling" type="text" id='grupo10' name="grupo10" list="grupodiez" onChange="obtenerCiudades10();" autocomplete="off">
           <datalist name="pais" class="form-styling" id="grupodiez">
