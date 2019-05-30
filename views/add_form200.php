@@ -1312,18 +1312,18 @@ function multiplicar10(){
           </tr>
 
 <tr>
-  <td colspan="10"><label>TOTAL</label></td>
+  <td colspan="9"><label>TOTAL</label></td>
   <td><input class="form-styling" type="text" name="totalt" id="totalt" title="totalt" value="0" readonly="readonly"></td>
 </tr>
          
 
 <tr>
-  <td colspan="11" align="center">
+  <td colspan="10" align="center">
    <label for="fullname">OBSERVACIONES Y RECOMENDACIONES</label>
 </td>
   </tr>
   <tr>
-  <td colspan="11">
+  <td colspan="10">
    <input class="form-styling" type="text" name="obs" id="obs" title="obs" value=""  >
 </td>
   </tr>    
