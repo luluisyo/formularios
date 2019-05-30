@@ -4,9 +4,10 @@ session_start();
 if(!isset($_SESSION["user_id"])){
     print "<script>alert(\"Acceso Restringido, Debe identificarse\");window.location='../index.php';</script>";
 }
-if(!($_SESSION["tipo"]=='m')){
+if((!($_SESSION["tipo"]=='m')) and (!($_SESSION["tipo"]=='a'))){
     print "<script>window.location='./view_form200usu.php';</script>";
 }
+
 
  
 ?>
@@ -340,6 +341,7 @@ $contador=$contador+1;
 }
 mysqli_close($con);
 ?>
+<tr><td><a class='button' href="../html2pdf/examples/exemple02.php?id=<?php echo $_GET['id']; ?>" target="_blank">PDF</a></td></tr>
 </table>
 </div></div>
 

@@ -308,6 +308,7 @@ $contador=$contador+1;
 }
 mysqli_close($con);
 ?>
+<tr><td><a class='button' href="../html2pdf/examples/exemple02.php?id=<?php echo $_GET['id']; ?>" target="_blank">PDF</a></td></tr>
 </table>
 </div></div>
 
