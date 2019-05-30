@@ -97,6 +97,7 @@ if(!($_SESSION["tipo"]=='m')){
             <li><a href="../views/view_form200.php" class="active"><span><font color="blue">REQUERIMIENTOS</font></span></a></li>
             <li><a href="../views/view_form200term.php"><span><font color="blue">REQUERIMEINTOS CUMPLIDOS</font></span></a></li>
             <li><a href="../views/view_user.php"><span><font color="blue">USUARIOS DEL SISTEMA</font></span></a></li>
+            <li><a href="../views/add_user.php"><span><font color="blue">CREAR NUEVO USUARIO</font></span></a></li>
             <li><a href="../controller/logout.php"><span><font color="blue">Salir: <?php echo $_SESSION["nombre"]  ?></font></span></a></li>
         </ul>
 
