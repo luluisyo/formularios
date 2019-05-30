@@ -134,7 +134,7 @@ $sql = "insert into requerimiento(
 print 'tercera';
 
 
-if(!($_POST['codigo4']=='' and $_POST['grupo4']=='' and $_POST['descripcion4']=='' and $_POST['destino4']=='' and $_POST['control4']=='' and $_POST['cantidad4']=='' and $_POST['medida4']=='' and $_POST['moneda4']=='' and $_POST['precio4']=='' and $_POST['total4']==''))
+if(!($_POST['codigo4']=='' and $_POST['grupo4']=='' and $_POST['descripcion4']=='' and $_POST['destino4']=='' and $_POST['control4']=='' and $_POST['cantidad4']=='' and $_POST['medida4']=='' and $_POST['moneda4']=='' and $_POST['precio4']=='' and $_POST['total4']=='')){
 $sql = "insert into requerimiento(
 		idform,
 		codigo,
@@ -166,7 +166,8 @@ $sql = "insert into requerimiento(
 print 'cuarta';
 
 
-if(!($_POST['codigo5']=='' and $_POST['grupo5']=='' and $_POST['descripcion5']=='' and $_POST['destino5']=='' and $_POST['control5']=='' and $_POST['cantidad5']=='' and $_POST['medida5']=='' and $_POST['moneda5']=='' and $_POST['precio5']=='' and $_POST['total5']==''))
+if(!($_POST['codigo5']=='' and $_POST['grupo5']=='' and $_POST['descripcion5']=='' and $_POST['destino5']=='' and $_POST['control5']=='' and $_POST['cantidad5']=='' and $_POST['medida5']=='' and $_POST['moneda5']=='' and $_POST['precio5']=='' and $_POST['total5']=='')){
+
 $sql = "insert into requerimiento(
 		idform,
 		codigo,
@@ -197,7 +198,7 @@ $sql = "insert into requerimiento(
 	$query = $con->query($sql);
 print 'quinta';
 
-if(!($_POST['codigo6']=='' and $_POST['grupo6']=='' and $_POST['descripcion6']=='' and $_POST['destino6']=='' and $_POST['control6']=='' and $_POST['cantidad6']=='' and $_POST['medida6']=='' and $_POST['moneda6']=='' and $_POST['precio6']=='' and $_POST['total6']==''))
+if(!($_POST['codigo6']=='' and $_POST['grupo6']=='' and $_POST['descripcion6']=='' and $_POST['destino6']=='' and $_POST['control6']=='' and $_POST['cantidad6']=='' and $_POST['medida6']=='' and $_POST['moneda6']=='' and $_POST['precio6']=='' and $_POST['total6']=='')){
 $sql = "insert into requerimiento(
 		idform,
 		codigo,
@@ -229,7 +230,7 @@ $sql = "insert into requerimiento(
 print 'sexta';
 
 
-if(!($_POST['codigo7']=='' and $_POST['grupo7']=='' and $_POST['descripcion7']=='' and $_POST['destino7']=='' and $_POST['control7']=='' and $_POST['cantidad7']=='' and $_POST['medida7']=='' and $_POST['moneda7']=='' and $_POST['precio7']=='' and $_POST['total7']==''))
+if(!($_POST['codigo7']=='' and $_POST['grupo7']=='' and $_POST['descripcion7']=='' and $_POST['destino7']=='' and $_POST['control7']=='' and $_POST['cantidad7']=='' and $_POST['medida7']=='' and $_POST['moneda7']=='' and $_POST['precio7']=='' and $_POST['total7']=='')){
 $sql = "insert into requerimiento(
 		idform,
 		codigo,
@@ -260,7 +261,7 @@ $sql = "insert into requerimiento(
 	$query = $con->query($sql);
 print 'septima';
 
-if(!($_POST['codigo8']=='' and $_POST['grupo8']=='' and $_POST['descripcion8']=='' and $_POST['destino8']=='' and $_POST['control8']=='' and $_POST['cantidad8']=='' and $_POST['medida8']=='' and $_POST['moneda8']=='' and $_POST['precio8']=='' and $_POST['total8']==''))
+if(!($_POST['codigo8']=='' and $_POST['grupo8']=='' and $_POST['descripcion8']=='' and $_POST['destino8']=='' and $_POST['control8']=='' and $_POST['cantidad8']=='' and $_POST['medida8']=='' and $_POST['moneda8']=='' and $_POST['precio8']=='' and $_POST['total8']=='')){
 $sql = "insert into requerimiento(
 		idform,
 		codigo,
@@ -291,7 +292,7 @@ $sql = "insert into requerimiento(
 	$query = $con->query($sql);
 print 'octava';
 
-if(!($_POST['codigo9']=='' and $_POST['grupo9']=='' and $_POST['descripcion9']=='' and $_POST['destino9']=='' and $_POST['control9']=='' and $_POST['cantidad9']=='' and $_POST['medida9']=='' and $_POST['moneda9']=='' and $_POST['precio9']=='' and $_POST['total9']==''))
+if(!($_POST['codigo9']=='' and $_POST['grupo9']=='' and $_POST['descripcion9']=='' and $_POST['destino9']=='' and $_POST['control9']=='' and $_POST['cantidad9']=='' and $_POST['medida9']=='' and $_POST['moneda9']=='' and $_POST['precio9']=='' and $_POST['total9']=='')){
 $sql = "insert into requerimiento(
 		idform,
 		codigo,
@@ -322,7 +323,7 @@ $sql = "insert into requerimiento(
 	$query = $con->query($sql);
 print 'novena';
 
-if(!($_POST['codigo10']=='' and $_POST['grupo10']=='' and $_POST['descripcion10']=='' and $_POST['destino10']=='' and $_POST['control10']=='' and $_POST['cantidad10']=='' and $_POST['medida10']=='' and $_POST['moneda10']=='' and $_POST['precio10']=='' and $_POST['total10']==''))
+if(!($_POST['codigo10']=='' and $_POST['grupo10']=='' and $_POST['descripcion10']=='' and $_POST['destino10']=='' and $_POST['control10']=='' and $_POST['cantidad10']=='' and $_POST['medida10']=='' and $_POST['moneda10']=='' and $_POST['precio10']=='' and $_POST['total10']=='')){
 $sql = "insert into requerimiento(
 		idform,
 		codigo,
@@ -355,7 +356,7 @@ print 'desima';
 
 
 
-}}
+}}}}}}}}}
 
 ?>
 
