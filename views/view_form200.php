@@ -216,6 +216,84 @@ if((!($_SESSION["tipo"]=='m')) and (!($_SESSION["tipo"]=='a'))){
         <a href='#close' class='button' >CANCEL</a>      
                     </div></div>
 
+    <div  class='modalbg' id="faltantes" >
+    <div class='dialog' style="width: 98%;">
+        <a href='#close' title='Close' class='close'>X</a>
+        REQUERIMIENTO CON  MAS DE 10 DIAS DE RETRASO<br><br><br><br>
+<table id="example" class="display table table-bordered table-hover nowrap" cellspacing="0" width="100%">
+    <thead>
+            <tr>
+                <th>ID FORMULARIO</th>
+                <th>REQUIRIENTE</th>
+                
+                <th>FECHA</th>
+                <th>CODIGO</th>
+                <th>GRUPO</th>
+                <th>DESCRIPCION</th>
+                <th>DESTINO</th>
+                <th>CONTROL</th>
+                <th>CANTIDAD</th>
+                <th>UNIDAD</th>
+                <th>MONEDA</th>
+                <th>PRECIO</th>
+
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID FORMULARIO</th>
+                <th>REQUIRIENTE</th>
+                <th>FECHA</th>
+                <th>CODIGO</th>
+                <th>GRUPO</th>
+                <th>DESCRIPCION</th>
+                <th>DESTINO</th>
+                <th>CONTROL</th>
+                <th>CANTIDAD</th>
+                <th>UNIDAD</th>
+                <th>MONEDA</th>
+                <th>PRECIO</th>
+            </tr>
+        </tfoot>
+<tbody>
+            <?php
+            $count=0;
+            $campo=null;
+            $suma=0;
+            require("../controller/conexion.php");
+            $sql=("select f.idform,f.requiriente,f.emprersa,f.area,f.proveedor,f.fecha,r.codigo,r.grupo,r.descripcion,r.destino,r.control,r.cantidad,r.unidad,r.moneda,r.precio,r.sw,DATEDIFF(CURDATE(),f.fecha) as dias,r.idreq from form200 f, requerimiento r where f.idform=r.idform");
+            $query=mysqli_query($con,$sql);
+
+            while(($arreglo=mysqli_fetch_array($query))){
+            
+              if(($arreglo[15]==0) && ($arreglo[16]>=5) && ($count<=16)){
+            
+             echo "<tr  style='background-color: rgba(245, 139, 108, 0.9882352941176471);'>";
+             
+              echo "<td border='1'>$arreglo[0]</td>";
+              echo "<td>$arreglo[1]</td>";
+              echo "<td>$arreglo[2]</td>";
+              echo "<td>$arreglo[6]</td>";
+              echo "<td>$arreglo[7]</td>";
+              echo "<td>$arreglo[8]</td>";
+              echo "<td>$arreglo[9]</td>";
+              echo "<td>$arreglo[10]</td>";
+              echo "<td>$arreglo[11]</td>";
+              echo "<td>$arreglo[12]</td>";
+              echo "<td>$arreglo[13]</td>";
+              echo "<td>$arreglo[14]</td>";
+              
+              echo "</tr>";
+            }
+        $count=$count+1;}
+            mysqli_close($con);
+            ?>
+        </tbody>
+    </table>
+
+
+                    </div></div>
+
 
 
           
