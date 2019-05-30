@@ -64,7 +64,7 @@ FORMULARIO 200
     </table>
     <br>
 
-        <table style="width: 90%; font-size: 12px;   border-radius:9px; background-color: #dfdedd; " align="center" >
+        <table style="width: 90%; font-size: 12px;   border-radius:9px; background-color: #dfdedd; ">
         <tr>
             <td style="width: 70%; text-align: center; border: none;">DATOS BASICOS</td>
         </tr>
