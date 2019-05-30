@@ -619,7 +619,7 @@ function multiplicar10(){
           <input class="form-styling" type="numero" name="item1" id="item1" value="1" title="item1" readonly="readonly">
           </td>
           <td>
-          <input class="form-styling" type="text" name="codigo1" id="codigo1" title="codigo1" readonly="readonly">
+          <input class="form-styling" type="hidden" name="codigo1" id="codigo1" title="codigo1" readonly="readonly">
           </td>
           <td>
           <input class="form-styling" type="text" id='grupo1' name="grupo1" list="grupouno" onChange="obtenerCiudades1();" autocomplete="off">
@@ -690,7 +690,7 @@ function multiplicar10(){
           <input class="form-styling" type="numero" name="item2" id="item2" value="2" title="item2" readonly="readonly">
           </td>
           <td>
-          <input class="form-styling" type="text" name="codigo2" id="codigo2"  title="codigo2" readonly="readonly">
+          <input class="form-styling" type="hidden" name="codigo2" id="codigo2"  title="codigo2" readonly="readonly">
           </td>
           <td>
           <input class="form-styling" type="text" id='grupo2' name="grupo2" list="grupodos" onChange="obtenerCiudades2();" autocomplete="off">
