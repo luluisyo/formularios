@@ -569,7 +569,8 @@ function multiplicar10(){
 <br/>
 
 <div class="field_wrapper">
-<table border="10">            
+  <center>
+<table border="10" align="center">            
             
           <tr><td align="center">
             <label for="fullname">ITEM</label>
@@ -1336,7 +1337,7 @@ function multiplicar10(){
           </tr>
           </center>
           </table>
-
+</center>
   </form>
   <br/>
   <br/>
